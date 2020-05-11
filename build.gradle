@@ -1,0 +1,65 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.3.72'
+    ext.grpc_version = '1.18.0'
+    ext.javax_annotation_version = '1.2'
+    ext.dagger_version = '2.16'
+    ext.play_services_version = '15.0.1'
+    ext.firebase_version = '16.0.3'
+    ext.android_map_utils = '0.5'
+    ext.crashlytics_version = '2.10.1'
+    ext.firebase_auth_version = '16.0.3'
+    ext.lifecycle_version = '2.0.0'
+    ext.dagger_version = '2.16'
+    ext.reactiveGrpcVersion = '0.9.0'
+    ext.appcompat_version = '1.1.0'
+    ext.junit_version = '4.12'
+    ext.testrunner_version = '1.1.1'
+    ext.espresso_version = '3.1.1'
+    ext.constraintlayout_version = '1.1.3'
+    ext.leakcanary_version = '1.6.3'
+    ext.blockcanary_version = '1.5.0'
+    ext.rxjava_version = '2.1.0'
+    ext.recyclerview = '1.1.0-beta04'
+    ext.support_version = '26.1.0'
+    ext.anko_version = '0.10.8'
+    ext.room_version = '2.1.0'
+    ext.appcompat_version = '1.1.0'
+    ext.material_version = '1.0.0'
+    ext.eventbus_version = '3.1.1'
+    ext.retrofit2_version = '2.4.0'
+    ext.logging_version = '3.9.1'
+    ext.google_services = '4.3.2'
+    ext.io_fabric = '1.31.2'
+    ext.multidex = '1.0.3'
+    ext.amplitude = '2.16.0'
+    ext.flexbox_version = '2.0.0'
+    ext.input_mask = '6.0.0'
+    ext.segment_control = '1.2.0'
+
+    repositories {
+        google()
+        jcenter()
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.6.3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
