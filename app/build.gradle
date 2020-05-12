@@ -68,4 +68,6 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit2_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$logging_version"
 
+    // Picasso
+    implementation "com.squareup.picasso:picasso:$picasso_version"
 }
