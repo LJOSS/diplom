@@ -8,6 +8,7 @@ import com.example.my_child.data.api.dto.response.MedicineDataResponse
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import okhttp3.MultipartBody
 
 class SignUpViewModel(private val myChildApi: MyChildApi) : ViewModel() {
 
@@ -21,6 +22,12 @@ class SignUpViewModel(private val myChildApi: MyChildApi) : ViewModel() {
     fun insertMedicine(medicineData: MedicineData): Single<DefaultResponse> =
         myChildApi
             .insertMedicine(medicineData)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+
+    fun addPhoto(body: MultipartBody.Part, name: String): Single<DefaultResponse> =
+        myChildApi
+            .addPhoto(body, name)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
 }

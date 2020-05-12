@@ -1,8 +1,9 @@
-package com.example.my_child
+package com.example.my_child.presentation
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.my_child.R
 import com.example.my_child.presentation.signup.WelcomeActivity
 
 class MainActivity : AppCompatActivity() {

@@ -74,4 +74,10 @@ dependencies {
 
     // Picasso
     implementation "com.squareup.picasso:picasso:$picasso_version"
+
+    // PickImageDialog
+    implementation 'com.github.jrvansuita:PickImage:2.2.4'
+
+    //Compressor
+    implementation "id.zelory:compressor:$zelory_compressor_version"
 }
