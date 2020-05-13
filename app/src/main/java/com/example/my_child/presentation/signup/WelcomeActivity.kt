@@ -10,8 +10,6 @@ class WelcomeActivity : AppCompatActivity() {
 
     private val disposable: CompositeDisposable = CompositeDisposable()
 
-    private var bool = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)

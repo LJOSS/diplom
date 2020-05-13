@@ -1,11 +1,30 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="RegistrationButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:text">@string/registration</item>
+        <item name="android:textColor">@drawable/login_text_color</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@drawable/login_background</item>
+    </style>
+
+    <style name="LoginButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/login</item>
+        <item name="android:textColor">@drawable/login_text_color</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@drawable/login_background</item>
+        <item name="android:paddingLeft">65dp</item>
+        <item name="android:paddingRight">65dp</item>
+    </style>
 </resources>

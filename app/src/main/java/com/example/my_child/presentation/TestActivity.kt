@@ -14,6 +14,7 @@ import com.squareup.picasso.Picasso
 import com.vansuita.pickimage.bundle.PickSetup
 import com.vansuita.pickimage.dialog.PickImageDialog
 import io.reactivex.disposables.CompositeDisposable
+import kotlinx.android.synthetic.main.activity_test.*
 import kotlinx.android.synthetic.main.activity_welcome.*
 import okhttp3.MultipartBody
 
