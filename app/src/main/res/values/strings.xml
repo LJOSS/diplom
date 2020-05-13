@@ -3,4 +3,15 @@
 
     <string name="registration">Регистрация</string>
     <string name="login">Вход</string>
+    <string name="login_hint">Логин</string>
+    <string name="password_hint">Пароль</string>
+    <string name="permissible_values_login">qwertyuiopasdfghjklzxcvbnm</string>
+    <string name="password_letters_error">Пароль должен иметь хотя бы одну цифру, заглавную и строчную буквы латинского алфавита</string>
+    <string name="not_equals_passwords_error">Пароли не совпадают</string>
+    <string name="user_exists_with_login">Пользователь с таким Login уже существует</string>
+
+    <string name="login_min_length_error">Минимальное допустимое число символов 4</string>
+    <string name="pass_min_length_error">Минимальное допустимое число символов 6</string>
+    <string name="check_username">Проверьте правильность ввода иммени пользователя</string>
+    <string name="check_password">Проверьте правильность ввода пароля</string>
 </resources>
