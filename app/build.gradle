@@ -26,8 +26,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
-            buildConfigField("String", "MY_CHILD_HOST_WEBSERVISE", "\"http://192.168.88.28:80/webservice/\"")
-            buildConfigField("String", "MY_CHILD_HOST_PHOTOS", "\"http://192.168.88.28:80/images/\"")
+            buildConfigField("String", "MY_CHILD_HOST_WEBSERVISE", "\"http://192.168.88.28:80/diplom/webservice/\"")
+            buildConfigField("String", "MY_CHILD_HOST_PHOTOS", "\"http://192.168.88.28:80/diplom/images/\"")
             buildConfigField("Long", "TIMEOUT", "5000L")
         }
     }

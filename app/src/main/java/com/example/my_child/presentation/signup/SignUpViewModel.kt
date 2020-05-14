@@ -2,20 +2,29 @@ package com.example.my_child.presentation.signup
 
 import androidx.lifecycle.ViewModel
 import com.example.my_child.data.api.MyChildApi
+import com.example.my_child.data.api.dto.data.LoginData
 import com.example.my_child.data.api.dto.data.MedicineData
 import com.example.my_child.data.api.dto.response.DefaultResponse
+import com.example.my_child.data.api.dto.response.LoginResponse
 import com.example.my_child.data.api.dto.response.MedicineDataResponse
 import com.example.my_child.domain.ValidationManager
 import com.example.my_child.domain.model.error.ValidationResponse
+import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import okhttp3.MultipartBody
+import kotlin.math.log
 
 class SignUpViewModel(
     private val myChildApi: MyChildApi,
     private val validationManager: ValidationManager
 ) : ViewModel() {
+
+    fun login(loginData: LoginData): Observable<LoginResponse> =
+        myChildApi.login(loginData)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
 
     fun getMedicine(): Single<List<MedicineDataResponse>> =
         myChildApi
@@ -35,7 +44,6 @@ class SignUpViewModel(
             .addPhoto(body, name)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-
 
     fun checkLoginValidation(login: String): ValidationResponse =
         validationManager.checkLoginValidation(login)
