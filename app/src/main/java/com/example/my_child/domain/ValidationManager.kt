@@ -11,7 +11,9 @@ class ValidationManager {
 
     // Проверка на длину(>4)
     fun checkLoginValidation(login: String): ValidationResponse =
-        if (checkLength(login, LOGIN_LENGTH_MIN_VALUE)) {
+        if (login.isEmpty()) {
+            ValidationResponse.SUCCESS
+        } else if (checkLength(login, LOGIN_LENGTH_MIN_VALUE)) {
             ValidationResponse.LOGIN_LENGTH_RESPONSE
         } else {
             ValidationResponse.SUCCESS
@@ -23,7 +25,9 @@ class ValidationManager {
     // Проверка на длину(>6)
     // Проверка на [a-zA-z0-9]
     fun checkPasswordValidation(password: String): ValidationResponse =
-        if (checkLength(password, PASSWORD_LENGTH_MIN_VALUE)) {
+        if (password.isEmpty()) {
+            ValidationResponse.SUCCESS
+        } else if (checkLength(password, PASSWORD_LENGTH_MIN_VALUE)) {
             ValidationResponse.PASSWORD_LENGTH_RESPONSE
         } else if (!password.any { it.isDigit() }) {
             ValidationResponse.PASSWORD_LETTERS_RESPONSE

@@ -18,6 +18,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -30,6 +31,14 @@ android {
             buildConfigField("String", "MY_CHILD_HOST_PHOTOS", "\"http://192.168.88.28:80/diplom/images/\"")
             buildConfigField("Long", "TIMEOUT", "5000L")
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 }
 
@@ -80,7 +89,7 @@ dependencies {
     implementation "com.squareup.picasso:picasso:$picasso_version"
 
     // PickImageDialog
-    implementation 'com.github.jrvansuita:PickImage:2.2.4'
+    implementation "com.github.jrvansuita:PickImage:$pickimageVersion"
 
     //Compressor
     implementation "id.zelory:compressor:$zelory_compressor_version"

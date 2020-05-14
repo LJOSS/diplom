@@ -9,6 +9,10 @@ import com.example.my_child.data.api.dto.response.LoginResponse
 import com.example.my_child.data.api.dto.response.MedicineDataResponse
 import com.example.my_child.domain.ValidationManager
 import com.example.my_child.domain.model.error.ValidationResponse
+import com.example.my_child.domain.preferences.PreferencesManager
+import com.example.my_child.utils.Constants.IS_LOGGED
+import com.example.my_child.utils.Constants.LOGIN
+import com.example.my_child.utils.Constants.PASSWORD
 import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -18,7 +22,8 @@ import kotlin.math.log
 
 class SignUpViewModel(
     private val myChildApi: MyChildApi,
-    private val validationManager: ValidationManager
+    private val validationManager: ValidationManager,
+    private val preferencesManager: PreferencesManager
 ) : ViewModel() {
 
     fun login(loginData: LoginData): Observable<LoginResponse> =
@@ -51,4 +56,20 @@ class SignUpViewModel(
     fun checkPasswordValidation(password: String): ValidationResponse =
         validationManager.checkPasswordValidation(password)
 
+    fun saveUser(loginData: LoginData) {
+        with(loginData) {
+            preferencesManager.saveString(LOGIN, userName)
+            preferencesManager.saveString(PASSWORD, password)
+        }
+        preferencesManager.saveBoolean(IS_LOGGED, true)
+    }
+
+    fun isLogged(): Boolean =
+        preferencesManager.getBoolean(IS_LOGGED, false)
+
+    fun getLoginData(): LoginData =
+        LoginData(
+            userName = preferencesManager.getString(LOGIN) ?: "",
+            password = preferencesManager.getString(PASSWORD) ?: ""
+        )
 }

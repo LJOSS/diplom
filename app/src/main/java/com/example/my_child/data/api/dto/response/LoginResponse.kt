@@ -23,5 +23,8 @@ data class LoginDataResponse(
     @SerializedName("id_user")
     val idUser: Int,
     @SerializedName("parent_teacher")
-    val isParent: Int
-)
+    val parent_teacher: Int
+) {
+    fun isParent(): Boolean =
+        parent_teacher == 0
+}
