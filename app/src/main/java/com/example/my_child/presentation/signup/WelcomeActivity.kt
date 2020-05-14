@@ -13,6 +13,7 @@ import com.example.my_child.data.api.dto.response.LoginDataResponse
 import com.example.my_child.domain.model.error.ValidationResponse
 import com.example.my_child.presentation.parent.ParentHomeActivity
 import com.example.my_child.presentation.teacher.TeacherHomeActivity
+import com.example.my_child.utils.Constants.USER_ID
 import com.google.android.material.textfield.TextInputLayout
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_welcome.*
@@ -20,10 +21,6 @@ import kotlinx.android.synthetic.main.activity_welcome.*
 class WelcomeActivity : AppCompatActivity() {
 
     private val disposable: CompositeDisposable = CompositeDisposable()
-
-    companion object {
-        const val USER_ID = "USER_ID"
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,6 +65,9 @@ class WelcomeActivity : AppCompatActivity() {
             val passwordResponse =
                 viewModel.checkPasswordValidation(password)
 
+            if (userName.isEmpty() || password.isEmpty()) {
+                return@setOnClickListener
+            }
             if (checkValidationError(loginResponse, login_text_layout)) {
                 return@setOnClickListener
             }
@@ -95,9 +95,7 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     private fun openUserActivityByType(dataResponse: LoginDataResponse) {
-        val bundle = Bundle().apply {
-            putInt(USER_ID, dataResponse.idUser)
-        }
+        val bundle = Bundle().apply { putInt(USER_ID, dataResponse.idUser) }
         if (dataResponse.isParent()) {
             startActivity(Intent(this, ParentHomeActivity::class.java).putExtras(bundle))
         } else {
