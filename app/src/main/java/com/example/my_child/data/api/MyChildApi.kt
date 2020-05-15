@@ -15,6 +15,12 @@ interface MyChildApi {
     @POST("loginUser.php")
     fun login(@Body loginData: LoginData): Observable<LoginResponse>
 
+    @GET("profileData.php")
+    fun getProfileData(
+        @Query("idUser") idUser: Int,
+        @Query("idUser") isParent: Int
+    ): Observable<LoginResponse>
+
     @GET("getMedicine.php")
     fun getMedicine(
         @Query("idTeacher") idTeacher: Int,

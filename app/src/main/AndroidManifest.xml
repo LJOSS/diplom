@@ -21,14 +21,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:label">
-        <activity android:name=".presentation.MainActivity">
+        <activity
+            android:name=".presentation.MainActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.signup.WelcomeActivity" />
+        <activity
+            android:name=".presentation.signup.WelcomeActivity"
+            android:launchMode="singleTask" />
 
         <activity
             android:name=".presentation.teacher.TeacherHomeActivity"
@@ -37,6 +41,7 @@
             android:name=".presentation.parent.ParentHomeActivity"
             android:launchMode="singleTask" />
         <activity android:name=".presentation.TestActivity" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.com.vansuita.pickimage.provider"

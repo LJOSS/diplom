@@ -7,25 +7,38 @@
 
     <ImageView
         android:id="@+id/profile_pic"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:src="@drawable/family"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/profile_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:letterSpacing="0.1"
+        android:text="Parent1"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/profile_pic" />
+
     <LinearLayout
         android:id="@+id/nav_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/info_item"
         android:orientation="vertical"
         android:paddingBottom="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_pic">
+        app:layout_constraintTop_toBottomOf="@+id/profile_name">
 
         <TextView
             android:layout_width="match_parent"
