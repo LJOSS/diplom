@@ -17,4 +17,6 @@
     <string name="home">Начальная</string>
     <string name="chat">Чат</string>
     <string name="settings">Настройки</string>
+    <string name="photos">Фото</string>
+    <string name="homework">Домашняя работа</string>
 </resources>
