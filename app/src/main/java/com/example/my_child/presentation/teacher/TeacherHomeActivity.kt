@@ -10,7 +10,7 @@ class TeacherHomeActivity : BaseHomeActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_teacher_home)
+        setContentView(R.layout.activity_home)
         Toast.makeText(this, userId.toString(), Toast.LENGTH_LONG).show()
         debugLog("USER_ID${userId}")
     }

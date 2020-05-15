@@ -10,7 +10,7 @@ class ParentHomeActivity : BaseHomeActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_parent_home)
+        setContentView(R.layout.activity_home)
         Toast.makeText(this, userId.toString(), Toast.LENGTH_LONG).show()
         debugLog("USER_ID${userId}")
     }

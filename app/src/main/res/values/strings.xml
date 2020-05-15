@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Моя личина</string>
+    <string name="my_app_name">Моя личина</string>
 
     <string name="registration">Регистрация</string>
     <string name="login">Вход</string>
@@ -14,4 +14,7 @@
     <string name="pass_min_length_error">Минимальное допустимое число символов 6</string>
     <string name="check_username">Проверьте правильность ввода иммени пользователя</string>
     <string name="check_password">Проверьте правильность ввода пароля</string>
+    <string name="home">Начальная</string>
+    <string name="chat">Чат</string>
+    <string name="settings">Настройки</string>
 </resources>
