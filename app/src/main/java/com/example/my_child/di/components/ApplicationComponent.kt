@@ -5,6 +5,7 @@ import com.example.my_child.di.modules.ApiModule
 import com.example.my_child.di.modules.ApplicationModule
 import com.example.my_child.di.modules.PreferenceModule
 import com.example.my_child.di.modules.SignUpModule
+import com.example.my_child.presentation.base.BaseViewModelFactory
 import com.example.my_child.presentation.signup.SignUpViewModelFactory
 import dagger.Component
 import javax.inject.Singleton
@@ -20,5 +21,8 @@ import javax.inject.Singleton
 )
 interface ApplicationComponent {
     fun applicationContext(): Context
+
     fun inject(signUpViewModelFactory: SignUpViewModelFactory)
+
+    fun inject(signUpViewModelFactory: BaseViewModelFactory)
 }

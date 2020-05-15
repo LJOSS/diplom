@@ -87,8 +87,7 @@ class WelcomeActivity : AppCompatActivity() {
                         Toast.makeText(this, "NE V SISTEME", Toast.LENGTH_LONG).show()
                     } else {
                         openUserActivityByType(it.data.first())
-                        Toast.makeText(this, "SUCCESS", Toast.LENGTH_LONG).show()
-                        viewModel.saveUser(loginData)
+                        viewModel.saveUser(loginData, it.data.first().isParent())
                     }
                 }, Throwable::printStackTrace)
         )

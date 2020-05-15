@@ -5,6 +5,7 @@ object Constants {
     const val LOGIN = "LOGIN"
     const val PASSWORD = "PASSWORD"
     const val IS_LOGGED = "IS_LOGGED"
+    const val IS_PARENT = "IS_PARENT"
 
     const val USER_ID = "USER_ID"
 }

@@ -11,6 +11,7 @@ import com.example.my_child.domain.ValidationManager
 import com.example.my_child.domain.model.error.ValidationResponse
 import com.example.my_child.domain.preferences.PreferencesManager
 import com.example.my_child.utils.Constants.IS_LOGGED
+import com.example.my_child.utils.Constants.IS_PARENT
 import com.example.my_child.utils.Constants.LOGIN
 import com.example.my_child.utils.Constants.PASSWORD
 import io.reactivex.Observable
@@ -26,7 +27,7 @@ class SignUpViewModel(
     private val preferencesManager: PreferencesManager
 ) : ViewModel() {
 
-    fun login(loginData: LoginData): Observable<LoginResponse> =
+    fun login(loginData: LoginData): Single <LoginResponse> =
         myChildApi.login(loginData)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -56,10 +57,11 @@ class SignUpViewModel(
     fun checkPasswordValidation(password: String): ValidationResponse =
         validationManager.checkPasswordValidation(password)
 
-    fun saveUser(loginData: LoginData) {
+    fun saveUser(loginData: LoginData, isParent: Boolean) {
         with(loginData) {
             preferencesManager.saveString(LOGIN, userName)
             preferencesManager.saveString(PASSWORD, password)
+            preferencesManager.saveBoolean(IS_PARENT, isParent)
         }
         preferencesManager.saveBoolean(IS_LOGGED, true)
     }
