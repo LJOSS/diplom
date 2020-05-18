@@ -7,6 +7,7 @@ import com.example.my_child.di.modules.PreferenceModule
 import com.example.my_child.di.modules.SignUpModule
 import com.example.my_child.presentation.base.BaseViewModelFactory
 import com.example.my_child.presentation.signup.SignUpViewModelFactory
+import com.example.my_child.presentation.teacher.classlist.ClassListViewModelFactory
 import dagger.Component
 import javax.inject.Singleton
 
@@ -25,4 +26,6 @@ interface ApplicationComponent {
     fun inject(signUpViewModelFactory: SignUpViewModelFactory)
 
     fun inject(signUpViewModelFactory: BaseViewModelFactory)
+
+    fun inject(classListViewModelFactory: ClassListViewModelFactory)
 }
