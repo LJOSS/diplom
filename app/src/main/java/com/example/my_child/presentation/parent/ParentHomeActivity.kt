@@ -2,6 +2,8 @@ package com.example.my_child.presentation.parent
 
 import android.os.Bundle
 import android.view.Gravity
+import androidx.core.view.GravityCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.my_child.R
 import com.example.my_child.data.api.dto.response.ParentDataResponse
@@ -10,7 +12,10 @@ import com.example.my_child.presentation.base.BaseViewModel
 import com.example.my_child.presentation.base.BaseViewModelFactory
 import com.example.my_child.presentation.parent.home.ParentHomeFragment
 import com.example.my_child.presentation.parent.home.ParentHomeFragment.Companion.ParentHomeFragment_TAG
+import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment
+import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment.Companion.ParentHomeworkFragment_TAG
 import com.example.my_child.utils.setupVisibility
+import com.example.my_child.utils.waitAnimation
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.main_content.*
 import kotlinx.android.synthetic.main.navigation_menu_layout.*
@@ -26,7 +31,7 @@ class ParentHomeActivity : BaseHomeActivity() {
 
         initView(viewModel)
         initTopBar()
-        initNavigationMenu()
+        initNavigationMenu(viewModel)
         initBottomNavigation(viewModel)
         openFragment(ParentHomeFragment.newInstance(), ParentHomeFragment_TAG)
     }
@@ -45,10 +50,15 @@ class ParentHomeActivity : BaseHomeActivity() {
         )
     }
 
-    private fun initNavigationMenu() {
+    private fun initNavigationMenu(viewModel: BaseViewModel) {
         nav_home.setOnClickListener { }
         nav_chat.setOnClickListener { }
-        nav_homework.setOnClickListener { }
+        nav_homework.setOnClickListener {
+            drawer_layout.closeDrawer(GravityCompat.END)
+            waitAnimation {
+                openFragment(ParentHomeworkFragment.newInstance(viewModel.getTeacherId()), ParentHomeworkFragment_TAG)
+            }
+        }
         nav_photos.setOnClickListener { }
         nav_settings.setOnClickListener { }
     }
@@ -68,6 +78,7 @@ class ParentHomeActivity : BaseHomeActivity() {
                         this.fName,
                         this.lName
                     )
+                viewModel.saveTeacherId(teacherId)
             }
         }
     }
@@ -92,5 +103,9 @@ class ParentHomeActivity : BaseHomeActivity() {
             return
         }
         this.finish()
+    }
+
+    fun openFragmentFromFragment(fragment: Fragment, tag: String) {
+        openFragment(fragment, tag)
     }
 }

@@ -10,6 +10,8 @@ open class BaseFragment : Fragment() {
 
     protected val userId: Int by lazy { requireArguments().getInt(Constants.USER_ID) }
 
+    protected val teacherId: Int by lazy { requireArguments().getInt(Constants.TEACHER_ID) }
+
     override fun onDestroy() {
         super.onDestroy()
         disposable.dispose()

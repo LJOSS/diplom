@@ -8,4 +8,5 @@ object Constants {
     const val IS_PARENT = "IS_PARENT"
 
     const val USER_ID = "USER_ID"
+    const val TEACHER_ID = "TEACHER_ID"
 }
