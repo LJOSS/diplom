@@ -10,9 +10,12 @@ import com.example.my_child.data.api.dto.response.TeacherDataResponse
 import com.example.my_child.presentation.base.BaseHomeActivity
 import com.example.my_child.presentation.base.BaseViewModel
 import com.example.my_child.presentation.base.BaseViewModelFactory
+import com.example.my_child.presentation.teacher.classlist.ClassListFragment
+import com.example.my_child.presentation.teacher.classlist.ClassListFragment.Companion.ClassListFragment_TAG
 import com.example.my_child.presentation.teacher.home.HomeFragment
 import com.example.my_child.presentation.teacher.home.HomeFragment.Companion.HomeFragment_TAG
 import com.example.my_child.utils.debugLog
+import com.example.my_child.utils.setupVisibility
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.main_content.*
 import kotlinx.android.synthetic.main.navigation_menu_layout.*
@@ -39,6 +42,12 @@ class TeacherHomeActivity : BaseHomeActivity() {
         nav_homework.setOnClickListener { }
         nav_photos.setOnClickListener { }
         nav_settings.setOnClickListener { }
+        nav_list_childrens.setOnClickListener {
+            openFragment(
+                ClassListFragment.newInstance(),
+                ClassListFragment_TAG
+            )
+        }
     }
 
     private fun initBottomNavigation(viewModel: BaseViewModel) {
@@ -50,6 +59,7 @@ class TeacherHomeActivity : BaseHomeActivity() {
                 R.id.chat -> {
                 }
                 R.id.profile -> {
+                    //openFragment(ProfileFragment.newInstance(), ProfileFragment_TAG)
                     viewModel.logout()
                     logout(this@TeacherHomeActivity)
                 }
@@ -82,7 +92,9 @@ class TeacherHomeActivity : BaseHomeActivity() {
     }
 
     private fun initView(viewModel: BaseViewModel) {
-        if (viewModel.isParent()) {
+        val isParent = viewModel.isParent()
+        nav_list_childrens.setupVisibility(!isParent)
+        if (isParent) {
             getParentData(viewModel) {
                 with(it) {
                     loadPhoto(profilePicture, profile_pic)
