@@ -1,7 +1,9 @@
 package com.example.my_child.presentation.teacher
 
+import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -34,6 +36,11 @@ class TeacherHomeActivity : BaseHomeActivity() {
         initTopBar()
         initBottomNavigation(viewModel)
         initNavigationMenu()
+        // TODO NEEED TO TEST FIX
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            window.decorView.importantForAutofill =
+                View.IMPORTANT_FOR_AUTOFILL_NO_EXCLUDE_DESCENDANTS
+        }
         openFragment(TeacherHomeFragment.newInstance(userId), TeacherHomeFragment_TAG)
     }
 
