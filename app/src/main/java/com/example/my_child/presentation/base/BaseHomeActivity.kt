@@ -81,8 +81,8 @@ open class BaseHomeActivity : AppCompatActivity() {
     private fun addFragment(fragment: Fragment, tag: String) {
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.container, fragment, tag)
-            .addToBackStack(null)
+            .add(R.id.container, fragment, tag)
+            .addToBackStack(tag)
             .commitAllowingStateLoss()
     }
 
