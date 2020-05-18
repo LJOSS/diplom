@@ -2,6 +2,7 @@ package com.example.my_child.presentation.teacher
 
 import android.os.Bundle
 import android.view.Gravity
+import androidx.core.view.GravityCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.my_child.R
 import com.example.my_child.data.api.dto.response.TeacherDataResponse
@@ -12,6 +13,7 @@ import com.example.my_child.presentation.teacher.classlist.ClassListFragment
 import com.example.my_child.presentation.teacher.classlist.ClassListFragment.Companion.ClassListFragment_TAG
 import com.example.my_child.presentation.teacher.home.TeacherHomeFragment
 import com.example.my_child.presentation.teacher.home.TeacherHomeFragment.Companion.TeacherHomeFragment_TAG
+import com.example.my_child.utils.waitAnimation
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.main_content.*
 import kotlinx.android.synthetic.main.navigation_menu_layout.*
@@ -39,10 +41,13 @@ class TeacherHomeActivity : BaseHomeActivity() {
         nav_photos.setOnClickListener { }
         nav_settings.setOnClickListener { }
         nav_list_childrens.setOnClickListener {
-            openFragment(
-                ClassListFragment.newInstance(userId),
-                ClassListFragment_TAG
-            )
+            drawer_layout.closeDrawer(GravityCompat.END)
+            waitAnimation {
+                openFragment(
+                    ClassListFragment.newInstance(userId),
+                    ClassListFragment_TAG
+                )
+            }
         }
     }
 
