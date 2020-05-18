@@ -95,17 +95,18 @@ class WelcomeActivity : AppCompatActivity() {
 
     private fun openUserActivityByType(dataResponse: LoginDataResponse) {
         val bundle = Bundle().apply { putInt(USER_ID, dataResponse.idUser) }
-        if (dataResponse.isParent()) {
-            startActivity(
-                Intent(this, ParentHomeActivity::class.java).putExtras(bundle)
-                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-            )
+        startActivity(
+            Intent(this, TeacherHomeActivity::class.java).putExtras(bundle)
+                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        )
+        /*if (dataResponse.isParent()) {
+
         } else {
             startActivity(
                 Intent(this, TeacherHomeActivity::class.java).putExtras(bundle)
                     .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
             )
-        }
+        }*/
     }
 
     private fun checkValidationError(

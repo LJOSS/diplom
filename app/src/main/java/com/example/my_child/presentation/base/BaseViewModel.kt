@@ -27,7 +27,7 @@ class BaseViewModel(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
 
-    private fun isParent(): Boolean =
+    fun isParent(): Boolean =
         preferencesManager.getBoolean(IS_PARENT, false)
 
     fun logout() {
