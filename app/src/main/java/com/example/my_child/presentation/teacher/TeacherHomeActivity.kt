@@ -40,7 +40,7 @@ class TeacherHomeActivity : BaseHomeActivity() {
         nav_settings.setOnClickListener { }
         nav_list_childrens.setOnClickListener {
             openFragment(
-                ClassListFragment.newInstance(),
+                ClassListFragment.newInstance(userId),
                 ClassListFragment_TAG
             )
         }

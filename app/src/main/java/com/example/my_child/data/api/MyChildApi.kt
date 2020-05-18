@@ -35,4 +35,9 @@ interface MyChildApi {
     @Multipart
     @POST("iPhoto.php")
     fun addPhoto(body: MultipartBody.Part, name: String): Single<DefaultResponse>
+
+    @GET("getChilds.php")
+    fun getClassList(
+        @Query("idTeacher") idTeacher: Int
+    ): Single<ClassListResponse>
 }

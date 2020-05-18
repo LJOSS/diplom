@@ -1,6 +1,8 @@
 package com.example.my_child.data.api.dto.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 class ParentResponse(
     @SerializedName("status")
@@ -13,6 +15,7 @@ class ParentResponse(
     val code: Int
 )
 
+@Parcelize
 data class ParentDataResponse(
     @SerializedName("id_teacher")
     val id: Int,
@@ -32,4 +35,4 @@ data class ParentDataResponse(
     val mail: String,
     @SerializedName("profile_pic")
     val profilePicture: String
-)
+) : Parcelable

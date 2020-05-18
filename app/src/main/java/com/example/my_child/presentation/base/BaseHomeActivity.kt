@@ -81,8 +81,9 @@ open class BaseHomeActivity : AppCompatActivity() {
     private fun addFragment(fragment: Fragment, tag: String) {
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.container, fragment, tag)
-            .commit()
+            .replace(R.id.container, fragment, tag)
+            .addToBackStack(null)
+            .commitAllowingStateLoss()
     }
 
     protected fun BottomNavigationView.initBottomNavigation(
