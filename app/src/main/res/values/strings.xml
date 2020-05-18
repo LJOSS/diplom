@@ -24,4 +24,7 @@
     <string name="diary">Дневник</string>
     <string name="class_list">Список класса</string>
     <string name="profile_logout">ЛОГАУТ</string>
+    <string name="add_homework">Добавить домашнее задание</string>
+    <string name="subject_name">Название предмета</string>
+    <string name="subject_description">Описание</string>
 </resources>

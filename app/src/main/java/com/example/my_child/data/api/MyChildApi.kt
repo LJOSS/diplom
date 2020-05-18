@@ -1,5 +1,6 @@
 package com.example.my_child.data.api
 
+import com.example.my_child.data.api.dto.data.HomeworkData
 import com.example.my_child.data.api.dto.data.LoginData
 import com.example.my_child.data.api.dto.data.MedicineData
 import com.example.my_child.data.api.dto.response.*
@@ -40,4 +41,12 @@ interface MyChildApi {
     fun getClassList(
         @Query("idTeacher") idTeacher: Int
     ): Single<ClassListResponse>
+
+    @GET("getHomeworkById.php")
+    fun getHomework(
+        @Query("idTeacher") idTeacher: Int
+    ): Single<HomeworkResponse>
+
+    @POST("insertHomework.php")
+    fun addHomework(@Body homeworkData: HomeworkData): Single<DefaultResponse>
 }

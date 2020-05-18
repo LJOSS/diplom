@@ -6,13 +6,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.my_child.R
+import com.example.my_child.presentation.fragments.BaseFragment
+import com.example.my_child.presentation.teacher.TeacherHomeActivity
+import com.example.my_child.presentation.teacher.homework.TeacherHomeworkFragment
+import com.example.my_child.presentation.teacher.homework.TeacherHomeworkFragment.Companion.TeacherHomeworkFragment_TAG
+import com.example.my_child.utils.Constants.USER_ID
 import kotlinx.android.synthetic.main.fragment_home.*
 
-class TeacherHomeFragment : Fragment() {
+class TeacherHomeFragment : BaseFragment() {
 
     companion object {
-        fun newInstance(): Fragment =
-            TeacherHomeFragment()
+        fun newInstance(userId: Int): Fragment =
+            TeacherHomeFragment().apply {
+                arguments = Bundle().apply {
+                    putInt(USER_ID, userId)
+                }
+            }
 
         const val TeacherHomeFragment_TAG = "TeacherHomeFragment_TAG"
     }
@@ -33,7 +42,12 @@ class TeacherHomeFragment : Fragment() {
         diary_layout.setOnClickListener { }
         chat_layout.setOnClickListener {}
         photo_layout.setOnClickListener {}
-        homework_layout.setOnClickListener {}
+        homework_layout.setOnClickListener {
+            (activity as TeacherHomeActivity).openFragmentFromFragment(
+                TeacherHomeworkFragment.newInstance(userId),
+                TeacherHomeworkFragment_TAG
+            )
+        }
         medicine_layout.setOnClickListener {}
         absent_track_layout.setOnClickListener {}
     }

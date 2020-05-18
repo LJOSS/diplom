@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.my_child.R
 import com.example.my_child.data.api.dto.response.ParentDataResponse
-import com.example.my_child.presentation.BaseFragment
+import com.example.my_child.presentation.fragments.BaseFragment
 import com.example.my_child.presentation.teacher.classlist.ChildInfoActivity.Companion.CHILD_INFO
 import com.example.my_child.utils.Constants.USER_ID
 import kotlinx.android.synthetic.main.fragment_class_list.*
@@ -27,8 +27,6 @@ class ClassListFragment : BaseFragment() {
 
         const val ClassListFragment_TAG = "ClassListFragment_TAG"
     }
-
-    private val userId: Int by lazy { requireArguments().getInt(USER_ID) }
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -3,6 +3,7 @@ package com.example.my_child.presentation.teacher
 import android.os.Bundle
 import android.view.Gravity
 import androidx.core.view.GravityCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.my_child.R
 import com.example.my_child.data.api.dto.response.TeacherDataResponse
@@ -13,6 +14,8 @@ import com.example.my_child.presentation.teacher.classlist.ClassListFragment
 import com.example.my_child.presentation.teacher.classlist.ClassListFragment.Companion.ClassListFragment_TAG
 import com.example.my_child.presentation.teacher.home.TeacherHomeFragment
 import com.example.my_child.presentation.teacher.home.TeacherHomeFragment.Companion.TeacherHomeFragment_TAG
+import com.example.my_child.presentation.teacher.homework.TeacherHomeworkFragment
+import com.example.my_child.presentation.teacher.homework.TeacherHomeworkFragment.Companion.TeacherHomeworkFragment_TAG
 import com.example.my_child.utils.waitAnimation
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.main_content.*
@@ -31,13 +34,18 @@ class TeacherHomeActivity : BaseHomeActivity() {
         initTopBar()
         initBottomNavigation(viewModel)
         initNavigationMenu()
-        openFragment(TeacherHomeFragment.newInstance(), TeacherHomeFragment_TAG)
+        openFragment(TeacherHomeFragment.newInstance(userId), TeacherHomeFragment_TAG)
     }
 
     private fun initNavigationMenu() {
         nav_home.setOnClickListener { }
         nav_chat.setOnClickListener { }
-        nav_homework.setOnClickListener { }
+        nav_homework.setOnClickListener {
+            drawer_layout.closeDrawer(GravityCompat.END)
+            waitAnimation {
+                openFragment(TeacherHomeworkFragment.newInstance(userId), TeacherHomeworkFragment_TAG)
+            }
+        }
         nav_photos.setOnClickListener { }
         nav_settings.setOnClickListener { }
         nav_list_childrens.setOnClickListener {
@@ -54,7 +62,7 @@ class TeacherHomeActivity : BaseHomeActivity() {
     private fun initBottomNavigation(viewModel: BaseViewModel) {
         bottom_navigation.initBottomNavigation(
             home = {
-                openFragment(TeacherHomeFragment.newInstance(), TeacherHomeFragment_TAG)
+                openFragment(TeacherHomeFragment.newInstance(userId), TeacherHomeFragment_TAG)
             },
             chat = {},
             profile = {
@@ -63,6 +71,10 @@ class TeacherHomeActivity : BaseHomeActivity() {
                 logout(this@TeacherHomeActivity)
             }
         )
+    }
+
+    fun openFragmentFromFragment(fragment: Fragment, tag: String) {
+        openFragment(fragment, tag)
     }
 
     private fun initTopBar() {

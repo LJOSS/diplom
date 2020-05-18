@@ -1,13 +1,11 @@
 package com.example.my_child.di.components
 
 import android.content.Context
-import com.example.my_child.di.modules.ApiModule
-import com.example.my_child.di.modules.ApplicationModule
-import com.example.my_child.di.modules.PreferenceModule
-import com.example.my_child.di.modules.SignUpModule
+import com.example.my_child.di.modules.*
 import com.example.my_child.presentation.base.BaseViewModelFactory
 import com.example.my_child.presentation.signup.SignUpViewModelFactory
 import com.example.my_child.presentation.teacher.classlist.ClassListViewModelFactory
+import com.example.my_child.presentation.teacher.homework.HomeworkViewModelFactory
 import dagger.Component
 import javax.inject.Singleton
 
@@ -17,7 +15,8 @@ import javax.inject.Singleton
         ApplicationModule::class,
         ApiModule::class,
         SignUpModule::class,
-        PreferenceModule::class
+        PreferenceModule::class,
+        DateModule::class
     )
 )
 interface ApplicationComponent {
@@ -28,4 +27,6 @@ interface ApplicationComponent {
     fun inject(signUpViewModelFactory: BaseViewModelFactory)
 
     fun inject(classListViewModelFactory: ClassListViewModelFactory)
+
+    fun inject(homeworkViewModelFactory: HomeworkViewModelFactory)
 }
