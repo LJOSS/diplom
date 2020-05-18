@@ -2,14 +2,18 @@ package com.example.my_child.presentation.base
 
 import android.app.Activity
 import android.content.Intent
+import android.view.Gravity
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.my_child.BuildConfig
 import com.example.my_child.R
 import com.example.my_child.presentation.signup.WelcomeActivity
 import com.example.my_child.utils.Constants.USER_ID
+import com.example.my_child.utils.debugLog
 import com.squareup.picasso.Picasso
 import io.reactivex.disposables.CompositeDisposable
+import kotlinx.android.synthetic.main.activity_home.*
 
 open class BaseHomeActivity : AppCompatActivity() {
 
@@ -40,8 +44,44 @@ open class BaseHomeActivity : AppCompatActivity() {
         )
     }
 
+    override fun onBackPressed() {
+        if (drawer_layout.isDrawerOpen(Gravity.END)) {
+            drawer_layout.closeDrawer(Gravity.END)
+            return
+        }
+        debugLog("SIZE_ ${supportFragmentManager.fragments.size}")
+        val lastFragment = getLastFragment()
+        if (supportFragmentManager.fragments.size == 1) {
+            this.finish()
+        } else {
+            supportFragmentManager.beginTransaction().remove(lastFragment).commit()
+        }
+    }
+
+    private fun getLastFragment(): Fragment = supportFragmentManager.fragments.last()
+
     override fun onDestroy() {
         super.onDestroy()
         disposable.dispose()
     }
+
+    protected fun openFragment(fragment: Fragment, tag: String) {
+        if (supportFragmentManager.fragments.isNotEmpty()) {
+            val lastFragment = getLastFragment()
+            if (lastFragment.tag != tag) {
+                debugLog("ADD_FAGMENT")
+                addFragment(fragment, tag)
+            }
+        } else {
+            addFragment(fragment, tag)
+        }
+    }
+
+    private fun addFragment(fragment: Fragment, tag: String) {
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.container, fragment, tag)
+            .commit()
+    }
+
 }

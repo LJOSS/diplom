@@ -6,16 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.my_child.R
-import com.example.my_child.presentation.teacher.TeacherHomeActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 
-class HomeFragment : Fragment() {
+class TeacherHomeFragment : Fragment() {
 
     companion object {
         fun newInstance(): Fragment =
-            HomeFragment()
+            TeacherHomeFragment()
 
-        const val HomeFragment_TAG = "HomeFragment"
+        const val TeacherHomeFragment_TAG = "TeacherHomeFragment_TAG"
     }
 
     override fun onCreateView(
