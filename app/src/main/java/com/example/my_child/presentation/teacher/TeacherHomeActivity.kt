@@ -59,9 +59,21 @@ class TeacherHomeActivity : BaseHomeActivity() {
     }
 
     public fun openFragment(fragment: Fragment, tag: String) {
+        if (supportFragmentManager.fragments.isNotEmpty()) {
+            val lastFragment = getLastFragment()
+            if (lastFragment.tag != tag) {
+                debugLog("ADD_FAGMENT")
+                addFragment(fragment, tag)
+            }
+        } else {
+            addFragment(fragment, tag)
+        }
+    }
+
+    private fun addFragment(fragment: Fragment, tag: String) {
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.container, fragment, tag)
+            .add(R.id.container, fragment, tag)
             .commit()
     }
 
@@ -131,11 +143,13 @@ class TeacherHomeActivity : BaseHomeActivity() {
             return
         }
         debugLog("SIZE_ ${supportFragmentManager.fragments.size}")
-        val lastFragment = supportFragmentManager.fragments.last()
+        val lastFragment = getLastFragment()
         if (supportFragmentManager.fragments.size == 1) {
             this.finish()
         } else {
             supportFragmentManager.beginTransaction().remove(lastFragment).commit()
         }
     }
+
+    private fun getLastFragment(): Fragment = supportFragmentManager.fragments.last()
 }
