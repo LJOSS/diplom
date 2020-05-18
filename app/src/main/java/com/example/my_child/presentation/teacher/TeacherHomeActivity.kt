@@ -47,21 +47,17 @@ class TeacherHomeActivity : BaseHomeActivity() {
     }
 
     private fun initBottomNavigation(viewModel: BaseViewModel) {
-        bottom_navigation.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.home -> {
-                    openFragment(TeacherHomeFragment.newInstance(), TeacherHomeFragment_TAG)
-                }
-                R.id.chat -> {
-                }
-                R.id.profile -> {
-                    //openFragment(TeacherProfileFragment.newInstance(), TeacherProfileFragment_TAG)
-                    viewModel.logout()
-                    logout(this@TeacherHomeActivity)
-                }
+        bottom_navigation.initBottomNavigation(
+            home = {
+                openFragment(TeacherHomeFragment.newInstance(), TeacherHomeFragment_TAG)
+            },
+            chat = {},
+            profile = {
+                //openFragment(TeacherProfileFragment.newInstance(), TeacherProfileFragment_TAG)
+                viewModel.logout()
+                logout(this@TeacherHomeActivity)
             }
-            true
-        }
+        )
     }
 
     private fun initTopBar() {

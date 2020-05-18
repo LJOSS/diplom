@@ -10,7 +10,6 @@ import com.example.my_child.presentation.base.BaseViewModel
 import com.example.my_child.presentation.base.BaseViewModelFactory
 import com.example.my_child.presentation.parent.home.ParentHomeFragment
 import com.example.my_child.presentation.parent.home.ParentHomeFragment.Companion.ParentHomeFragment_TAG
-import com.example.my_child.presentation.teacher.classlist.ClassListFragment
 import com.example.my_child.utils.setupVisibility
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.main_content.*
@@ -33,21 +32,17 @@ class ParentHomeActivity : BaseHomeActivity() {
     }
 
     private fun initBottomNavigation(viewModel: BaseViewModel) {
-        bottom_navigation.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.home -> {
-                    openFragment(ParentHomeFragment.newInstance(), ParentHomeFragment_TAG)
-                }
-                R.id.chat -> {
-                }
-                R.id.profile -> {
-                    //openFragment(ParentProfileFragment.newInstance(), ParentProfileFragment_TAG)
-                    viewModel.logout()
-                    logout(this)
-                }
+        bottom_navigation.initBottomNavigation(
+            home = {
+                openFragment(ParentHomeFragment.newInstance(), ParentHomeFragment_TAG)
+            },
+            chat = {},
+            profile = {
+                //openFragment(ParentProfileFragment.newInstance(), ParentProfileFragment_TAG)
+                viewModel.logout()
+                logout(this)
             }
-            true
-        }
+        )
     }
 
     private fun initNavigationMenu() {

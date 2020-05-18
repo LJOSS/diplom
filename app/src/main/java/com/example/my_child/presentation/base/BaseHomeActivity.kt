@@ -11,6 +11,7 @@ import com.example.my_child.R
 import com.example.my_child.presentation.signup.WelcomeActivity
 import com.example.my_child.utils.Constants.USER_ID
 import com.example.my_child.utils.debugLog
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.squareup.picasso.Picasso
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_home.*
@@ -84,4 +85,24 @@ open class BaseHomeActivity : AppCompatActivity() {
             .commit()
     }
 
+    protected fun BottomNavigationView.initBottomNavigation(
+        home: () -> Unit,
+        chat: () -> Unit,
+        profile: () -> Unit
+    ) {
+        this.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.home -> {
+                    home()
+                }
+                R.id.chat -> {
+                    chat()
+                }
+                R.id.profile -> {
+                    profile()
+                }
+            }
+            true
+        }
+    }
 }
