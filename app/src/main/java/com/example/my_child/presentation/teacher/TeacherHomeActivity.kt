@@ -21,6 +21,7 @@ import com.example.my_child.presentation.teacher.homework.TeacherHomeworkFragmen
 import com.example.my_child.presentation.teacher.selectchild.SelectChildFragment
 import com.example.my_child.presentation.teacher.selectchild.SelectChildFragment.Companion.SelectChildFragment_TAG
 import com.example.my_child.utils.Constants.CHAT_FRAGMENT
+import com.example.my_child.utils.Constants.DIARY_FRAGMENT
 import com.example.my_child.utils.waitAnimation
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.main_content.*
@@ -72,6 +73,15 @@ class TeacherHomeActivity : BaseHomeActivity() {
             }
         }
         nav_photos.setOnClickListener { }
+        nav_diary.setOnClickListener {
+            drawer_layout.closeDrawer(GravityCompat.END)
+            waitAnimation {
+                openFragmentFromActivity(
+                    SelectChildFragment.newInstance(userId, DIARY_FRAGMENT),
+                    SelectChildFragment_TAG
+                )
+            }
+        }
         nav_settings.setOnClickListener { }
         nav_list_childrens.setOnClickListener {
             drawer_layout.closeDrawer(GravityCompat.END)
