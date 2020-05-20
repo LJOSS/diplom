@@ -41,7 +41,11 @@ class TeacherHomeActivity : BaseHomeActivity() {
             window.decorView.importantForAutofill =
                 View.IMPORTANT_FOR_AUTOFILL_NO_EXCLUDE_DESCENDANTS
         }
-        openFragment(TeacherHomeFragment.newInstance(userId), TeacherHomeFragment_TAG)
+        openFragmentFromActivity(
+            TeacherHomeFragment.newInstance(userId),
+            TeacherHomeFragment_TAG,
+            false
+        )
     }
 
     private fun initNavigationMenu() {
@@ -50,7 +54,10 @@ class TeacherHomeActivity : BaseHomeActivity() {
         nav_homework.setOnClickListener {
             drawer_layout.closeDrawer(GravityCompat.END)
             waitAnimation {
-                openFragment(TeacherHomeworkFragment.newInstance(userId), TeacherHomeworkFragment_TAG)
+                openFragmentFromActivity(
+                    TeacherHomeworkFragment.newInstance(userId),
+                    TeacherHomeworkFragment_TAG
+                )
             }
         }
         nav_photos.setOnClickListener { }
@@ -58,7 +65,7 @@ class TeacherHomeActivity : BaseHomeActivity() {
         nav_list_childrens.setOnClickListener {
             drawer_layout.closeDrawer(GravityCompat.END)
             waitAnimation {
-                openFragment(
+                openFragmentFromActivity(
                     ClassListFragment.newInstance(userId),
                     ClassListFragment_TAG
                 )
@@ -69,7 +76,10 @@ class TeacherHomeActivity : BaseHomeActivity() {
     private fun initBottomNavigation(viewModel: BaseViewModel) {
         bottom_navigation.initBottomNavigation(
             home = {
-                openFragment(TeacherHomeFragment.newInstance(userId), TeacherHomeFragment_TAG)
+                openFragmentFromActivity(
+                    TeacherHomeFragment.newInstance(userId),
+                    TeacherHomeFragment_TAG
+                )
             },
             chat = {},
             profile = {
@@ -80,8 +90,11 @@ class TeacherHomeActivity : BaseHomeActivity() {
         )
     }
 
-    fun openFragmentFromFragment(fragment: Fragment, tag: String) {
-        openFragment(fragment, tag)
+    fun openFragmentFromActivity(
+        fragment: Fragment, tag: String,
+        isAddToBackStack: Boolean = true
+    ) {
+        openFragment(fragment, tag, isAddToBackStack)
     }
 
     private fun initTopBar() {

@@ -43,7 +43,7 @@ class TeacherHomeFragment : BaseFragment() {
         chat_layout.setOnClickListener {}
         photo_layout.setOnClickListener {}
         homework_layout.setOnClickListener {
-            (activity as TeacherHomeActivity).openFragmentFromFragment(
+            (activity as TeacherHomeActivity).openFragmentFromActivity(
                 TeacherHomeworkFragment.newInstance(userId),
                 TeacherHomeworkFragment_TAG
             )

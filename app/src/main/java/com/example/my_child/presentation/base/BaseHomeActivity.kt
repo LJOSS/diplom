@@ -50,13 +50,14 @@ open class BaseHomeActivity : AppCompatActivity() {
             drawer_layout.closeDrawer(Gravity.END)
             return
         }
-        debugLog("SIZE_ ${supportFragmentManager.fragments.size}")
+        super.onBackPressed()
+        /*debugLog("SIZE_ ${supportFragmentManager.fragments.size}")
         val lastFragment = getLastFragment()
         if (supportFragmentManager.fragments.size == 1) {
             this.finish()
         } else {
             supportFragmentManager.beginTransaction().remove(lastFragment).commit()
-        }
+        }*/
     }
 
     private fun getLastFragment(): Fragment = supportFragmentManager.fragments.last()
@@ -66,24 +67,25 @@ open class BaseHomeActivity : AppCompatActivity() {
         disposable.dispose()
     }
 
-    protected fun openFragment(fragment: Fragment, tag: String) {
+    protected fun openFragment(fragment: Fragment, tag: String, isAddToBackStack: Boolean = true) {
         if (supportFragmentManager.fragments.isNotEmpty()) {
             val lastFragment = getLastFragment()
             if (lastFragment.tag != tag) {
                 debugLog("ADD_FAGMENT")
-                addFragment(fragment, tag)
+                addFragment(fragment, tag, isAddToBackStack)
             }
         } else {
-            addFragment(fragment, tag)
+            addFragment(fragment, tag, isAddToBackStack)
         }
     }
 
-    private fun addFragment(fragment: Fragment, tag: String) {
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.container, fragment, tag)
-            .addToBackStack(tag)
-            .commitAllowingStateLoss()
+    private fun addFragment(fragment: Fragment, tag: String, isAddToBackStack: Boolean) {
+        val q = supportFragmentManager.beginTransaction()
+            .replace(R.id.container, fragment, tag)
+        if (isAddToBackStack) {
+            q.addToBackStack(null)
+        }
+        q.commitAllowingStateLoss()
     }
 
     protected fun BottomNavigationView.initBottomNavigation(

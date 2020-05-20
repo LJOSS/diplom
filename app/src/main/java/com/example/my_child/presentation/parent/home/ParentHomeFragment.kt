@@ -51,6 +51,6 @@ class ParentHomeFragment : Fragment() {
     }
 
     private fun openFragment(fragment: Fragment, tag: String) {
-        (activity as ParentHomeActivity).openFragmentFromFragment(fragment, tag)
+        (activity as ParentHomeActivity).openFragmentFromActivity(fragment, tag)
     }
 }

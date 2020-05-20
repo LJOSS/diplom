@@ -109,7 +109,6 @@ class TeacherHomeworkFragment : BaseFragment() {
         })
     }
 
-
     private fun clearHomework() {
         subject_name.text.clear()
         subject_description.text.clear()

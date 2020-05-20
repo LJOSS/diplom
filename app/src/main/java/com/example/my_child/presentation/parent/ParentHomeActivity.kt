@@ -33,13 +33,13 @@ class ParentHomeActivity : BaseHomeActivity() {
         initTopBar()
         initNavigationMenu(viewModel)
         initBottomNavigation(viewModel)
-        openFragment(ParentHomeFragment.newInstance(), ParentHomeFragment_TAG)
+        openFragmentFromActivity(ParentHomeFragment.newInstance(), ParentHomeFragment_TAG, false)
     }
 
     private fun initBottomNavigation(viewModel: BaseViewModel) {
         bottom_navigation.initBottomNavigation(
             home = {
-                openFragment(ParentHomeFragment.newInstance(), ParentHomeFragment_TAG)
+                openFragmentFromActivity(ParentHomeFragment.newInstance(), ParentHomeFragment_TAG)
             },
             chat = {},
             profile = {
@@ -56,7 +56,10 @@ class ParentHomeActivity : BaseHomeActivity() {
         nav_homework.setOnClickListener {
             drawer_layout.closeDrawer(GravityCompat.END)
             waitAnimation {
-                openFragment(ParentHomeworkFragment.newInstance(viewModel.getTeacherId()), ParentHomeworkFragment_TAG)
+                openFragmentFromActivity(
+                    ParentHomeworkFragment.newInstance(viewModel.getTeacherId()),
+                    ParentHomeworkFragment_TAG
+                )
             }
         }
         nav_photos.setOnClickListener { }
@@ -105,7 +108,11 @@ class ParentHomeActivity : BaseHomeActivity() {
         this.finish()
     }
 
-    fun openFragmentFromFragment(fragment: Fragment, tag: String) {
-        openFragment(fragment, tag)
+    fun openFragmentFromActivity(
+        fragment: Fragment,
+        tag: String,
+        isAddToBackStack: Boolean = true
+    ) {
+        openFragment(fragment, tag, isAddToBackStack)
     }
 }
