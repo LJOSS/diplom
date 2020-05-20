@@ -12,5 +12,5 @@ class DateManager {
 
 
     fun getDateForChat(): String =
-        SimpleDateFormat("dd-mm-yyyy HH:MM").format(cal.time)
+        SimpleDateFormat("dd-MM-yyyy HH:MM").format(cal.time)
 }
