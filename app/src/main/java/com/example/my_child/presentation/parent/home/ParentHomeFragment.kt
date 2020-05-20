@@ -11,6 +11,7 @@ import com.example.my_child.presentation.base.BaseViewModel
 import com.example.my_child.presentation.base.BaseViewModelFactory
 import com.example.my_child.presentation.parent.ParentHomeActivity
 import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment
+import com.example.my_child.presentation.teacher.chat.ChatActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class ParentHomeFragment : Fragment() {
@@ -38,7 +39,9 @@ class ParentHomeFragment : Fragment() {
 
     private fun initClickers(viewModel: BaseViewModel) {
         diary_layout.setOnClickListener { }
-        chat_layout.setOnClickListener {}
+        chat_layout.setOnClickListener {
+            (activity as ParentHomeActivity).openChat(viewModel.getTeacherId())
+        }
         photo_layout.setOnClickListener {}
         homework_layout.setOnClickListener {
             openFragment(

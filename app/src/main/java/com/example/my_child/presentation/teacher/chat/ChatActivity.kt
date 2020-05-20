@@ -82,7 +82,7 @@ class ChatActivity : BaseHomeActivity() {
     ) {
         disposable.add(
             Observable
-                .interval(3, TimeUnit.SECONDS)
+                .interval(1, TimeUnit.SECONDS)
                 .flatMap { viewModel.getChat(teacherId, childId) }
                 .subscribe({
                     adapter.setMessages(it)

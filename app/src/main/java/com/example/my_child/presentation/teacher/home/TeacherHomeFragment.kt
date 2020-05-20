@@ -10,6 +10,9 @@ import com.example.my_child.presentation.fragments.BaseFragment
 import com.example.my_child.presentation.teacher.TeacherHomeActivity
 import com.example.my_child.presentation.teacher.homework.TeacherHomeworkFragment
 import com.example.my_child.presentation.teacher.homework.TeacherHomeworkFragment.Companion.TeacherHomeworkFragment_TAG
+import com.example.my_child.presentation.teacher.selectchild.SelectChildFragment
+import com.example.my_child.presentation.teacher.selectchild.SelectChildFragment.Companion.SelectChildFragment_TAG
+import com.example.my_child.utils.Constants
 import com.example.my_child.utils.Constants.USER_ID
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -40,15 +43,24 @@ class TeacherHomeFragment : BaseFragment() {
 
     private fun initClickers() {
         diary_layout.setOnClickListener { }
-        chat_layout.setOnClickListener {}
+        chat_layout.setOnClickListener {
+            openFragment(
+                SelectChildFragment.newInstance(userId, Constants.CHAT_FRAGMENT),
+                SelectChildFragment_TAG
+            )
+        }
         photo_layout.setOnClickListener {}
         homework_layout.setOnClickListener {
-            (activity as TeacherHomeActivity).openFragmentFromActivity(
+            openFragment(
                 TeacherHomeworkFragment.newInstance(userId),
                 TeacherHomeworkFragment_TAG
             )
         }
         medicine_layout.setOnClickListener {}
         absent_track_layout.setOnClickListener {}
+    }
+
+    private fun openFragment(fragment: Fragment, tag: String) {
+        (activity as TeacherHomeActivity).openFragmentFromActivity(fragment, tag)
     }
 }

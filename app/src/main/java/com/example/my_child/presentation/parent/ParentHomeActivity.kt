@@ -59,18 +59,22 @@ class ParentHomeActivity : BaseHomeActivity() {
         )
     }
 
+    fun openChat(teacherId: Int) {
+        startActivity(
+            ChatActivity.newInstance(
+                teacherId,
+                userId,
+                this
+            )
+        )
+    }
+
     private fun initNavigationMenu(viewModel: BaseViewModel) {
         nav_home.setOnClickListener { }
         nav_chat.setOnClickListener {
             drawer_layout.closeDrawer(GravityCompat.END)
             waitAnimation {
-                startActivity(
-                    ChatActivity.newInstance(
-                        viewModel.getTeacherId(),
-                        userId,
-                        this
-                    )
-                )
+                openChat(viewModel.getTeacherId())
             }
         }
         nav_homework.setOnClickListener {
@@ -94,7 +98,7 @@ class ParentHomeActivity : BaseHomeActivity() {
         nav_list_childrens.setupVisibility(false)
         getParentData(viewModel) {
             with(it) {
-                loadPhoto(profilePicture, profile_pic,true)
+                loadPhoto(profilePicture, profile_pic, true)
                 profile_name.text =
                     getString(
                         R.string.profile_name_template,
