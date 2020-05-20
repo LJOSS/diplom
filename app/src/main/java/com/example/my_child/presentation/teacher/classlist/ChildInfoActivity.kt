@@ -26,10 +26,10 @@ class ChildInfoActivity : AppCompatActivity() {
         setContentView(R.layout.child_info_activity)
         initTopBar()
         with(childInfo) {
-            //TODO ENTER ERROR PHOTO
             Picasso
                 .with(this@ChildInfoActivity)
                 .load("${BuildConfig.MY_CHILD_HOST_PHOTOS}${this.profilePicture}")
+                .error(R.drawable.error_profile_boy)
                 .into(child_image)
             child_name.text = getString(
                 R.string.profile_name_template,

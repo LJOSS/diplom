@@ -40,10 +40,10 @@ class ClassListAdapter(
             context: Context
         ) {
             with(data) {
-                //TODO ENTER ERROR PHOTO
                 Picasso
                     .with(context)
                     .load("${BuildConfig.MY_CHILD_HOST_PHOTOS}${this.profilePicture}")
+                    .error(R.drawable.error_profile_boy)
                     .into(itemView.child_image)
                 itemView.child_name.text = context.getString(
                     R.string.profile_name_template,

@@ -2,6 +2,7 @@ package com.example.my_child.presentation.base
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.view.Gravity
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -34,13 +35,20 @@ open class BaseHomeActivity : AppCompatActivity() {
     private fun getIntArguments(key: String): Int =
         intent.extras?.getInt(key) ?: throw IllegalStateException("Expect arguments")
 
-    protected fun loadPhoto(src: String, imageView: ImageView) {
+    protected fun loadPhoto(src: String, imageView: ImageView, isParent: Boolean) {
         Picasso
             .with(this)
             .load("${BuildConfig.MY_CHILD_HOST_PHOTOS}$src")
-            .error(R.drawable.family)
+            .error(getErrorDrawable(isParent))
             .into(imageView)
     }
+
+    private fun getErrorDrawable(parent: Boolean): Int =
+        if (parent) {
+            R.drawable.error_profile_boy
+        } else {
+            R.drawable.error_teacher
+        }
 
     protected fun logout(activity: Activity) {
         startActivity(

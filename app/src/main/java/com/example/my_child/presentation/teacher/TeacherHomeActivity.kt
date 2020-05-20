@@ -120,7 +120,7 @@ class TeacherHomeActivity : BaseHomeActivity() {
     private fun initView(viewModel: BaseViewModel) {
         getTeacherData(viewModel) {
             with(it) {
-                loadPhoto(profilePicture, profile_pic)
+                loadPhoto(profilePicture, profile_pic, false)
                 profile_name.text =
                     getString(
                         R.string.profile_name_template,

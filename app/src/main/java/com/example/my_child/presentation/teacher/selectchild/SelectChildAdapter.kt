@@ -43,10 +43,10 @@ class SelectChildAdapter(
                     R.string.profile_name_template,
                     parentDataResponse.childFName, ""
                 )
-                //TODO: ADD ERROR IMAGE
                 Picasso
                     .with(context)
                     .load("${BuildConfig.MY_CHILD_HOST_PHOTOS}${parentDataResponse.profilePicture}")
+                    .error(R.drawable.error_profile_boy)
                     .into(child_image)
             }
         }

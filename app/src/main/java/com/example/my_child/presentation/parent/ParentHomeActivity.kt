@@ -94,7 +94,7 @@ class ParentHomeActivity : BaseHomeActivity() {
         nav_list_childrens.setupVisibility(false)
         getParentData(viewModel) {
             with(it) {
-                loadPhoto(profilePicture, profile_pic)
+                loadPhoto(profilePicture, profile_pic,true)
                 profile_name.text =
                     getString(
                         R.string.profile_name_template,
