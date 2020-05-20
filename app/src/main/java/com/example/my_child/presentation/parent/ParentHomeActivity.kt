@@ -14,6 +14,7 @@ import com.example.my_child.presentation.parent.home.ParentHomeFragment
 import com.example.my_child.presentation.parent.home.ParentHomeFragment.Companion.ParentHomeFragment_TAG
 import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment
 import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment.Companion.ParentHomeworkFragment_TAG
+import com.example.my_child.presentation.teacher.chat.ChatActivity
 import com.example.my_child.utils.setupVisibility
 import com.example.my_child.utils.waitAnimation
 import kotlinx.android.synthetic.main.activity_home.*
@@ -41,7 +42,15 @@ class ParentHomeActivity : BaseHomeActivity() {
             home = {
                 openFragmentFromActivity(ParentHomeFragment.newInstance(), ParentHomeFragment_TAG)
             },
-            chat = {},
+            chat = {
+                startActivity(
+                    ChatActivity.newInstance(
+                        viewModel.getTeacherId(),
+                        userId,
+                        this
+                    )
+                )
+            },
             profile = {
                 //openFragment(ParentProfileFragment.newInstance(), ParentProfileFragment_TAG)
                 viewModel.logout()
@@ -52,7 +61,18 @@ class ParentHomeActivity : BaseHomeActivity() {
 
     private fun initNavigationMenu(viewModel: BaseViewModel) {
         nav_home.setOnClickListener { }
-        nav_chat.setOnClickListener { }
+        nav_chat.setOnClickListener {
+            drawer_layout.closeDrawer(GravityCompat.END)
+            waitAnimation {
+                startActivity(
+                    ChatActivity.newInstance(
+                        viewModel.getTeacherId(),
+                        userId,
+                        this
+                    )
+                )
+            }
+        }
         nav_homework.setOnClickListener {
             drawer_layout.closeDrawer(GravityCompat.END)
             waitAnimation {
@@ -74,7 +94,7 @@ class ParentHomeActivity : BaseHomeActivity() {
         nav_list_childrens.setupVisibility(false)
         getParentData(viewModel) {
             with(it) {
-                loadPhoto(profilePicture, profile_pic)
+                loadPhoto(profilePicture, profile_pic,true)
                 profile_name.text =
                     getString(
                         R.string.profile_name_template,

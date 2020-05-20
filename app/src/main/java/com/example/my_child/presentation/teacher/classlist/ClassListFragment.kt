@@ -48,7 +48,7 @@ class ClassListFragment : BaseFragment() {
             viewModel
                 .getClassList(userId)
                 .subscribe({
-                    children_list.apply {
+                    child_list.apply {
                         layoutManager = LinearLayoutManager(requireContext())
                         adapter = ClassListAdapter(requireContext(), it.data) {
                             openChildInfo(it)

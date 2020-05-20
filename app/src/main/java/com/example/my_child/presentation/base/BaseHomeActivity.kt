@@ -2,6 +2,7 @@ package com.example.my_child.presentation.base
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.view.Gravity
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,8 @@ import androidx.fragment.app.Fragment
 import com.example.my_child.BuildConfig
 import com.example.my_child.R
 import com.example.my_child.presentation.signup.WelcomeActivity
+import com.example.my_child.utils.Constants.CHILD_ID
+import com.example.my_child.utils.Constants.TEACHER_ID
 import com.example.my_child.utils.Constants.USER_ID
 import com.example.my_child.utils.debugLog
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -25,16 +28,27 @@ open class BaseHomeActivity : AppCompatActivity() {
 
     protected val userId: Int by lazy { getIntArguments(USER_ID) }
 
+    protected val teacherId: Int by lazy { getIntArguments(TEACHER_ID) }
+
+    protected val childId: Int by lazy { getIntArguments(CHILD_ID) }
+
     private fun getIntArguments(key: String): Int =
         intent.extras?.getInt(key) ?: throw IllegalStateException("Expect arguments")
 
-    protected fun loadPhoto(src: String, imageView: ImageView) {
+    protected fun loadPhoto(src: String, imageView: ImageView, isParent: Boolean) {
         Picasso
             .with(this)
             .load("${BuildConfig.MY_CHILD_HOST_PHOTOS}$src")
-            .error(R.drawable.family)
+            .error(getErrorDrawable(isParent))
             .into(imageView)
     }
+
+    private fun getErrorDrawable(parent: Boolean): Int =
+        if (parent) {
+            R.drawable.error_profile_boy
+        } else {
+            R.drawable.error_teacher
+        }
 
     protected fun logout(activity: Activity) {
         startActivity(

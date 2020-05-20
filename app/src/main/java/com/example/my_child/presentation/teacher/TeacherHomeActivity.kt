@@ -18,6 +18,9 @@ import com.example.my_child.presentation.teacher.home.TeacherHomeFragment
 import com.example.my_child.presentation.teacher.home.TeacherHomeFragment.Companion.TeacherHomeFragment_TAG
 import com.example.my_child.presentation.teacher.homework.TeacherHomeworkFragment
 import com.example.my_child.presentation.teacher.homework.TeacherHomeworkFragment.Companion.TeacherHomeworkFragment_TAG
+import com.example.my_child.presentation.teacher.selectchild.SelectChildFragment
+import com.example.my_child.presentation.teacher.selectchild.SelectChildFragment.Companion.SelectChildFragment_TAG
+import com.example.my_child.utils.Constants.CHAT_FRAGMENT
 import com.example.my_child.utils.waitAnimation
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.main_content.*
@@ -50,7 +53,15 @@ class TeacherHomeActivity : BaseHomeActivity() {
 
     private fun initNavigationMenu() {
         nav_home.setOnClickListener { }
-        nav_chat.setOnClickListener { }
+        nav_chat.setOnClickListener {
+            drawer_layout.closeDrawer(GravityCompat.END)
+            waitAnimation {
+                openFragmentFromActivity(
+                    SelectChildFragment.newInstance(userId, CHAT_FRAGMENT),
+                    SelectChildFragment_TAG
+                )
+            }
+        }
         nav_homework.setOnClickListener {
             drawer_layout.closeDrawer(GravityCompat.END)
             waitAnimation {
@@ -81,7 +92,12 @@ class TeacherHomeActivity : BaseHomeActivity() {
                     TeacherHomeFragment_TAG
                 )
             },
-            chat = {},
+            chat = {
+                openFragmentFromActivity(
+                    SelectChildFragment.newInstance(userId, CHAT_FRAGMENT),
+                    SelectChildFragment_TAG
+                )
+            },
             profile = {
                 //openFragment(TeacherProfileFragment.newInstance(), TeacherProfileFragment_TAG)
                 viewModel.logout()
@@ -104,7 +120,7 @@ class TeacherHomeActivity : BaseHomeActivity() {
     private fun initView(viewModel: BaseViewModel) {
         getTeacherData(viewModel) {
             with(it) {
-                loadPhoto(profilePicture, profile_pic)
+                loadPhoto(profilePicture, profile_pic, false)
                 profile_name.text =
                     getString(
                         R.string.profile_name_template,

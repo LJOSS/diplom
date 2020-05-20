@@ -5,8 +5,12 @@ import java.util.*
 
 class DateManager {
 
-    fun getDateForHomework(): String {
-        val cal: Calendar = Calendar.getInstance()
-        return SimpleDateFormat("dd MMMM").format(cal.getTime())
-    }
+    private val cal = Calendar.getInstance()
+
+    fun getDateForHomework(): String =
+        SimpleDateFormat("dd MMMM").format(cal.time)
+
+
+    fun getDateForChat(): String =
+        SimpleDateFormat("dd-MM-yyyy HH:MM").format(cal.time)
 }

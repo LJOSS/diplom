@@ -1,5 +1,6 @@
 package com.example.my_child.data.api
 
+import com.example.my_child.data.api.dto.data.ChatData
 import com.example.my_child.data.api.dto.data.HomeworkData
 import com.example.my_child.data.api.dto.data.LoginData
 import com.example.my_child.data.api.dto.data.MedicineData
@@ -49,4 +50,13 @@ interface MyChildApi {
 
     @POST("insertHomework.php")
     fun addHomework(@Body homeworkData: HomeworkData): Single<DefaultResponse>
+
+    @POST("getChatById.php")
+    fun getChat(
+        @Query("idTeacher") teacherId: Int,
+        @Query("idParent") childId: Int
+    ): Observable<ChatResponse>
+
+    @POST("insertChat.php")
+    fun insertChat(@Body chatData: ChatData): Single<DefaultResponse>
 }

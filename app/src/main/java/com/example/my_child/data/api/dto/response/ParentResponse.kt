@@ -17,6 +17,8 @@ class ParentResponse(
 
 @Parcelize
 data class ParentDataResponse(
+    @SerializedName("id_parent")
+    val childId: Int,
     @SerializedName("teacher_id")
     val teacherId: Int,
     @SerializedName("FirstName")

@@ -9,4 +9,12 @@ object Constants {
 
     const val USER_ID = "USER_ID"
     const val TEACHER_ID = "TEACHER_ID"
+    const val CHILD_ID = "CHILD_ID"
+    const val TYPE_FRAGMENT = "TYPE_FRAGMENT"
+
+    const val CHAT_FRAGMENT = 1
+    const val DIARY_FRAGMENT = 2
+
+    // PARENT = 0
+    // TEACHER = 1
 }
