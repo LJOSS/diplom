@@ -21,7 +21,7 @@ class DiaryFragment : BaseFragment() {
                 }
             }
 
-        const val TeacherHomeFragment_TAG = "TeacherHomeFragment_TAG"
+        const val DiaryFragment_TAG = "DiaryFragment_TAG"
     }
 
     override fun onCreateView(
