@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.my_child.R
 import com.example.my_child.data.api.dto.response.ChatDataResponse
+import com.example.my_child.utils.setupVisibility
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.chat_item_layout.view.*
 
@@ -50,26 +51,17 @@ class ChatAdapter(
             }
             with(itemView) {
                 if (isParent) {
-                    if (data.sender == 0) {
-                        // ЛЕВО
-                        receiver_chat_box.visibility = View.GONE
-                        sender_chat_box.visibility = View.VISIBLE
-                    } else {
-                        // ПРАВО
-                        receiver_chat_box.visibility = View.VISIBLE
-                        sender_chat_box.visibility = View.GONE
-                    }
+                    setUI(itemView, data.sender != 0)
                 } else {
-                    if (data.sender == 0) {
-                        // ЛЕВО
-                        receiver_chat_box.visibility = View.VISIBLE
-                        sender_chat_box.visibility = View.GONE
-                    } else {
-                        // ПРАВО
-                        receiver_chat_box.visibility = View.GONE
-                        sender_chat_box.visibility = View.VISIBLE
-                    }
+                    setUI(itemView, data.sender == 0)
                 }
+            }
+        }
+
+        private fun setUI(view: View, visible: Boolean) {
+            with(view) {
+                receiver_chat_box.setupVisibility(visible)
+                sender_chat_box.setupVisibility(!visible)
             }
         }
 

@@ -82,10 +82,11 @@ class ChatActivity : BaseHomeActivity() {
     ) {
         disposable.add(
             Observable
-                .interval(1, TimeUnit.SECONDS)
+                .interval(3, TimeUnit.SECONDS)
                 .flatMap { viewModel.getChat(teacherId, childId) }
                 .subscribe({
                     adapter.setMessages(it)
+                    message_list.scrollToPosition(it.size - 1)
                 }, Throwable::printStackTrace)
         )
     }
