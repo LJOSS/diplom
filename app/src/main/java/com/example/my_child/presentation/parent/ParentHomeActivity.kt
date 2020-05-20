@@ -14,6 +14,8 @@ import com.example.my_child.presentation.parent.home.ParentHomeFragment
 import com.example.my_child.presentation.parent.home.ParentHomeFragment.Companion.ParentHomeFragment_TAG
 import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment
 import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment.Companion.ParentHomeworkFragment_TAG
+import com.example.my_child.presentation.teacher.chat.ChatFragment
+import com.example.my_child.presentation.teacher.chat.ChatFragment.Companion.ChatFragment_TAG
 import com.example.my_child.utils.setupVisibility
 import com.example.my_child.utils.waitAnimation
 import kotlinx.android.synthetic.main.activity_home.*
@@ -41,7 +43,12 @@ class ParentHomeActivity : BaseHomeActivity() {
             home = {
                 openFragmentFromActivity(ParentHomeFragment.newInstance(), ParentHomeFragment_TAG)
             },
-            chat = {},
+            chat = {
+                openFragmentFromActivity(
+                    ChatFragment.newInstance(viewModel.getTeacherId(), userId),
+                    ChatFragment_TAG
+                )
+            },
             profile = {
                 //openFragment(ParentProfileFragment.newInstance(), ParentProfileFragment_TAG)
                 viewModel.logout()
@@ -52,7 +59,15 @@ class ParentHomeActivity : BaseHomeActivity() {
 
     private fun initNavigationMenu(viewModel: BaseViewModel) {
         nav_home.setOnClickListener { }
-        nav_chat.setOnClickListener { }
+        nav_chat.setOnClickListener {
+            drawer_layout.closeDrawer(GravityCompat.END)
+            waitAnimation {
+                openFragmentFromActivity(
+                    ChatFragment.newInstance(viewModel.getTeacherId(), userId),
+                    ChatFragment_TAG
+                )
+            }
+        }
         nav_homework.setOnClickListener {
             drawer_layout.closeDrawer(GravityCompat.END)
             waitAnimation {
