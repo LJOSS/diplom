@@ -37,17 +37,20 @@ class ParentHomeFragment : Fragment() {
     }
 
     private fun initClickers(viewModel: BaseViewModel) {
-        val act = (activity as ParentHomeActivity)
         diary_layout.setOnClickListener { }
         chat_layout.setOnClickListener {}
         photo_layout.setOnClickListener {}
         homework_layout.setOnClickListener {
-            act.openFragmentFromFragment(
+            openFragment(
                 ParentHomeworkFragment.newInstance(viewModel.getTeacherId()),
                 ParentHomeworkFragment.ParentHomeworkFragment_TAG
             )
         }
         medicine_layout.setOnClickListener {}
         absent_track_layout.setOnClickListener {}
+    }
+
+    private fun openFragment(fragment: Fragment, tag: String) {
+        (activity as ParentHomeActivity).openFragmentFromFragment(fragment, tag)
     }
 }

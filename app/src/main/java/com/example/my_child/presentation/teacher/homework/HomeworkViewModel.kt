@@ -7,7 +7,6 @@ import com.example.my_child.data.api.MyChildApi
 import com.example.my_child.data.api.dto.data.HomeworkData
 import com.example.my_child.data.api.dto.response.DefaultResponse
 import com.example.my_child.data.api.dto.response.HomeworkDataResponse
-import com.example.my_child.data.api.dto.response.HomeworkResponse
 import com.example.my_child.domain.date.DateManager
 import com.example.my_child.domain.preferences.PreferencesManager
 import io.reactivex.Single
@@ -29,8 +28,8 @@ class HomeworkViewModel(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
 
-    fun addHomework(it: HomeworkData): Single<DefaultResponse> =
-        myChildApi.addHomework(it)
+    fun addHomework(homeworkData: HomeworkData): Single<DefaultResponse> =
+        myChildApi.addHomework(homeworkData)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
 

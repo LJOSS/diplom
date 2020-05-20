@@ -13,6 +13,8 @@
     <uses-feature android:name="android.hardware.camera.front" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
+    <permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" android:protectionLevel="signature"/>
+
     <application
         android:name=".App"
         android:allowBackup="true"

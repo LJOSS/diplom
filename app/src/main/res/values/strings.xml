@@ -27,4 +27,5 @@
     <string name="add_homework">Добавить домашнее задание</string>
     <string name="subject_name">Название предмета</string>
     <string name="subject_description">Описание</string>
+    <string name="empty_field">Заполните поле</string>
 </resources>
