@@ -14,8 +14,14 @@ data class ChatResponse(
 )
 
 data class ChatDataResponse(
-    @SerializedName("status")
-    val status: String,
-    @SerializedName("code")
-    val code: Int
+    @SerializedName("idParent")
+    val childId: Int,
+    @SerializedName("idTeacher")
+    val teacherId: Int,
+    @SerializedName("sender")
+    val sender: Int,
+    @SerializedName("time")
+    val time: String,
+    @SerializedName("message")
+    val message: String
 )

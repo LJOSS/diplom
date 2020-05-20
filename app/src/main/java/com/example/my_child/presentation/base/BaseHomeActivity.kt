@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import com.example.my_child.BuildConfig
 import com.example.my_child.R
 import com.example.my_child.presentation.signup.WelcomeActivity
+import com.example.my_child.utils.Constants.CHILD_ID
+import com.example.my_child.utils.Constants.TEACHER_ID
 import com.example.my_child.utils.Constants.USER_ID
 import com.example.my_child.utils.debugLog
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -24,6 +26,10 @@ open class BaseHomeActivity : AppCompatActivity() {
         intent.extras?.getString(key) ?: throw IllegalStateException("Expect arguments")
 
     protected val userId: Int by lazy { getIntArguments(USER_ID) }
+
+    protected val teacherId: Int by lazy { getIntArguments(TEACHER_ID) }
+
+    protected val childId: Int by lazy { getIntArguments(CHILD_ID) }
 
     private fun getIntArguments(key: String): Int =
         intent.extras?.getInt(key) ?: throw IllegalStateException("Expect arguments")

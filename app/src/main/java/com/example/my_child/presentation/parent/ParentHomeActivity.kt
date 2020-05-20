@@ -14,8 +14,7 @@ import com.example.my_child.presentation.parent.home.ParentHomeFragment
 import com.example.my_child.presentation.parent.home.ParentHomeFragment.Companion.ParentHomeFragment_TAG
 import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment
 import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment.Companion.ParentHomeworkFragment_TAG
-import com.example.my_child.presentation.teacher.chat.ChatFragment
-import com.example.my_child.presentation.teacher.chat.ChatFragment.Companion.ChatFragment_TAG
+import com.example.my_child.presentation.teacher.chat.ChatActivity
 import com.example.my_child.utils.setupVisibility
 import com.example.my_child.utils.waitAnimation
 import kotlinx.android.synthetic.main.activity_home.*
@@ -44,9 +43,12 @@ class ParentHomeActivity : BaseHomeActivity() {
                 openFragmentFromActivity(ParentHomeFragment.newInstance(), ParentHomeFragment_TAG)
             },
             chat = {
-                openFragmentFromActivity(
-                    ChatFragment.newInstance(viewModel.getTeacherId(), userId),
-                    ChatFragment_TAG
+                startActivity(
+                    ChatActivity.newInstance(
+                        viewModel.getTeacherId(),
+                        userId,
+                        this
+                    )
                 )
             },
             profile = {
@@ -62,9 +64,12 @@ class ParentHomeActivity : BaseHomeActivity() {
         nav_chat.setOnClickListener {
             drawer_layout.closeDrawer(GravityCompat.END)
             waitAnimation {
-                openFragmentFromActivity(
-                    ChatFragment.newInstance(viewModel.getTeacherId(), userId),
-                    ChatFragment_TAG
+                startActivity(
+                    ChatActivity.newInstance(
+                        viewModel.getTeacherId(),
+                        userId,
+                        this
+                    )
                 )
             }
         }

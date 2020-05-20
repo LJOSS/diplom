@@ -51,10 +51,10 @@ interface MyChildApi {
     @POST("insertHomework.php")
     fun addHomework(@Body homeworkData: HomeworkData): Single<DefaultResponse>
 
-    @POST("getChat.php")
+    @POST("getChatById.php")
     fun getChat(
         @Query("idTeacher") teacherId: Int,
-        @Query("childId") childId: Int
+        @Query("idParent") childId: Int
     ): Observable<ChatResponse>
 
     @GET("insertChat.php")

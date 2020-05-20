@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.example.my_child.data.api.MyChildApi
 import com.example.my_child.data.api.dto.response.ChatDataResponse
 import com.example.my_child.domain.preferences.PreferencesManager
+import com.example.my_child.utils.Constants.IS_PARENT
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -18,4 +19,7 @@ class ChatViewModel(
             .map { it.data }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
+
+    fun isParent(): Boolean =
+        preferencesManager.getBoolean(IS_PARENT, false)
 }
