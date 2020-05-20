@@ -57,6 +57,6 @@ interface MyChildApi {
         @Query("idParent") childId: Int
     ): Observable<ChatResponse>
 
-    @GET("insertChat.php")
-    fun insertChat(@Body chatData: ChatData): Observable<ChatResponse>
+    @POST("insertChat.php")
+    fun insertChat(@Body chatData: ChatData): Single<DefaultResponse>
 }

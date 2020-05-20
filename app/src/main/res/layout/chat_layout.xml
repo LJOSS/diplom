@@ -36,7 +36,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <EditText
-            android:id="@+id/send_chat_edit_text"
+            android:id="@+id/send_chat_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -53,7 +53,7 @@
             android:textColorHint="@color/colorAccent" />
 
         <ImageView
-            android:id="@+id/send_chat_image_view"
+            android:id="@+id/send_message"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:padding="8dp"
