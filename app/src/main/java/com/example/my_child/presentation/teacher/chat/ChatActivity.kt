@@ -39,7 +39,6 @@ class ChatActivity : BaseHomeActivity() {
         initChatList(adapter)
         initChat(viewModel, adapter)
         initSendMessage(viewModel)
-        debugLog("${viewModel.getDate()}")
         initTopBar()
     }
 

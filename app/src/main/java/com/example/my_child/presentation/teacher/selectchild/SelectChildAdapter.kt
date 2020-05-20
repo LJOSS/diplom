@@ -39,10 +39,7 @@ class SelectChildAdapter(
         RecyclerView.ViewHolder(view), LayoutContainer {
         fun bind(parentDataResponse: ParentDataResponse, context: Context) {
             with(itemView) {
-                child_name.text = context.getString(
-                    R.string.profile_name_template,
-                    parentDataResponse.childFName, ""
-                )
+                child_name.text = parentDataResponse.childFName
                 Picasso
                     .with(context)
                     .load("${BuildConfig.MY_CHILD_HOST_PHOTOS}${parentDataResponse.profilePicture}")
