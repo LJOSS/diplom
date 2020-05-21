@@ -17,4 +17,10 @@ object Constants {
 
     // PARENT = 0
     // TEACHER = 1
+
+    const val SLEEP = 0
+    const val FECES = 1
+    const val URINE = 2
+    const val SOFT = 3
+    const val SOLID = 4
 }

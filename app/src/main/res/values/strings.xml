@@ -28,4 +28,5 @@
     <string name="subject_name">Название предмета</string>
     <string name="subject_description">Описание</string>
     <string name="empty_field">Заполните поле</string>
+    <string name="time_template">%d:%s</string>
 </resources>
