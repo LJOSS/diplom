@@ -15,6 +15,8 @@ import com.example.my_child.presentation.parent.home.ParentHomeFragment.Companio
 import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment
 import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment.Companion.ParentHomeworkFragment_TAG
 import com.example.my_child.presentation.teacher.chat.ChatActivity
+import com.example.my_child.presentation.teacher.diary.DiaryHistoryFragment
+import com.example.my_child.presentation.teacher.diary.DiaryHistoryFragment.Companion.DiaryHistoryFragment_TAG
 import com.example.my_child.presentation.teacher.selectchild.SelectChildFragment
 import com.example.my_child.utils.Constants
 import com.example.my_child.utils.setupVisibility
@@ -36,13 +38,20 @@ class ParentHomeActivity : BaseHomeActivity() {
         initTopBar()
         initNavigationMenu(viewModel)
         initBottomNavigation(viewModel)
-        openFragmentFromActivity(ParentHomeFragment.newInstance(userId), ParentHomeFragment_TAG, false)
+        openFragmentFromActivity(
+            ParentHomeFragment.newInstance(userId),
+            ParentHomeFragment_TAG,
+            false
+        )
     }
 
     private fun initBottomNavigation(viewModel: BaseViewModel) {
         bottom_navigation.initBottomNavigation(
             home = {
-                openFragmentFromActivity(ParentHomeFragment.newInstance(userId), ParentHomeFragment_TAG)
+                openFragmentFromActivity(
+                    ParentHomeFragment.newInstance(userId),
+                    ParentHomeFragment_TAG
+                )
             },
             chat = {
                 startActivity(
@@ -93,10 +102,10 @@ class ParentHomeActivity : BaseHomeActivity() {
         nav_diary.setOnClickListener {
             drawer_layout.closeDrawer(GravityCompat.END)
             waitAnimation {
-                /*openFragmentFromActivity(
-                    SelectChildFragment.newInstance(userId, Constants.DIARY_FRAGMENT),
-                    SelectChildFragment.SelectChildFragment_TAG
-                )*/
+                openFragmentFromActivity(
+                    DiaryHistoryFragment.newInstance(viewModel.getTeacherId(), userId),
+                    DiaryHistoryFragment_TAG
+                )
             }
         }
     }
