@@ -33,7 +33,7 @@ class FecesFragment : BaseDiaryFragment(), View.OnClickListener {
 
     private val array = arrayOf("Жидкий", "Обычный", "Твердый")
 
-    var fecesColor = "Brown"
+    var fecesColor = BROWN
 
     override fun onCreateView(
         inflater: LayoutInflater,
