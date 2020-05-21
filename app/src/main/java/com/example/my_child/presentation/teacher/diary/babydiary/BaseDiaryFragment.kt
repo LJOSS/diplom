@@ -1,5 +1,7 @@
 package com.example.my_child.presentation.teacher.diary.babydiary
 
+import android.app.TimePickerDialog
+import android.widget.TextView
 import com.example.my_child.App
 import com.example.my_child.R
 import com.example.my_child.presentation.fragments.BaseFragment
@@ -33,5 +35,26 @@ open class BaseDiaryFragment : BaseFragment() {
 
     protected fun closeFragment(){
         requireFragmentManager().popBackStack()
+    }
+
+    protected fun initCal(
+        time: TextView,
+        hour: Int,
+        min: Int,
+        isSendTime: Boolean
+    ) {
+        val timePickerDialog = TimePickerDialog(
+            context,
+            TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
+                time.text = setTime(hourOfDay, minute)
+                if (isSendTime) {
+                    setSendTime(hourOfDay, minute)
+                }
+            },
+            hour,
+            min,
+            true
+        )
+        timePickerDialog.show()
     }
 }

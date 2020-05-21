@@ -10,6 +10,8 @@ import com.example.my_child.presentation.teacher.TeacherHomeActivity
 import com.example.my_child.presentation.teacher.diary.DiaryHistoryFragment.Companion.DiaryHistoryFragment_TAG
 import com.example.my_child.presentation.teacher.diary.babydiary.SleepFragment
 import com.example.my_child.presentation.teacher.diary.babydiary.SleepFragment.Companion.SleepFragment_TAG
+import com.example.my_child.presentation.teacher.diary.babydiary.UrineFragment
+import com.example.my_child.presentation.teacher.diary.babydiary.UrineFragment.Companion.UrineFragment_TAG
 import com.example.my_child.utils.Constants.CHILD_ID
 import com.example.my_child.utils.Constants.TEACHER_ID
 import kotlinx.android.synthetic.main.fragment_diary.*
@@ -44,11 +46,12 @@ class DiaryFragment : BaseFragment() {
             openFragment(SleepFragment.newInstance(teacherId, childId), SleepFragment_TAG)
         }
         urine_LL.setOnClickListener {
-            openFragment(SleepFragment.newInstance(teacherId, childId), SleepFragment_TAG)
+            openFragment(UrineFragment.newInstance(teacherId, childId), UrineFragment_TAG)
         }
         feces_LL.setOnClickListener {
             openFragment(SleepFragment.newInstance(teacherId, childId), SleepFragment_TAG)
         }
+
         sleep_LL.setOnClickListener {
             openFragment(SleepFragment.newInstance(teacherId, childId), SleepFragment_TAG)
         }

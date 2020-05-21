@@ -84,26 +84,4 @@ class SleepFragment : BaseDiaryFragment() {
                 }, Throwable::printStackTrace)
         )
     }
-
-    private fun initCal(
-        time: TextView,
-        hour: Int,
-        min: Int,
-        isSendTime: Boolean
-    ) {
-        val timePickerDialog = TimePickerDialog(
-            context,
-            OnTimeSetListener { _, hourOfDay, minute ->
-                time.text = setTime(hourOfDay, minute)
-                if (isSendTime) {
-                    setSendTime(hourOfDay, minute)
-                }
-            },
-            hour,
-            min,
-            true
-        )
-        timePickerDialog.show()
-    }
-
 }
