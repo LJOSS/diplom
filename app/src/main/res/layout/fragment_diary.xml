@@ -7,9 +7,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:orientation="vertical"
-        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +36,8 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_soft" />
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/ic_drink" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -61,7 +62,8 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_hard_eat" />
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/ic_cooking" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -69,7 +71,6 @@
                     android:text="Еда"
                     android:textColor="#FFFFFF"
                     android:textSize="14sp" />
-
 
             </LinearLayout>
         </LinearLayout>
@@ -94,6 +95,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
                     android:src="@drawable/ic_urine" />
 
                 <TextView
@@ -118,7 +120,8 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_feces" />
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/ic_poo" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -140,8 +143,8 @@
                 android:id="@+id/sleep_LL"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginRight="4dp"
+                android:layout_weight="1"
                 android:background="#EF5243"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -149,7 +152,8 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_sleep" />
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/ic_baby" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -172,7 +176,8 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_history_white" />
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/ic_history" />
 
                 <TextView
                     android:layout_width="wrap_content"
