@@ -16,7 +16,7 @@ open class BaseDiaryFragment : BaseFragment() {
 
     protected var sendTime = System.currentTimeMillis()
 
-    protected open fun setSendTime(hourOfDay: Int, minute: Int) {
+    private fun setSendTime(hourOfDay: Int, minute: Int) {
         val calendar = Calendar.getInstance()
         calendar[Calendar.HOUR_OF_DAY] = hourOfDay
         calendar[Calendar.MINUTE] = minute

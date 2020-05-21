@@ -29,4 +29,7 @@
     <string name="subject_description">Описание</string>
     <string name="empty_field">Заполните поле</string>
     <string name="time_template">%d:%s</string>
+    <string name="all">Все</string>
+    <string name="most">Половина</string>
+    <string name="some">Мало</string>
 </resources>

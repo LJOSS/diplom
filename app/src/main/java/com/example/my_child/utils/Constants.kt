@@ -23,4 +23,5 @@ object Constants {
     const val URINE = 2
     const val SOFT = 3
     const val SOLID = 4
+    const val SEPARATOR_BABY_DIARY = "SEPARATOR_BABY_DIARY"
 }

@@ -10,6 +10,8 @@ import com.example.my_child.presentation.teacher.TeacherHomeActivity
 import com.example.my_child.presentation.teacher.diary.DiaryHistoryFragment.Companion.DiaryHistoryFragment_TAG
 import com.example.my_child.presentation.teacher.diary.babydiary.SleepFragment
 import com.example.my_child.presentation.teacher.diary.babydiary.SleepFragment.Companion.SleepFragment_TAG
+import com.example.my_child.presentation.teacher.diary.babydiary.SolidFoodFragment
+import com.example.my_child.presentation.teacher.diary.babydiary.SolidFoodFragment.Companion.SolidFoodFragment_TAG
 import com.example.my_child.presentation.teacher.diary.babydiary.UrineFragment
 import com.example.my_child.presentation.teacher.diary.babydiary.UrineFragment.Companion.UrineFragment_TAG
 import com.example.my_child.utils.Constants.CHILD_ID
@@ -42,16 +44,16 @@ class DiaryFragment : BaseFragment() {
         food_LL.setOnClickListener {
             openFragment(SleepFragment.newInstance(teacherId, childId), SleepFragment_TAG)
         }
-        solid_LL.setOnClickListener {
-            openFragment(SleepFragment.newInstance(teacherId, childId), SleepFragment_TAG)
-        }
-        urine_LL.setOnClickListener {
-            openFragment(UrineFragment.newInstance(teacherId, childId), UrineFragment_TAG)
-        }
         feces_LL.setOnClickListener {
             openFragment(SleepFragment.newInstance(teacherId, childId), SleepFragment_TAG)
         }
 
+        solid_LL.setOnClickListener {
+            openFragment(SolidFoodFragment.newInstance(teacherId, childId), SolidFoodFragment_TAG)
+        }
+        urine_LL.setOnClickListener {
+            openFragment(UrineFragment.newInstance(teacherId, childId), UrineFragment_TAG)
+        }
         sleep_LL.setOnClickListener {
             openFragment(SleepFragment.newInstance(teacherId, childId), SleepFragment_TAG)
         }
