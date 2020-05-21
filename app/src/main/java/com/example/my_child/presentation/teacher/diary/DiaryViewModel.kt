@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.example.my_child.data.api.MyChildApi
 import com.example.my_child.data.api.dto.data.DiaryData
 import com.example.my_child.data.api.dto.response.DefaultResponse
+import com.example.my_child.data.api.dto.response.DiaryResponse
 import com.example.my_child.domain.date.DateManager
 import com.example.my_child.domain.preferences.PreferencesManager
 import io.reactivex.Single
@@ -20,4 +21,11 @@ class DiaryViewModel(
         myChildApi.sendDiary(diaryData)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
+
+    fun getDiary(teacherId: Int, childId: Int): Single<List<DiaryData>> =
+        myChildApi.getDiary(teacherId, childId)
+            .map { it.data }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+
 }

@@ -59,4 +59,11 @@ interface MyChildApi {
 
     @POST("insertDiary.php")
     fun sendDiary(@Body diaryData: DiaryData): Single<DefaultResponse>
+
+    @POST("getDiary.php")
+    fun getDiary(
+        @Query("idTeacher") teacherId: Int,
+        @Query("idParent") childId: Int
+    ): Single<DiaryResponse>
+
 }

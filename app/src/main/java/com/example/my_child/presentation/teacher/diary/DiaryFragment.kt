@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.example.my_child.R
 import com.example.my_child.presentation.fragments.BaseFragment
 import com.example.my_child.presentation.teacher.TeacherHomeActivity
+import com.example.my_child.presentation.teacher.diary.DiaryHistoryFragment.Companion.DiaryHistoryFragment_TAG
 import com.example.my_child.presentation.teacher.diary.babydiary.SleepFragment
 import com.example.my_child.presentation.teacher.diary.babydiary.SleepFragment.Companion.SleepFragment_TAG
 import com.example.my_child.utils.Constants.CHILD_ID
@@ -52,7 +53,7 @@ class DiaryFragment : BaseFragment() {
             openFragment(SleepFragment.newInstance(teacherId, childId), SleepFragment_TAG)
         }
         history_LL.setOnClickListener {
-            openFragment(SleepFragment.newInstance(teacherId, childId), SleepFragment_TAG)
+            openFragment(DiaryHistoryFragment.newInstance(teacherId, childId), DiaryHistoryFragment_TAG)
         }
     }
 

@@ -36,13 +36,13 @@ class ParentHomeActivity : BaseHomeActivity() {
         initTopBar()
         initNavigationMenu(viewModel)
         initBottomNavigation(viewModel)
-        openFragmentFromActivity(ParentHomeFragment.newInstance(), ParentHomeFragment_TAG, false)
+        openFragmentFromActivity(ParentHomeFragment.newInstance(userId), ParentHomeFragment_TAG, false)
     }
 
     private fun initBottomNavigation(viewModel: BaseViewModel) {
         bottom_navigation.initBottomNavigation(
             home = {
-                openFragmentFromActivity(ParentHomeFragment.newInstance(), ParentHomeFragment_TAG)
+                openFragmentFromActivity(ParentHomeFragment.newInstance(userId), ParentHomeFragment_TAG)
             },
             chat = {
                 startActivity(
