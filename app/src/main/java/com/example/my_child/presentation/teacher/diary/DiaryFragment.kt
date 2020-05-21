@@ -8,13 +8,11 @@ import com.example.my_child.R
 import com.example.my_child.presentation.fragments.BaseFragment
 import com.example.my_child.presentation.teacher.TeacherHomeActivity
 import com.example.my_child.presentation.teacher.diary.DiaryHistoryFragment.Companion.DiaryHistoryFragment_TAG
-import com.example.my_child.presentation.teacher.diary.babydiary.SleepFragment
+import com.example.my_child.presentation.teacher.diary.babydiary.*
+import com.example.my_child.presentation.teacher.diary.babydiary.FecesFragment.Companion.FecesFragment_TAG
 import com.example.my_child.presentation.teacher.diary.babydiary.SleepFragment.Companion.SleepFragment_TAG
-import com.example.my_child.presentation.teacher.diary.babydiary.SoftFoodFragment
 import com.example.my_child.presentation.teacher.diary.babydiary.SoftFoodFragment.Companion.SoftFoodFragment_TAG
-import com.example.my_child.presentation.teacher.diary.babydiary.SolidFoodFragment
 import com.example.my_child.presentation.teacher.diary.babydiary.SolidFoodFragment.Companion.SolidFoodFragment_TAG
-import com.example.my_child.presentation.teacher.diary.babydiary.UrineFragment
 import com.example.my_child.presentation.teacher.diary.babydiary.UrineFragment.Companion.UrineFragment_TAG
 import com.example.my_child.utils.Constants.CHILD_ID
 import com.example.my_child.utils.Constants.TEACHER_ID
@@ -44,9 +42,8 @@ class DiaryFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         feces_LL.setOnClickListener {
-            openFragment(SleepFragment.newInstance(teacherId, childId), SleepFragment_TAG)
+            openFragment(FecesFragment.newInstance(teacherId, childId), FecesFragment_TAG)
         }
-
         food_LL.setOnClickListener {
             openFragment(SoftFoodFragment.newInstance(teacherId, childId), SoftFoodFragment_TAG)
         }

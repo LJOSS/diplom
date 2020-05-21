@@ -32,4 +32,11 @@
     <string name="all">Все</string>
     <string name="most">Половина</string>
     <string name="some">Мало</string>
+
+    <string-array name="cal">
+        <item>Жидкий</item>
+        <item>Обычный</item>
+        <item>Твердый</item>
+    </string-array>
+
 </resources>

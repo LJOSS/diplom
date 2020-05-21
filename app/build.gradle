@@ -98,4 +98,6 @@ dependencies {
     //Descrete SeekBar
     implementation "org.adw.library:discrete-seekbar:$discrete_seekbar"
 
+    //Segment Control
+    implementation "com.github.RobertApikyan:SegmentedControl:$segment_control"
 }

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="?attr/actionBarSize">
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="48dp"
+        android:text="Состояние какашек:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11">
+
+        <segmented_control.widget.custom.android.com.segmentedcontrol.SegmentedControl
+            android:id="@+id/segmented_control"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:columnCount="3"
+            app:distributeEvenly="true"
+            app:radius="12dp"
+            app:segments="@array/cal"
+            app:selectedBackgroundColor="#F7981C"
+            app:selectedStrokeColor="#F4981C"
+            app:selectedTextColor="#FFFF"
+            app:strokeWidth="2dp"
+            app:textSize="14sp"
+            app:textVerticalPadding="6dp"
+            app:unSelectedStrokeColor="#F4981C"
+            app:unSelectedTextColor="#F7981C" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F7981C"
+        android:gravity="center"
+        android:text="Сохранить"
+        android:textColor="#FFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="40dp"
+        android:text="Цвет какашек:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <ImageView
+        android:id="@+id/imageViewYellow"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/yellow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        tools:layout_editor_absoluteY="188dp" />
+
+    <ImageView
+        android:id="@+id/choose_yellow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginLeft="22dp"
+        android:src="@drawable/choose"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/imageViewYellow"
+        app:layout_constraintTop_toTopOf="@+id/imageViewYellow" />
+
+    <ImageView
+        android:id="@+id/imageViewBrown"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginLeft="77dp"
+        android:src="@drawable/brown"
+        android:visibility="visible"
+        app:layout_constraintStart_toEndOf="@+id/imageViewYellow"
+        app:layout_constraintTop_toTopOf="@+id/imageViewYellow" />
+
+    <ImageView
+        android:id="@+id/choose_brown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginLeft="22dp"
+        android:src="@drawable/choose"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/imageViewBrown"
+        app:layout_constraintTop_toTopOf="@+id/imageViewBrown" />
+
+    <ImageView
+        android:id="@+id/imageViewGreen"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginLeft="77dp"
+        android:src="@drawable/green"
+        android:visibility="visible"
+        app:layout_constraintStart_toEndOf="@+id/imageViewBrown"
+        app:layout_constraintTop_toTopOf="@+id/imageViewBrown" />
+
+    <ImageView
+        android:id="@+id/choose_green"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginLeft="22dp"
+        android:src="@drawable/choose"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/imageViewGreen"
+        app:layout_constraintTop_toTopOf="@+id/imageViewGreen" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="8dp"
+        android:text="Желтый"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewYellow" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Коричневый"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/imageViewBrown"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewBrown" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Зеленый"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/imageViewGreen"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewGreen" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="40dp"
+        android:text="Время:"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="12 : 15"
+        android:textSize="17sp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
