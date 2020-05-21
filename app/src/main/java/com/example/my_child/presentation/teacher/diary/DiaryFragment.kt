@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.example.my_child.R
 import com.example.my_child.presentation.fragments.BaseFragment
 import com.example.my_child.utils.Constants.CHILD_ID
@@ -32,5 +33,6 @@ class DiaryFragment : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
     }
 }
