@@ -5,4 +5,9 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="colorBackgroundPressed">#C4C4C4</color>
     <color name="base_background">#F0F0F0</color>
+
+    <color name="feces_urine">#C67EFF</color>
+    <color name="sleep">#EF5243</color>
+    <color name="soft_solid">#54C5FF</color>
+    <color name="colorBlack">#000000</color>
 </resources>

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.my_child.R
 import com.example.my_child.presentation.fragments.BaseFragment
 import com.example.my_child.utils.Constants
+import com.example.my_child.utils.setupVisibility
 import kotlinx.android.synthetic.main.fragment_diary_history.*
 
 class DiaryHistoryFragment : BaseFragment() {
@@ -46,6 +47,9 @@ class DiaryHistoryFragment : BaseFragment() {
                 .getDiary(teacherId, childId)
                 .subscribe({
                     list_diary.layoutManager = LinearLayoutManager(requireActivity())
+                    list_diary.adapter = BabyDiaryAdapter(requireContext(), it)
+                    list_diary.setupVisibility(it.isNotEmpty())
+                    no_baby_diary.setupVisibility(it.isEmpty())
                 }, Throwable::printStackTrace)
         )
     }

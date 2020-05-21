@@ -32,6 +32,7 @@
     <string name="all">Все</string>
     <string name="most">Половина</string>
     <string name="some">Мало</string>
+    <string name="no_baby_diary">Дневник не заполнен</string>
 
     <string-array name="cal">
         <item>Жидкий</item>
