@@ -57,4 +57,21 @@ open class BaseDiaryFragment : BaseFragment() {
         )
         timePickerDialog.show()
     }
+
+    protected fun getFoodMessage(progress: Int): String {
+        return when (progress) {
+            0 -> {
+                activity!!.getString(R.string.some)
+            }
+            1 -> {
+                activity!!.getString(R.string.most)
+            }
+            2 -> {
+                activity!!.getString(R.string.all)
+            }
+            else -> {
+                ""
+            }
+        }
+    }
 }

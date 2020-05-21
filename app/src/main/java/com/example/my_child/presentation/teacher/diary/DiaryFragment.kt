@@ -10,6 +10,8 @@ import com.example.my_child.presentation.teacher.TeacherHomeActivity
 import com.example.my_child.presentation.teacher.diary.DiaryHistoryFragment.Companion.DiaryHistoryFragment_TAG
 import com.example.my_child.presentation.teacher.diary.babydiary.SleepFragment
 import com.example.my_child.presentation.teacher.diary.babydiary.SleepFragment.Companion.SleepFragment_TAG
+import com.example.my_child.presentation.teacher.diary.babydiary.SoftFoodFragment
+import com.example.my_child.presentation.teacher.diary.babydiary.SoftFoodFragment.Companion.SoftFoodFragment_TAG
 import com.example.my_child.presentation.teacher.diary.babydiary.SolidFoodFragment
 import com.example.my_child.presentation.teacher.diary.babydiary.SolidFoodFragment.Companion.SolidFoodFragment_TAG
 import com.example.my_child.presentation.teacher.diary.babydiary.UrineFragment
@@ -41,13 +43,13 @@ class DiaryFragment : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        food_LL.setOnClickListener {
-            openFragment(SleepFragment.newInstance(teacherId, childId), SleepFragment_TAG)
-        }
         feces_LL.setOnClickListener {
             openFragment(SleepFragment.newInstance(teacherId, childId), SleepFragment_TAG)
         }
 
+        food_LL.setOnClickListener {
+            openFragment(SoftFoodFragment.newInstance(teacherId, childId), SoftFoodFragment_TAG)
+        }
         solid_LL.setOnClickListener {
             openFragment(SolidFoodFragment.newInstance(teacherId, childId), SolidFoodFragment_TAG)
         }
