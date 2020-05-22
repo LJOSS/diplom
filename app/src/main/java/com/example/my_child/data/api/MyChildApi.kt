@@ -68,4 +68,13 @@ interface MyChildApi {
 
     @GET("administeredMedicine.php")
     fun administeredMedicine(@Query("id") id: Int): Single<DefaultResponse>
+
+    @GET("getPickup.php")
+    fun getPickup(
+        @Query("idTeacher") teacherId: Int,
+        @Query("idParent") childId: Int
+    ): Single<PickupResponse>
+
+    @POST("addPickup.php")
+    fun addPickup(@Body pickupData: PickupData): Single<DefaultResponse>
 }

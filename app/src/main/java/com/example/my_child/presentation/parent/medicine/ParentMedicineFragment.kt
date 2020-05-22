@@ -19,6 +19,7 @@ import com.example.my_child.utils.hideKeyboardNotAlways
 import com.example.my_child.utils.setupVisibility
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.fragment_medicine.*
+import java.lang.Exception
 
 class ParentMedicineFragment : BaseFragment() {
 
@@ -82,10 +83,14 @@ class ParentMedicineFragment : BaseFragment() {
     }
 
     private fun clearMedicine() {
-        medicine_name.text.clear()
-        frequency.text.clear()
-        dosage.text.clear()
-        parent_notes.text.clear()
+        try {
+            medicine_name.text.clear()
+            frequency.text.clear()
+            dosage.text.clear()
+            parent_notes.text.clear()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     private fun sendHomework(
