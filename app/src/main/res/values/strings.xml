@@ -36,7 +36,7 @@
     <string name="pill">Таблетки</string>
     <string name="not_administered">Не назначено</string>
     <string name="administered">Назначено</string>
-    <string name="pickup">Pickup</string>
+    <string name="pickup">Увоз</string>
 
     <string-array name="cal">
         <item>Жидкий</item>

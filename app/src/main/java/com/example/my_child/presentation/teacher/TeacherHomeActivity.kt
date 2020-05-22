@@ -23,6 +23,7 @@ import com.example.my_child.presentation.teacher.selectchild.SelectChildFragment
 import com.example.my_child.utils.Constants.CHAT_FRAGMENT
 import com.example.my_child.utils.Constants.DIARY_FRAGMENT
 import com.example.my_child.utils.Constants.MEDICINE_FRAGMENT
+import com.example.my_child.utils.Constants.PICKUP_FRAGMENT
 import com.example.my_child.utils.waitAnimation
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.main_content.*
@@ -99,6 +100,19 @@ class TeacherHomeActivity : BaseHomeActivity() {
                 openMedicine()
             }
         }
+        nav_pickup.setOnClickListener {
+            drawer_layout.closeDrawer(GravityCompat.END)
+            waitAnimation {
+                openPickup()
+            }
+        }
+    }
+
+    fun openPickup() {
+        openFragmentFromActivity(
+            SelectChildFragment.newInstance(userId, PICKUP_FRAGMENT),
+            SelectChildFragment_TAG
+        )
     }
 
     fun openMedicine() {

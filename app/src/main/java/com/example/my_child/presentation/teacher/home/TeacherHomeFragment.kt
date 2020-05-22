@@ -67,6 +67,9 @@ class TeacherHomeFragment : BaseFragment() {
             (activity as TeacherHomeActivity).openMedicine()
         }
         absent_track_layout.setOnClickListener {}
+        pickup_layout.setOnClickListener {
+            (activity as TeacherHomeActivity).openPickup()
+        }
     }
 
     private fun openFragment(fragment: Fragment, tag: String) {
