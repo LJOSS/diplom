@@ -12,13 +12,16 @@ import com.example.my_child.data.api.dto.response.ParentDataResponse
 import com.example.my_child.presentation.base.BaseHomeActivity
 import com.example.my_child.presentation.base.BaseViewModel
 import com.example.my_child.presentation.base.BaseViewModelFactory
-import com.example.my_child.presentation.parent.SelectDateFragment.Companion.SelectDateFragment_TAG
+import com.example.my_child.presentation.parent.date.SelectDateFragment
+import com.example.my_child.presentation.parent.date.SelectDateFragment.Companion.SelectDateFragment_TAG
 import com.example.my_child.presentation.parent.home.ParentHomeFragment
 import com.example.my_child.presentation.parent.home.ParentHomeFragment.Companion.ParentHomeFragment_TAG
 import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment
 import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment.Companion.ParentHomeworkFragment_TAG
 import com.example.my_child.presentation.parent.medicine.ParentMedicineFragment
 import com.example.my_child.presentation.parent.medicine.ParentMedicineFragment.Companion.MedicineFragment_TAG
+import com.example.my_child.presentation.parent.pickup.ParentPickupFragment
+import com.example.my_child.presentation.parent.pickup.ParentPickupFragment.Companion.ParentPickupFragment_TAG
 import com.example.my_child.presentation.teacher.chat.ChatActivity
 import com.example.my_child.utils.setupVisibility
 import com.example.my_child.utils.waitAnimation
@@ -168,5 +171,12 @@ class ParentHomeActivity : BaseHomeActivity() {
         isAddToBackStack: Boolean = true
     ) {
         openFragment(fragment, tag, isAddToBackStack)
+    }
+
+    fun openPickup(teacherId: Int) {
+        openFragmentFromActivity(
+            ParentPickupFragment.newInstance(teacherId, userId),
+            ParentPickupFragment_TAG
+        )
     }
 }

@@ -1,4 +1,4 @@
-package com.example.my_child.presentation.parent
+package com.example.my_child.presentation.parent.date
 
 import android.os.Bundle
 import android.view.LayoutInflater

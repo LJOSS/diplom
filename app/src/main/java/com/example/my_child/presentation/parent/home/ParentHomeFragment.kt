@@ -11,12 +11,9 @@ import com.example.my_child.presentation.base.BaseViewModel
 import com.example.my_child.presentation.base.BaseViewModelFactory
 import com.example.my_child.presentation.fragments.BaseFragment
 import com.example.my_child.presentation.parent.ParentHomeActivity
-import com.example.my_child.presentation.parent.SelectDateFragment
-import com.example.my_child.presentation.parent.SelectDateFragment.Companion.SelectDateFragment_TAG
+import com.example.my_child.presentation.parent.date.SelectDateFragment
+import com.example.my_child.presentation.parent.date.SelectDateFragment.Companion.SelectDateFragment_TAG
 import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment
-import com.example.my_child.presentation.teacher.chat.ChatActivity
-import com.example.my_child.presentation.teacher.diary.DiaryHistoryFragment
-import com.example.my_child.presentation.teacher.diary.DiaryHistoryFragment.Companion.DiaryHistoryFragment_TAG
 import com.example.my_child.utils.Constants.USER_ID
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -68,6 +65,7 @@ class ParentHomeFragment : BaseFragment() {
             (activity as ParentHomeActivity).openMedicine(viewModel.getTeacherId())
         }
         absent_track_layout.setOnClickListener {}
+        pickup_layout.setOnClickListener { (activity as ParentHomeActivity).openPickup(viewModel.getTeacherId()) }
     }
 
     private fun openFragment(fragment: Fragment, tag: String) {
