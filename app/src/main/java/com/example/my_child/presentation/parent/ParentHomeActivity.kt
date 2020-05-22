@@ -162,14 +162,6 @@ class ParentHomeActivity : BaseHomeActivity() {
         )
     }
 
-    override fun onBackPressed() {
-        if (drawer_layout.isDrawerOpen(Gravity.END)) {
-            drawer_layout.closeDrawer(Gravity.END)
-            return
-        }
-        this.finish()
-    }
-
     fun openFragmentFromActivity(
         fragment: Fragment,
         tag: String,
