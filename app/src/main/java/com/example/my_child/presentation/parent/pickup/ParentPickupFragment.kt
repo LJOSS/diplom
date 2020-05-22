@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.my_child.R
 import com.example.my_child.presentation.fragments.BaseFragment
-import com.example.my_child.utils.Constants
+import com.example.my_child.utils.Constants.CHILD_ID
+import com.example.my_child.utils.Constants.TEACHER_ID
 import com.example.my_child.utils.hideKeyboardNotAlways
 import com.example.my_child.utils.setupVisibility
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -17,11 +19,11 @@ import kotlinx.android.synthetic.main.fragment_pickup.*
 class ParentPickupFragment : BaseFragment() {
 
     companion object {
-        fun newInstance(teacherId: Int, userId: Int): BaseFragment =
+        fun newInstance(teacherId: Int, childId: Int): BaseFragment =
             ParentPickupFragment().apply {
                 arguments = Bundle().apply {
-                    putInt(Constants.TEACHER_ID, teacherId)
-                    putInt(Constants.USER_ID, userId)
+                    putInt(TEACHER_ID, teacherId)
+                    putInt(CHILD_ID, childId)
                 }
             }
 
@@ -54,7 +56,16 @@ class ParentPickupFragment : BaseFragment() {
     }
 
     private fun initList(viewModel: PickupViewModel) {
-
+        disposable.add(
+            viewModel
+                .getPickup(teacherId, childId)
+                .subscribe({
+                    pickup_history.apply {
+                        layoutManager = LinearLayoutManager(requireContext())
+                        adapter = PickupAdapter(requireContext(),it)
+                    }
+                }, Throwable::printStackTrace)
+        )
     }
 
     private fun initBottomSheetBehaviour(bsb: BottomSheetBehavior<LinearLayout>) {
