@@ -32,7 +32,7 @@ class SignUpViewModel(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
 
-    fun getMedicine(): Single<List<MedicineDataResponse>> =
+    fun getMedicine(): Single<List<MedicineData>> =
         myChildApi
             .getMedicine(1, 1)
             .map { it.data }

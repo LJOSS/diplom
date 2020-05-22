@@ -64,7 +64,9 @@ class ParentHomeFragment : BaseFragment() {
                 ParentHomeworkFragment.ParentHomeworkFragment_TAG
             )
         }
-        medicine_layout.setOnClickListener {}
+        medicine_layout.setOnClickListener {
+            (activity as ParentHomeActivity).openMedicine(viewModel.getTeacherId())
+        }
         absent_track_layout.setOnClickListener {}
     }
 

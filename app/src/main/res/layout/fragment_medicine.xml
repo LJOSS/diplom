@@ -2,14 +2,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="?actionBarSize"
     android:background="#F4F4F4"
     android:orientation="vertical">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/medicine_history_RV"
+        android:id="@+id/medicine_history"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +70,7 @@
                         android:orientation="vertical">
 
                         <EditText
-                            android:id="@+id/medicine_name_ET"
+                            android:id="@+id/medicine_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Название лекарства"
@@ -81,7 +82,7 @@
                             android:textColor="@color/colorBlack" />
 
                         <EditText
-                            android:id="@+id/frequency_ET"
+                            android:id="@+id/frequency"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Частота назначения: "
@@ -92,7 +93,7 @@
                             android:textColor="@color/colorBlack" />
 
                         <EditText
-                            android:id="@+id/dosage_ET"
+                            android:id="@+id/dosage"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Дозировка"
@@ -103,7 +104,7 @@
                             android:textColor="@color/colorBlack" />
 
                         <EditText
-                            android:id="@+id/parent_notes_ET"
+                            android:id="@+id/parent_notes"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Заметки (опционально)"

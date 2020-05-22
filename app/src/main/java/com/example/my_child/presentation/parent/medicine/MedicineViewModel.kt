@@ -15,12 +15,12 @@ class MedicineViewModel(
     private val preferencesManager: PreferencesManager
 ) : ViewModel() {
 
-    fun getMedicine(data: MedicineData): Single<DefaultResponse> =
+    fun insertMedicine(data: MedicineData): Single<DefaultResponse> =
         myChildApi.insertMedicine(data)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
 
-    fun getMedicine(idTeacher: Int, idChild: Int): Single<List<MedicineDataResponse>> =
+    fun getMedicine(idTeacher: Int, idChild: Int): Single<List<MedicineData>> =
         myChildApi
             .getMedicine(idTeacher, idChild)
             .map { it.data }
