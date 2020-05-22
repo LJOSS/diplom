@@ -9,11 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.my_child.R
+import com.example.my_child.data.api.dto.data.DayMedicine
 import com.example.my_child.data.api.dto.data.MedicineData
 import com.example.my_child.presentation.fragments.BaseFragment
-import com.example.my_child.utils.Constants
 import com.example.my_child.utils.Constants.TEACHER_ID
 import com.example.my_child.utils.Constants.USER_ID
+import com.example.my_child.utils.getFormattedDate
 import com.example.my_child.utils.hideKeyboardNotAlways
 import com.example.my_child.utils.setupVisibility
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -131,11 +132,32 @@ class MedicineFragment : BaseFragment() {
                 .subscribe({
                     medicine_history.apply {
                         layoutManager = LinearLayoutManager(requireContext())
-                        adapter = MedicineAdapter(requireContext(), it.reversed(), true) {
+                        adapter = MedicineDayAdapter(
+                            requireContext(),
+                            createListByDay(it.reversed()),
+                            true
+                        ) {
 
                         }
                     }
                 }, Throwable::printStackTrace)
         )
+    }
+
+    private fun createListByDay(list: List<MedicineData>): List<DayMedicine> {
+        val medicineByDay = arrayListOf<DayMedicine>()
+        list.forEach {
+            if (medicineByDay.isEmpty()) {
+                medicineByDay.add(DayMedicine(getFormattedDate(it.date), arrayListOf(it)))
+            } else {
+                val last = medicineByDay.last()
+                if (last.date.equals(getFormattedDate(it.date))) {
+                    last.list.add(it)
+                } else {
+                    medicineByDay.add(DayMedicine(getFormattedDate(it.date), arrayListOf(it)))
+                }
+            }
+        }
+        return medicineByDay
     }
 }
