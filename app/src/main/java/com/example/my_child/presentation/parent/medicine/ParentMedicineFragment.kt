@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.fragment_medicine.*
 class ParentMedicineFragment : BaseFragment() {
 
     companion object {
-        fun newInstance(teacherId: Int, userId: Int): Fragment =
+        fun newInstance(teacherId: Int, userId: Int): BaseFragment =
             ParentMedicineFragment().apply {
                 arguments = Bundle().apply {
                     putInt(TEACHER_ID, teacherId)

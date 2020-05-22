@@ -26,4 +26,9 @@ class MedicineViewModel(
             .map { it.data }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
+
+    fun administered(id: Int): Single<DefaultResponse> =
+        myChildApi.administeredMedicine(id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
 }
