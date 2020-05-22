@@ -7,13 +7,13 @@ data class PickupData(
     val childId: Int,
     @SerializedName("id_teacher")
     val teacherId: Int,
-    @SerializedName("parentName")
+    @SerializedName("parent_name")
     val parentName: String,
     @SerializedName("relation")
     val relation: String,
     @SerializedName("vehicle_number")
     val vehicle_number: String,
-    @SerializedName("contact_nmber")
+    @SerializedName("contact_number")
     val contact_nmber: String,
     @SerializedName("notes")
     val notes: String,
