@@ -24,6 +24,6 @@ data class MedicineData(
     val dosage: String,
     @SerializedName("notes")
     val notes: String,
-    @SerializedName("administred")
+    @SerializedName("administered")
     val administred: Int = 0
 )

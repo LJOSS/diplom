@@ -39,13 +39,12 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:text="Назначено"
             android:textColor="#7AB600"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/name"
-            tools:text="administered" />
+            tools:text="Назначено" />
 
         <ImageView
             android:id="@+id/imageView7"
@@ -116,7 +115,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:paddingBottom="8dp"
-            android:hint="No parent notes"
+            android:hint="Нет заметок"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView9"
             app:layout_constraintTop_toBottomOf="@+id/frequency"
@@ -135,7 +134,7 @@
             android:paddingTop="8dp"
             android:paddingRight="16dp"
             android:paddingBottom="8dp"
-            android:text="MEDICINE WAS GIVEN"
+            android:text="ЛЕКАРСТВО БЫЛО ДАНО"
             android:textColor="#1991EB"
             android:textSize="13sp"
             android:textStyle="bold"

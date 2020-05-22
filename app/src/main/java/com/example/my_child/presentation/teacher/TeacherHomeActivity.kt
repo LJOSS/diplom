@@ -101,7 +101,7 @@ class TeacherHomeActivity : BaseHomeActivity() {
         }
     }
 
-    private fun openMedicine() {
+    fun openMedicine() {
         openFragmentFromActivity(
             SelectChildFragment.newInstance(userId, MEDICINE_FRAGMENT),
             SelectChildFragment_TAG
