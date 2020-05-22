@@ -1,9 +1,6 @@
 package com.example.my_child.data.api
 
-import com.example.my_child.data.api.dto.data.ChatData
-import com.example.my_child.data.api.dto.data.HomeworkData
-import com.example.my_child.data.api.dto.data.LoginData
-import com.example.my_child.data.api.dto.data.MedicineData
+import com.example.my_child.data.api.dto.data.*
 import com.example.my_child.data.api.dto.response.*
 import io.reactivex.Observable
 import io.reactivex.Single
@@ -59,4 +56,14 @@ interface MyChildApi {
 
     @POST("insertChat.php")
     fun insertChat(@Body chatData: ChatData): Single<DefaultResponse>
+
+    @POST("insertDiary.php")
+    fun sendDiary(@Body diaryData: DiaryData): Single<DefaultResponse>
+
+    @POST("getDiary.php")
+    fun getDiary(
+        @Query("idTeacher") teacherId: Int,
+        @Query("idParent") childId: Int
+    ): Single<DiaryResponse>
+
 }

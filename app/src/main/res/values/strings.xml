@@ -28,4 +28,16 @@
     <string name="subject_name">Название предмета</string>
     <string name="subject_description">Описание</string>
     <string name="empty_field">Заполните поле</string>
+    <string name="time_template">%d:%s</string>
+    <string name="all">Все</string>
+    <string name="most">Половина</string>
+    <string name="some">Мало</string>
+    <string name="no_baby_diary">Дневник не заполнен</string>
+
+    <string-array name="cal">
+        <item>Жидкий</item>
+        <item>Обычный</item>
+        <item>Твердый</item>
+    </string-array>
+
 </resources>

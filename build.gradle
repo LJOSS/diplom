@@ -41,6 +41,8 @@ buildscript {
     ext.pickimage_version = '2.2.4'
     ext.zelory_compressor_version = '2.1.0'
     ext.pickimageVersion = '2.2.4'
+    ext.discrete_seekbar = '1.0.1'
+    ext.segment_control = '1.1.3'
 
     repositories {
         jcenter()

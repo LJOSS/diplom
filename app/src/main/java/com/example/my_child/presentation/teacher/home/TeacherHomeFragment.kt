@@ -13,6 +13,8 @@ import com.example.my_child.presentation.teacher.homework.TeacherHomeworkFragmen
 import com.example.my_child.presentation.teacher.selectchild.SelectChildFragment
 import com.example.my_child.presentation.teacher.selectchild.SelectChildFragment.Companion.SelectChildFragment_TAG
 import com.example.my_child.utils.Constants
+import com.example.my_child.utils.Constants.CHAT_FRAGMENT
+import com.example.my_child.utils.Constants.DIARY_FRAGMENT
 import com.example.my_child.utils.Constants.USER_ID
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -42,10 +44,15 @@ class TeacherHomeFragment : BaseFragment() {
     }
 
     private fun initClickers() {
-        diary_layout.setOnClickListener { }
+        diary_layout.setOnClickListener {
+            openFragment(
+                SelectChildFragment.newInstance(userId, DIARY_FRAGMENT),
+                SelectChildFragment_TAG
+            )
+        }
         chat_layout.setOnClickListener {
             openFragment(
-                SelectChildFragment.newInstance(userId, Constants.CHAT_FRAGMENT),
+                SelectChildFragment.newInstance(userId, CHAT_FRAGMENT),
                 SelectChildFragment_TAG
             )
         }

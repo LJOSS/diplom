@@ -10,11 +10,16 @@ import com.example.my_child.data.api.dto.response.ParentDataResponse
 import com.example.my_child.presentation.base.BaseHomeActivity
 import com.example.my_child.presentation.base.BaseViewModel
 import com.example.my_child.presentation.base.BaseViewModelFactory
+import com.example.my_child.presentation.parent.SelectDateFragment.Companion.SelectDateFragment_TAG
 import com.example.my_child.presentation.parent.home.ParentHomeFragment
 import com.example.my_child.presentation.parent.home.ParentHomeFragment.Companion.ParentHomeFragment_TAG
 import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment
 import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment.Companion.ParentHomeworkFragment_TAG
 import com.example.my_child.presentation.teacher.chat.ChatActivity
+import com.example.my_child.presentation.teacher.diary.DiaryHistoryFragment
+import com.example.my_child.presentation.teacher.diary.DiaryHistoryFragment.Companion.DiaryHistoryFragment_TAG
+import com.example.my_child.presentation.teacher.selectchild.SelectChildFragment
+import com.example.my_child.utils.Constants
 import com.example.my_child.utils.setupVisibility
 import com.example.my_child.utils.waitAnimation
 import kotlinx.android.synthetic.main.activity_home.*
@@ -34,13 +39,20 @@ class ParentHomeActivity : BaseHomeActivity() {
         initTopBar()
         initNavigationMenu(viewModel)
         initBottomNavigation(viewModel)
-        openFragmentFromActivity(ParentHomeFragment.newInstance(), ParentHomeFragment_TAG, false)
+        openFragmentFromActivity(
+            ParentHomeFragment.newInstance(userId),
+            ParentHomeFragment_TAG,
+            false
+        )
     }
 
     private fun initBottomNavigation(viewModel: BaseViewModel) {
         bottom_navigation.initBottomNavigation(
             home = {
-                openFragmentFromActivity(ParentHomeFragment.newInstance(), ParentHomeFragment_TAG)
+                openFragmentFromActivity(
+                    ParentHomeFragment.newInstance(userId),
+                    ParentHomeFragment_TAG
+                )
             },
             chat = {
                 startActivity(
@@ -88,6 +100,15 @@ class ParentHomeActivity : BaseHomeActivity() {
         }
         nav_photos.setOnClickListener { }
         nav_settings.setOnClickListener { }
+        nav_diary.setOnClickListener {
+            drawer_layout.closeDrawer(GravityCompat.END)
+            waitAnimation {
+                openFragmentFromActivity(
+                    SelectDateFragment.newInstance(viewModel.getTeacherId(), userId),
+                    SelectDateFragment_TAG
+                )
+            }
+        }
     }
 
     private fun initTopBar() {

@@ -6,6 +6,7 @@ import com.example.my_child.presentation.base.BaseViewModelFactory
 import com.example.my_child.presentation.signup.SignUpViewModelFactory
 import com.example.my_child.presentation.teacher.chat.ChatViewModelFactory
 import com.example.my_child.presentation.teacher.classlist.ClassListViewModelFactory
+import com.example.my_child.presentation.teacher.diary.DiaryViewModelFactory
 import com.example.my_child.presentation.teacher.homework.HomeworkViewModelFactory
 import com.example.my_child.presentation.teacher.selectchild.SelectChildViewModelFactory
 import dagger.Component
@@ -35,4 +36,6 @@ interface ApplicationComponent {
     fun inject(chatViewModelFactory: ChatViewModelFactory)
 
     fun inject(selectChildViewModelFactory: SelectChildViewModelFactory)
+
+    fun inject(diaryViewModelFactory: DiaryViewModelFactory)
 }

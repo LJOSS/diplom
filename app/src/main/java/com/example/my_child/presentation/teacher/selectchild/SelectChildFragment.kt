@@ -13,6 +13,8 @@ import com.example.my_child.data.api.dto.response.ParentDataResponse
 import com.example.my_child.presentation.fragments.BaseFragment
 import com.example.my_child.presentation.teacher.TeacherHomeActivity
 import com.example.my_child.presentation.teacher.chat.ChatActivity
+import com.example.my_child.presentation.teacher.diary.DiaryFragment
+import com.example.my_child.presentation.teacher.diary.DiaryFragment.Companion.DiaryFragment_TAG
 import com.example.my_child.utils.Constants
 import com.example.my_child.utils.Constants.CHAT_FRAGMENT
 import com.example.my_child.utils.Constants.DIARY_FRAGMENT
@@ -82,6 +84,10 @@ class SelectChildFragment : BaseFragment() {
                 )
             }
             DIARY_FRAGMENT -> {
+                openFragment(
+                    DiaryFragment.newInstance(teacherId, childInfo.childId),
+                    DiaryFragment_TAG
+                )
             }
         }
     }

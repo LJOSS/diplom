@@ -94,4 +94,10 @@ dependencies {
 
     //Compressor
     implementation "id.zelory:compressor:$zelory_compressor_version"
+
+    //Descrete SeekBar
+    implementation "org.adw.library:discrete-seekbar:$discrete_seekbar"
+
+    //Segment Control
+    implementation "com.github.RobertApikyan:SegmentedControl:$segment_control"
 }
