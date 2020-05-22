@@ -41,6 +41,7 @@ class ParentHomeworkFragment : BaseFragment() {
         val viewModel = ViewModelProvider(this, HomeworkViewModelFactory())
             .get(HomeworkViewModel::class.java)
 
+        add_homework_layout.visibility = View.GONE
         add_homework.setupVisibility(false)
         initList(viewModel)
     }
