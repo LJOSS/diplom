@@ -20,11 +20,11 @@ import com.example.my_child.utils.setupVisibility
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.fragment_medicine.*
 
-class MedicineFragment : BaseFragment() {
+class ParentMedicineFragment : BaseFragment() {
 
     companion object {
         fun newInstance(teacherId: Int, userId: Int): Fragment =
-            MedicineFragment().apply {
+            ParentMedicineFragment().apply {
                 arguments = Bundle().apply {
                     putInt(TEACHER_ID, teacherId)
                     putInt(USER_ID, userId)

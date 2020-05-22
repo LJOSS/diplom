@@ -17,8 +17,8 @@ import com.example.my_child.presentation.parent.home.ParentHomeFragment
 import com.example.my_child.presentation.parent.home.ParentHomeFragment.Companion.ParentHomeFragment_TAG
 import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment
 import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment.Companion.ParentHomeworkFragment_TAG
-import com.example.my_child.presentation.parent.medicine.MedicineFragment
-import com.example.my_child.presentation.parent.medicine.MedicineFragment.Companion.MedicineFragment_TAG
+import com.example.my_child.presentation.parent.medicine.ParentMedicineFragment
+import com.example.my_child.presentation.parent.medicine.ParentMedicineFragment.Companion.MedicineFragment_TAG
 import com.example.my_child.presentation.teacher.chat.ChatActivity
 import com.example.my_child.utils.setupVisibility
 import com.example.my_child.utils.waitAnimation
@@ -123,7 +123,7 @@ class ParentHomeActivity : BaseHomeActivity() {
 
     fun openMedicine(teacherId: Int) {
         openFragmentFromActivity(
-            MedicineFragment.newInstance(teacherId, userId),
+            ParentMedicineFragment.newInstance(teacherId, userId),
             MedicineFragment_TAG
         )
     }
