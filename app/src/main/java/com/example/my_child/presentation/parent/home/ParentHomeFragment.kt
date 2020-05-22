@@ -11,6 +11,8 @@ import com.example.my_child.presentation.base.BaseViewModel
 import com.example.my_child.presentation.base.BaseViewModelFactory
 import com.example.my_child.presentation.fragments.BaseFragment
 import com.example.my_child.presentation.parent.ParentHomeActivity
+import com.example.my_child.presentation.parent.SelectDateFragment
+import com.example.my_child.presentation.parent.SelectDateFragment.Companion.SelectDateFragment_TAG
 import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment
 import com.example.my_child.presentation.teacher.chat.ChatActivity
 import com.example.my_child.presentation.teacher.diary.DiaryHistoryFragment
@@ -48,8 +50,8 @@ class ParentHomeFragment : BaseFragment() {
     private fun initClickers(viewModel: BaseViewModel) {
         diary_layout.setOnClickListener {
             openFragment(
-                DiaryHistoryFragment.newInstance(viewModel.getTeacherId(), userId),
-                DiaryHistoryFragment_TAG
+                SelectDateFragment.newInstance(viewModel.getTeacherId(), userId),
+                SelectDateFragment_TAG
             )
         }
         chat_layout.setOnClickListener {

@@ -61,7 +61,6 @@ class SleepFragment : BaseDiaryFragment() {
         viewModel: DiaryViewModel
     ) {
         sendSleep(viewModel, "Спал с ${timeFrom.text} по ${timeTo.text}")
-        closeFragment()
     }
 
     private fun sendSleep(
@@ -80,7 +79,7 @@ class SleepFragment : BaseDiaryFragment() {
                     )
                 )
                 .subscribe({
-
+                    closeFragment()
                 }, Throwable::printStackTrace)
         )
     }

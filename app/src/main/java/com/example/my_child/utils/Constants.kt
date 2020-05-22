@@ -24,4 +24,6 @@ object Constants {
     const val SOFT = 3
     const val SOLID = 4
     const val SEPARATOR_BABY_DIARY = "SEPARATOR_BABY_DIARY"
+
+    const val BASE_DATE_FORMAT = "dd-MMMM-yyyy"
 }

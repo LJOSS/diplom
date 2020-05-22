@@ -10,6 +10,7 @@ import com.example.my_child.data.api.dto.response.ParentDataResponse
 import com.example.my_child.presentation.base.BaseHomeActivity
 import com.example.my_child.presentation.base.BaseViewModel
 import com.example.my_child.presentation.base.BaseViewModelFactory
+import com.example.my_child.presentation.parent.SelectDateFragment.Companion.SelectDateFragment_TAG
 import com.example.my_child.presentation.parent.home.ParentHomeFragment
 import com.example.my_child.presentation.parent.home.ParentHomeFragment.Companion.ParentHomeFragment_TAG
 import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment
@@ -103,8 +104,8 @@ class ParentHomeActivity : BaseHomeActivity() {
             drawer_layout.closeDrawer(GravityCompat.END)
             waitAnimation {
                 openFragmentFromActivity(
-                    DiaryHistoryFragment.newInstance(viewModel.getTeacherId(), userId),
-                    DiaryHistoryFragment_TAG
+                    SelectDateFragment.newInstance(viewModel.getTeacherId(), userId),
+                    SelectDateFragment_TAG
                 )
             }
         }

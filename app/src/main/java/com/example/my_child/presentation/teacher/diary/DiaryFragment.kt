@@ -14,9 +14,13 @@ import com.example.my_child.presentation.teacher.diary.babydiary.SleepFragment.C
 import com.example.my_child.presentation.teacher.diary.babydiary.SoftFoodFragment.Companion.SoftFoodFragment_TAG
 import com.example.my_child.presentation.teacher.diary.babydiary.SolidFoodFragment.Companion.SolidFoodFragment_TAG
 import com.example.my_child.presentation.teacher.diary.babydiary.UrineFragment.Companion.UrineFragment_TAG
+import com.example.my_child.utils.Constants.BASE_DATE_FORMAT
 import com.example.my_child.utils.Constants.CHILD_ID
 import com.example.my_child.utils.Constants.TEACHER_ID
+import com.example.my_child.utils.getCurrentDate
 import kotlinx.android.synthetic.main.fragment_diary.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DiaryFragment : BaseFragment() {
 
@@ -57,7 +61,10 @@ class DiaryFragment : BaseFragment() {
             openFragment(SleepFragment.newInstance(teacherId, childId), SleepFragment_TAG)
         }
         history_LL.setOnClickListener {
-            openFragment(DiaryHistoryFragment.newInstance(teacherId, childId), DiaryHistoryFragment_TAG)
+            openFragment(
+                DiaryHistoryFragment.newInstance(teacherId, childId, getCurrentDate()),
+                DiaryHistoryFragment_TAG
+            )
         }
     }
 
