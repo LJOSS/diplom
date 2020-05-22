@@ -66,4 +66,6 @@ interface MyChildApi {
         @Query("idParent") childId: Int
     ): Single<DiaryResponse>
 
+    @GET("administeredMedicine.php")
+    fun administeredMedicine(@Query("id") id: Int): Single<DefaultResponse>
 }

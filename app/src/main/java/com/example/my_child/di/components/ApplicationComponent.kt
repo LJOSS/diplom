@@ -3,6 +3,7 @@ package com.example.my_child.di.components
 import android.content.Context
 import com.example.my_child.di.modules.*
 import com.example.my_child.presentation.base.BaseViewModelFactory
+import com.example.my_child.presentation.parent.medicine.MedicineViewModelFactory
 import com.example.my_child.presentation.signup.SignUpViewModelFactory
 import com.example.my_child.presentation.teacher.chat.ChatViewModelFactory
 import com.example.my_child.presentation.teacher.classlist.ClassListViewModelFactory
@@ -38,4 +39,6 @@ interface ApplicationComponent {
     fun inject(selectChildViewModelFactory: SelectChildViewModelFactory)
 
     fun inject(diaryViewModelFactory: DiaryViewModelFactory)
+
+    fun inject(medicineViewModelFactory: MedicineViewModelFactory)
 }

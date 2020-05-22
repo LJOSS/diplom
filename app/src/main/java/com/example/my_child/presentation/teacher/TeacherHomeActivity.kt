@@ -22,6 +22,7 @@ import com.example.my_child.presentation.teacher.selectchild.SelectChildFragment
 import com.example.my_child.presentation.teacher.selectchild.SelectChildFragment.Companion.SelectChildFragment_TAG
 import com.example.my_child.utils.Constants.CHAT_FRAGMENT
 import com.example.my_child.utils.Constants.DIARY_FRAGMENT
+import com.example.my_child.utils.Constants.MEDICINE_FRAGMENT
 import com.example.my_child.utils.waitAnimation
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.main_content.*
@@ -92,6 +93,19 @@ class TeacherHomeActivity : BaseHomeActivity() {
                 )
             }
         }
+        nav_medicine.setOnClickListener {
+            drawer_layout.closeDrawer(GravityCompat.END)
+            waitAnimation {
+                openMedicine()
+            }
+        }
+    }
+
+    fun openMedicine() {
+        openFragmentFromActivity(
+            SelectChildFragment.newInstance(userId, MEDICINE_FRAGMENT),
+            SelectChildFragment_TAG
+        )
     }
 
     private fun initBottomNavigation(viewModel: BaseViewModel) {

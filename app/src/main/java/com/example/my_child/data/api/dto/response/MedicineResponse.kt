@@ -1,5 +1,6 @@
 package com.example.my_child.data.api.dto.response
 
+import com.example.my_child.data.api.dto.data.MedicineData
 import com.google.gson.annotations.SerializedName
 
 data class MedicineResponse(
@@ -8,7 +9,7 @@ data class MedicineResponse(
     @SerializedName("message")
     val message: String?,
     @SerializedName("data")
-    val data: List<MedicineDataResponse>,
+    val data: List<MedicineData>,
     @SerializedName("code")
     val code: Int
 )

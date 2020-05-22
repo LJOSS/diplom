@@ -61,7 +61,7 @@ class TestActivity : AppCompatActivity() {
 
     private fun getMedicine(viewModel: SignUpViewModel) {
         if (bool) {
-            disposable.add(
+/*            disposable.add(
                 viewModel.insertMedicine(
                     MedicineData(
                         idTeacher = 1,
@@ -74,7 +74,7 @@ class TestActivity : AppCompatActivity() {
                     medicine.text = it.toString()
                     debugLog(it.toString())
                 }, Throwable::printStackTrace)
-            )
+            )*/
         } else {
             disposable.add(
                 viewModel.getMedicine().subscribe({ list ->

@@ -10,4 +10,7 @@
     <color name="sleep">#EF5243</color>
     <color name="soft_solid">#54C5FF</color>
     <color name="colorBlack">#000000</color>
+
+    <color name="administered">#7AB600</color>
+    <color name="not_administered">#F7981C</color>
 </resources>

@@ -15,9 +15,12 @@ import com.example.my_child.presentation.teacher.TeacherHomeActivity
 import com.example.my_child.presentation.teacher.chat.ChatActivity
 import com.example.my_child.presentation.teacher.diary.DiaryFragment
 import com.example.my_child.presentation.teacher.diary.DiaryFragment.Companion.DiaryFragment_TAG
+import com.example.my_child.presentation.teacher.medicine.TeacherMedicineFragment
+import com.example.my_child.presentation.teacher.medicine.TeacherMedicineFragment.Companion.TeacherMedicineFragment_TAG
 import com.example.my_child.utils.Constants
 import com.example.my_child.utils.Constants.CHAT_FRAGMENT
 import com.example.my_child.utils.Constants.DIARY_FRAGMENT
+import com.example.my_child.utils.Constants.MEDICINE_FRAGMENT
 import com.example.my_child.utils.GridSpacingItemDecoration
 import com.example.my_child.utils.dpToPx
 import kotlinx.android.synthetic.main.select_child_fragment.*
@@ -87,6 +90,12 @@ class SelectChildFragment : BaseFragment() {
                 openFragment(
                     DiaryFragment.newInstance(teacherId, childInfo.childId),
                     DiaryFragment_TAG
+                )
+            }
+            MEDICINE_FRAGMENT -> {
+                openFragment(
+                    TeacherMedicineFragment.newInstance(teacherId, childInfo.childId),
+                    TeacherMedicineFragment_TAG
                 )
             }
         }

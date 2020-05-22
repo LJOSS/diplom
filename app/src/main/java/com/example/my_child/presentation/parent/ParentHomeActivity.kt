@@ -1,7 +1,9 @@
 package com.example.my_child.presentation.parent
 
+import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -15,11 +17,9 @@ import com.example.my_child.presentation.parent.home.ParentHomeFragment
 import com.example.my_child.presentation.parent.home.ParentHomeFragment.Companion.ParentHomeFragment_TAG
 import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment
 import com.example.my_child.presentation.parent.homework.ParentHomeworkFragment.Companion.ParentHomeworkFragment_TAG
+import com.example.my_child.presentation.parent.medicine.ParentMedicineFragment
+import com.example.my_child.presentation.parent.medicine.ParentMedicineFragment.Companion.MedicineFragment_TAG
 import com.example.my_child.presentation.teacher.chat.ChatActivity
-import com.example.my_child.presentation.teacher.diary.DiaryHistoryFragment
-import com.example.my_child.presentation.teacher.diary.DiaryHistoryFragment.Companion.DiaryHistoryFragment_TAG
-import com.example.my_child.presentation.teacher.selectchild.SelectChildFragment
-import com.example.my_child.utils.Constants
 import com.example.my_child.utils.setupVisibility
 import com.example.my_child.utils.waitAnimation
 import kotlinx.android.synthetic.main.activity_home.*
@@ -44,6 +44,10 @@ class ParentHomeActivity : BaseHomeActivity() {
             ParentHomeFragment_TAG,
             false
         )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            window.decorView.importantForAutofill =
+                View.IMPORTANT_FOR_AUTOFILL_NO_EXCLUDE_DESCENDANTS
+        }
     }
 
     private fun initBottomNavigation(viewModel: BaseViewModel) {
@@ -100,6 +104,12 @@ class ParentHomeActivity : BaseHomeActivity() {
         }
         nav_photos.setOnClickListener { }
         nav_settings.setOnClickListener { }
+        nav_medicine.setOnClickListener {
+            drawer_layout.closeDrawer(GravityCompat.END)
+            waitAnimation {
+                openMedicine(viewModel.getTeacherId())
+            }
+        }
         nav_diary.setOnClickListener {
             drawer_layout.closeDrawer(GravityCompat.END)
             waitAnimation {
@@ -109,6 +119,13 @@ class ParentHomeActivity : BaseHomeActivity() {
                 )
             }
         }
+    }
+
+    fun openMedicine(teacherId: Int) {
+        openFragmentFromActivity(
+            ParentMedicineFragment.newInstance(teacherId, userId),
+            MedicineFragment_TAG
+        )
     }
 
     private fun initTopBar() {

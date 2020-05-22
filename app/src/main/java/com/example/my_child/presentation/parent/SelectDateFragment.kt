@@ -1,7 +1,6 @@
 package com.example.my_child.presentation.parent
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,6 @@ import androidx.fragment.app.Fragment
 import com.example.my_child.R
 import com.example.my_child.presentation.fragments.BaseFragment
 import com.example.my_child.presentation.teacher.diary.DiaryHistoryFragment
-import com.example.my_child.utils.Constants
 import com.example.my_child.utils.Constants.BASE_DATE_FORMAT
 import com.example.my_child.utils.Constants.CHILD_ID
 import com.example.my_child.utils.Constants.TEACHER_ID
