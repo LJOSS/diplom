@@ -34,6 +34,8 @@
     <string name="some">Мало</string>
     <string name="no_baby_diary">Дневник не заполнен</string>
     <string name="pill">Таблетки</string>
+    <string name="not_administered">Не назначено</string>
+    <string name="administered">Назначено</string>
 
     <string-array name="cal">
         <item>Жидкий</item>

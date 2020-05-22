@@ -46,8 +46,27 @@ class MedicineAdapter(
                 dosage.text = data.dosage
                 frequency.text = data.frequency
                 notes.text = data.notes
+                administered.text = getTextAdministered(data.administred, context)
+                administered.setTextColor(getTExtColorAdministered(data.administred, context))
             }
         }
+
+        private fun getTExtColorAdministered(isAdministered: Int, context: Context): Int =
+            if (isAdministered == 1) {
+                context.getColor(R.color.administered)
+            } else {
+                context.getColor(R.color.not_administered)
+        }
+
+        private fun getTextAdministered(
+            isAdministered: Int,
+            context: Context
+        ): String =
+            if (isAdministered == 1) {
+                context.getString(R.string.administered)
+            } else {
+                context.getString(R.string.not_administered)
+            }
 
         override val containerView: View?
             get() = itemView
