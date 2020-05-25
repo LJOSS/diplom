@@ -3,6 +3,7 @@ package com.example.my_child.di.components
 import android.content.Context
 import com.example.my_child.di.modules.*
 import com.example.my_child.presentation.base.BaseViewModelFactory
+import com.example.my_child.presentation.parent.absent.AbsentViewModelFactory
 import com.example.my_child.presentation.parent.medicine.MedicineViewModelFactory
 import com.example.my_child.presentation.parent.pickup.PickupViewModelFactory
 import com.example.my_child.presentation.signup.SignUpViewModelFactory
@@ -44,4 +45,6 @@ interface ApplicationComponent {
     fun inject(medicineViewModelFactory: MedicineViewModelFactory)
 
     fun inject(pickupViewModelFactory: PickupViewModelFactory)
+
+    fun inject(absentViewModelFactory: AbsentViewModelFactory)
 }
