@@ -31,8 +31,10 @@ data class ParentDataResponse(
     val childLName: String,
     @SerializedName("PhoneNumber")
     val phone: String,
-    @SerializedName("Adress")
+    @SerializedName("Adress_street")
     val address: String,
+    @SerializedName("Adress_rajon")
+    val address_rajon: String,
     @SerializedName("Mail")
     val mail: String,
     @SerializedName("profile_pic")
