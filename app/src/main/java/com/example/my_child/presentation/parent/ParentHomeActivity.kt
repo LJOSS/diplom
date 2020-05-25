@@ -137,7 +137,7 @@ class ParentHomeActivity : BaseHomeActivity() {
         }
     }
 
-    private fun openAbsent(teacherId: Int) {
+    fun openAbsent(teacherId: Int) {
         openFragmentFromActivity(
             ParentAbsentFragment.newInstance(teacherId, userId),
             ParentAbsentFragment_TAG

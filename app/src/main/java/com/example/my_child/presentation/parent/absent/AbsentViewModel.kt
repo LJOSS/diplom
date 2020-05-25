@@ -20,9 +20,10 @@ class AbsentViewModel(
     fun getAbsent(
         teacherId: Int,
         childId: Int
-    ): Single<AbsentResponse> =
+    ): Single<List<AbsentDataResponse>> =
         myChildApi
             .getAbsent(teacherId, childId)
+            .map { it.data.reversed() }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
 

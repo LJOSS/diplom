@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.my_child.R
 import com.example.my_child.data.api.dto.response.AbsentDataResponse
 import com.example.my_child.presentation.fragments.BaseFragment
@@ -77,7 +78,10 @@ class ParentAbsentFragment : BaseFragment() {
         disposable.add(
             viewModel.getAbsent(teacherId, childId)
                 .subscribe({
-                    
+                    absent_history.apply {
+                        layoutManager = LinearLayoutManager(requireContext())
+                        adapter = AbsentAdapter(requireContext(), it)
+                    }
                 }, Throwable::printStackTrace)
         )
     }

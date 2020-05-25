@@ -14,6 +14,8 @@ import com.example.my_child.presentation.fragments.BaseFragment
 import com.example.my_child.presentation.parent.absent.ParentAbsentFragment
 import com.example.my_child.presentation.parent.absent.ParentAbsentFragment.Companion.ParentAbsentFragment_TAG
 import com.example.my_child.presentation.teacher.TeacherHomeActivity
+import com.example.my_child.presentation.teacher.absent.TeacherAbsentFragment
+import com.example.my_child.presentation.teacher.absent.TeacherAbsentFragment.Companion.TeacherAbsentFragment_TAG
 import com.example.my_child.presentation.teacher.chat.ChatActivity
 import com.example.my_child.presentation.teacher.diary.DiaryFragment
 import com.example.my_child.presentation.teacher.diary.DiaryFragment.Companion.DiaryFragment_TAG
@@ -106,8 +108,8 @@ class SelectChildFragment : BaseFragment() {
             }
             ABSENT_FRAGMENT -> {
                 openFragment(
-                    ParentAbsentFragment.newInstance(teacherId, childInfo.childId),
-                    ParentAbsentFragment_TAG
+                    TeacherAbsentFragment.newInstance(teacherId, childInfo.childId),
+                    TeacherAbsentFragment_TAG
                 )
             }
             PICKUP_FRAGMENT -> {
