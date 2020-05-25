@@ -70,10 +70,10 @@
                         android:orientation="vertical">
 
                         <EditText
-                            android:id="@+id/parent_name"
+                            android:id="@+id/reason"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Имя того кто забирает"
+                            android:hint="Причина отсутсвия"
                             android:imeOptions="actionNext"
                             android:inputType="textCapSentences"
                             android:maxLines="1"
@@ -81,45 +81,22 @@
                             android:paddingBottom="26dp"
                             android:textColor="@color/colorBlack" />
 
-                        <EditText
-                            android:id="@+id/relation"
+                        <TextView
+                            android:id="@+id/date_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Кем приходится ребенку"
-                            android:imeOptions="actionNext"
-                            android:inputType="textCapSentences"
                             android:maxLines="1"
-                            android:paddingBottom="26dp"
+                            android:text="Дата:"
                             android:textColor="@color/colorBlack" />
 
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/date"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <EditText
-                                android:id="@+id/car_number"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:hint="Номер машины"
-                                android:imeOptions="actionNext"
-                                android:inputType="number"
-                                android:maxLines="1"
-                                android:paddingBottom="26dp"
-                                android:textColor="@color/colorBlack" />
-
-                            <EditText
-                                android:id="@+id/phone_number"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:hint="Номер телефона"
-                                android:imeOptions="actionNext"
-                                android:inputType="number"
-                                android:maxLines="1"
-                                android:paddingBottom="26dp"
-                                android:textColor="@color/colorBlack" />
-                        </LinearLayout>
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:padding="12dp"
+                            android:text="22/05/2020"
+                            android:textColor="@color/colorBlack" />
 
                         <EditText
                             android:id="@+id/parent_notes"

@@ -12,6 +12,8 @@ import com.example.my_child.data.api.dto.response.ParentDataResponse
 import com.example.my_child.presentation.base.BaseHomeActivity
 import com.example.my_child.presentation.base.BaseViewModel
 import com.example.my_child.presentation.base.BaseViewModelFactory
+import com.example.my_child.presentation.parent.absent.ParentAbsentFragment
+import com.example.my_child.presentation.parent.absent.ParentAbsentFragment.Companion.ParentAbsentFragment_TAG
 import com.example.my_child.presentation.parent.date.SelectDateFragment
 import com.example.my_child.presentation.parent.date.SelectDateFragment.Companion.SelectDateFragment_TAG
 import com.example.my_child.presentation.parent.home.ParentHomeFragment
@@ -89,7 +91,12 @@ class ParentHomeActivity : BaseHomeActivity() {
     }
 
     private fun initNavigationMenu(viewModel: BaseViewModel) {
-        nav_home.setOnClickListener { }
+        nav_home.setOnClickListener {
+            openFragmentFromActivity(
+                ParentHomeFragment.newInstance(userId),
+                ParentHomeFragment_TAG
+            )
+        }
         nav_chat.setOnClickListener {
             drawer_layout.closeDrawer(GravityCompat.END)
             waitAnimation {
@@ -122,6 +129,19 @@ class ParentHomeActivity : BaseHomeActivity() {
                 )
             }
         }
+        nav_absent.setOnClickListener {
+            drawer_layout.closeDrawer(GravityCompat.END)
+            waitAnimation {
+                openAbsent(viewModel.getTeacherId())
+            }
+        }
+    }
+
+    private fun openAbsent(teacherId: Int) {
+        openFragmentFromActivity(
+            ParentAbsentFragment.newInstance(teacherId, userId),
+            ParentAbsentFragment_TAG
+        )
     }
 
     fun openMedicine(teacherId: Int) {

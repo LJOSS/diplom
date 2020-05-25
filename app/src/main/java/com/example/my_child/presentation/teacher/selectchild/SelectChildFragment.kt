@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.my_child.R
 import com.example.my_child.data.api.dto.response.ParentDataResponse
 import com.example.my_child.presentation.fragments.BaseFragment
+import com.example.my_child.presentation.parent.absent.ParentAbsentFragment
+import com.example.my_child.presentation.parent.absent.ParentAbsentFragment.Companion.ParentAbsentFragment_TAG
 import com.example.my_child.presentation.teacher.TeacherHomeActivity
 import com.example.my_child.presentation.teacher.chat.ChatActivity
 import com.example.my_child.presentation.teacher.diary.DiaryFragment
@@ -20,6 +22,7 @@ import com.example.my_child.presentation.teacher.medicine.TeacherMedicineFragmen
 import com.example.my_child.presentation.teacher.pickup.TeacherPickupFragment
 import com.example.my_child.presentation.teacher.pickup.TeacherPickupFragment.Companion.TeacherPickupFragment_TAG
 import com.example.my_child.utils.Constants
+import com.example.my_child.utils.Constants.ABSENT_FRAGMENT
 import com.example.my_child.utils.Constants.CHAT_FRAGMENT
 import com.example.my_child.utils.Constants.DIARY_FRAGMENT
 import com.example.my_child.utils.Constants.MEDICINE_FRAGMENT
@@ -99,6 +102,12 @@ class SelectChildFragment : BaseFragment() {
                 openFragment(
                     TeacherMedicineFragment.newInstance(teacherId, childInfo.childId),
                     TeacherMedicineFragment_TAG
+                )
+            }
+            ABSENT_FRAGMENT -> {
+                openFragment(
+                    ParentAbsentFragment.newInstance(teacherId, childInfo.childId),
+                    ParentAbsentFragment_TAG
                 )
             }
             PICKUP_FRAGMENT -> {
