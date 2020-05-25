@@ -64,7 +64,9 @@ class ParentHomeFragment : BaseFragment() {
         medicine_layout.setOnClickListener {
             (activity as ParentHomeActivity).openMedicine(viewModel.getTeacherId())
         }
-        absent_track_layout.setOnClickListener {}
+        absent_track_layout.setOnClickListener {
+            (activity as ParentHomeActivity).openAbsent(viewModel.getTeacherId())
+        }
         pickup_layout.setOnClickListener { (activity as ParentHomeActivity).openPickup(viewModel.getTeacherId()) }
     }
 

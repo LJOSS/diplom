@@ -16,6 +16,7 @@ object Constants {
     const val DIARY_FRAGMENT = 2
     const val MEDICINE_FRAGMENT = 3
     const val PICKUP_FRAGMENT = 4
+    const val ABSENT_FRAGMENT = 5
 
     // PARENT = 0
     // TEACHER = 1

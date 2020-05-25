@@ -12,6 +12,7 @@ import com.example.my_child.data.api.dto.response.TeacherDataResponse
 import com.example.my_child.presentation.base.BaseHomeActivity
 import com.example.my_child.presentation.base.BaseViewModel
 import com.example.my_child.presentation.base.BaseViewModelFactory
+import com.example.my_child.presentation.parent.absent.ParentAbsentFragment
 import com.example.my_child.presentation.teacher.classlist.ClassListFragment
 import com.example.my_child.presentation.teacher.classlist.ClassListFragment.Companion.ClassListFragment_TAG
 import com.example.my_child.presentation.teacher.home.TeacherHomeFragment
@@ -20,6 +21,7 @@ import com.example.my_child.presentation.teacher.homework.TeacherHomeworkFragmen
 import com.example.my_child.presentation.teacher.homework.TeacherHomeworkFragment.Companion.TeacherHomeworkFragment_TAG
 import com.example.my_child.presentation.teacher.selectchild.SelectChildFragment
 import com.example.my_child.presentation.teacher.selectchild.SelectChildFragment.Companion.SelectChildFragment_TAG
+import com.example.my_child.utils.Constants.ABSENT_FRAGMENT
 import com.example.my_child.utils.Constants.CHAT_FRAGMENT
 import com.example.my_child.utils.Constants.DIARY_FRAGMENT
 import com.example.my_child.utils.Constants.MEDICINE_FRAGMENT
@@ -55,7 +57,12 @@ class TeacherHomeActivity : BaseHomeActivity() {
     }
 
     private fun initNavigationMenu() {
-        nav_home.setOnClickListener { }
+        nav_home.setOnClickListener {
+            openFragmentFromActivity(
+                TeacherHomeFragment.newInstance(userId),
+                TeacherHomeFragment_TAG
+            )
+        }
         nav_chat.setOnClickListener {
             drawer_layout.closeDrawer(GravityCompat.END)
             waitAnimation {
@@ -106,7 +113,21 @@ class TeacherHomeActivity : BaseHomeActivity() {
                 openPickup()
             }
         }
+        nav_absent.setOnClickListener {
+            drawer_layout.closeDrawer(GravityCompat.END)
+            waitAnimation {
+                openAbsent()
+            }
+        }
     }
+
+    fun openAbsent() {
+        openFragmentFromActivity(
+            SelectChildFragment.newInstance(userId, ABSENT_FRAGMENT),
+            SelectChildFragment_TAG
+        )
+    }
+
 
     fun openPickup() {
         openFragmentFromActivity(

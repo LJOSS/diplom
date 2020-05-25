@@ -77,4 +77,14 @@ interface MyChildApi {
 
     @POST("addPickup.php")
     fun addPickup(@Body pickupData: PickupData): Single<DefaultResponse>
+
+    @POST("addAbsent.php")
+    fun addAbsent(@Body absentDataResponse: AbsentDataResponse): Single<DefaultResponse>
+
+    @GET("getAbsent.php")
+    fun getAbsent(
+        @Query("idTeacher") teacherId: Int,
+        @Query("idParent") childId: Int
+    ): Single<AbsentResponse>
+
 }
