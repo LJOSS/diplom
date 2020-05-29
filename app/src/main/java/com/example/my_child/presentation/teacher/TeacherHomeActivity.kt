@@ -168,9 +168,10 @@ class TeacherHomeActivity : BaseHomeActivity() {
                 )
             },
             profile = {
-                //openFragment(TeacherProfileFragment.newInstance(), TeacherProfileFragment_TAG)
-                viewModel.logout()
-                logout(this@TeacherHomeActivity)
+                openFragmentFromActivity(
+                    SettingsFragment.newInstance(userId),
+                    SettingsFragment_TAG
+                )
             }
         )
     }

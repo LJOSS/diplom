@@ -25,6 +25,7 @@ import com.example.my_child.presentation.parent.medicine.ParentMedicineFragment.
 import com.example.my_child.presentation.parent.pickup.ParentPickupFragment
 import com.example.my_child.presentation.parent.pickup.ParentPickupFragment.Companion.ParentPickupFragment_TAG
 import com.example.my_child.presentation.teacher.chat.ChatActivity
+import com.example.my_child.presentation.teacher.settings.SettingsFragment
 import com.example.my_child.utils.setupVisibility
 import com.example.my_child.utils.waitAnimation
 import kotlinx.android.synthetic.main.activity_home.*
@@ -73,9 +74,10 @@ class ParentHomeActivity : BaseHomeActivity() {
                 )
             },
             profile = {
-                //openFragment(ParentProfileFragment.newInstance(), ParentProfileFragment_TAG)
-                viewModel.logout()
-                logout(this)
+                openFragmentFromActivity(
+                    SettingsFragment.newInstance(userId),
+                    SettingsFragment.SettingsFragment_TAG
+                )
             }
         )
     }

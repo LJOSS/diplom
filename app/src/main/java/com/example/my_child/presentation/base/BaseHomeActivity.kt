@@ -2,7 +2,6 @@ package com.example.my_child.presentation.base
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.view.Gravity
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -65,13 +64,6 @@ open class BaseHomeActivity : AppCompatActivity() {
             return
         }
         super.onBackPressed()
-        /*debugLog("SIZE_ ${supportFragmentManager.fragments.size}")
-        val lastFragment = getLastFragment()
-        if (supportFragmentManager.fragments.size == 1) {
-            this.finish()
-        } else {
-            supportFragmentManager.beginTransaction().remove(lastFragment).commit()
-        }*/
     }
 
     private fun getLastFragment(): Fragment = supportFragmentManager.fragments.last()
@@ -94,12 +86,12 @@ open class BaseHomeActivity : AppCompatActivity() {
     }
 
     private fun addFragment(fragment: Fragment, tag: String, isAddToBackStack: Boolean) {
-        val q = supportFragmentManager.beginTransaction()
+        val transaction = supportFragmentManager.beginTransaction()
             .replace(R.id.container, fragment, tag)
         if (isAddToBackStack) {
-            q.addToBackStack(null)
+            transaction.addToBackStack(null)
         }
-        q.commitAllowingStateLoss()
+        transaction.commitAllowingStateLoss()
     }
 
     protected fun BottomNavigationView.initBottomNavigation(

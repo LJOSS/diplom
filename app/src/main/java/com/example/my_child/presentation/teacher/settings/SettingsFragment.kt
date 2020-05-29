@@ -1,12 +1,16 @@
 package com.example.my_child.presentation.teacher.settings
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.example.my_child.R
 import com.example.my_child.presentation.fragments.BaseFragment
+import com.example.my_child.presentation.signup.WelcomeActivity
 import com.example.my_child.utils.Constants.USER_ID
+import kotlinx.android.synthetic.main.settings_fragment.*
 
 class SettingsFragment : BaseFragment() {
 
@@ -30,6 +34,17 @@ class SettingsFragment : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        val viewModel = ViewModelProvider(this, SettingsViewModelFactory())
+            .get(SettingsViewModel::class.java)
 
+        logout_LL.setOnClickListener {
+            viewModel.logout()
+            startActivity(
+                Intent(
+                    requireActivity(),
+                    WelcomeActivity::class.java
+                ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            )
+        }
     }
 }
