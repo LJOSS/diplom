@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">192.168.88.28</domain>
+        <!--BERUTA-->
+        <domain includeSubdomains="true">192.168.100.10</domain>
+        <!--NALIBOKSKAYA-->
+        <!--<domain includeSubdomains="true">192.168.88.28</domain>-->
     </domain-config>
 </network-security-config>

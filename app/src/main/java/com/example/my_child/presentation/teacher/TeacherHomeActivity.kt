@@ -21,6 +21,8 @@ import com.example.my_child.presentation.teacher.homework.TeacherHomeworkFragmen
 import com.example.my_child.presentation.teacher.homework.TeacherHomeworkFragment.Companion.TeacherHomeworkFragment_TAG
 import com.example.my_child.presentation.teacher.selectchild.SelectChildFragment
 import com.example.my_child.presentation.teacher.selectchild.SelectChildFragment.Companion.SelectChildFragment_TAG
+import com.example.my_child.presentation.teacher.settings.SettingsFragment
+import com.example.my_child.presentation.teacher.settings.SettingsFragment.Companion.SettingsFragment_TAG
 import com.example.my_child.utils.Constants.ABSENT_FRAGMENT
 import com.example.my_child.utils.Constants.CHAT_FRAGMENT
 import com.example.my_child.utils.Constants.DIARY_FRAGMENT
@@ -91,7 +93,15 @@ class TeacherHomeActivity : BaseHomeActivity() {
                 )
             }
         }
-        nav_settings.setOnClickListener { }
+        nav_settings.setOnClickListener {
+            drawer_layout.closeDrawer(GravityCompat.END)
+            waitAnimation {
+                openFragmentFromActivity(
+                    SettingsFragment.newInstance(userId),
+                    SettingsFragment_TAG
+                )
+            }
+        }
         nav_list_childrens.setOnClickListener {
             drawer_layout.closeDrawer(GravityCompat.END)
             waitAnimation {

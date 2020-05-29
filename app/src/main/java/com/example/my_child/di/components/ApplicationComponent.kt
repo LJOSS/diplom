@@ -12,6 +12,7 @@ import com.example.my_child.presentation.teacher.classlist.ClassListViewModelFac
 import com.example.my_child.presentation.teacher.diary.DiaryViewModelFactory
 import com.example.my_child.presentation.teacher.homework.HomeworkViewModelFactory
 import com.example.my_child.presentation.teacher.selectchild.SelectChildViewModelFactory
+import com.example.my_child.presentation.teacher.settings.SettingsViewModelFactory
 import dagger.Component
 import javax.inject.Singleton
 
@@ -47,4 +48,6 @@ interface ApplicationComponent {
     fun inject(pickupViewModelFactory: PickupViewModelFactory)
 
     fun inject(absentViewModelFactory: AbsentViewModelFactory)
+
+    fun inject(settingsViewModelFactory: SettingsViewModelFactory)
 }
