@@ -56,7 +56,6 @@ class TeacherHomeFragment : BaseFragment() {
                 SelectChildFragment_TAG
             )
         }
-        photo_layout.setOnClickListener {}
         homework_layout.setOnClickListener {
             openFragment(
                 TeacherHomeworkFragment.newInstance(userId),

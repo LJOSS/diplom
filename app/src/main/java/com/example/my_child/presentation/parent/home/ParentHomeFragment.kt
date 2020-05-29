@@ -54,7 +54,6 @@ class ParentHomeFragment : BaseFragment() {
         chat_layout.setOnClickListener {
             (activity as ParentHomeActivity).openChat(viewModel.getTeacherId())
         }
-        photo_layout.setOnClickListener {}
         homework_layout.setOnClickListener {
             openFragment(
                 ParentHomeworkFragment.newInstance(viewModel.getTeacherId()),

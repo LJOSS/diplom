@@ -67,7 +67,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:id="@+id/photo_layout"
+            android:id="@+id/pickup_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
@@ -80,13 +80,13 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_camera_alt_white_24dp" />
+                android:src="@drawable/ic_transportation" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Фото"
+                android:text="@string/pickup"
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
@@ -104,29 +104,6 @@
                 android:layout_weight=".45"
                 android:gravity="center"
                 android:orientation="vertical">
-
-                <LinearLayout
-                    android:id="@+id/pickup_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight=".45"
-                    android:background="#FFB435"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_transportation" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/pickup"
-                        android:textColor="@android:color/white" />
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/medicine_layout"
