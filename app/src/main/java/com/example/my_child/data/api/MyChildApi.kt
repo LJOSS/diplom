@@ -87,4 +87,16 @@ interface MyChildApi {
         @Query("idParent") childId: Int
     ): Single<AbsentResponse>
 
+    @GET("changePassword.php")
+    fun changePassword(
+        @Query("oldPassword") oldPassword: String,
+        @Query("newPassword") newPassword: String
+    ): Single<DefaultResponse>
+
+    @GET("changeLogin.php")
+    fun changeLogin(
+        @Query("oldLogin") oldLogin: String,
+        @Query("newLogin") newLogin: String
+    ): Single<DefaultResponse>
+
 }

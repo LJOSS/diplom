@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDialog
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
@@ -45,7 +46,19 @@ class ChangePasswordDialog : DialogFragment() {
             } else if (new_password.text.toString() != repeat_new_password_license.text.toString()) {
                 driver_license_layout.error = "Пароли не совпадают"
             } else {
-
+                disposable.add(
+                    viewModel.changeLogin(
+                        viewModel.getLoginData().password,
+                        new_password.text.toString()
+                    ).subscribe({
+                        Toast.makeText(
+                            requireContext(),
+                            "Пароль успешно изменен",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        dismiss()
+                    }, Throwable::printStackTrace)
+                )
             }
         }
     }

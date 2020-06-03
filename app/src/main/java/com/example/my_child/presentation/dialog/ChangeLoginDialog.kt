@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDialog
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
@@ -45,7 +46,21 @@ class ChangeLoginDialog : DialogFragment() {
             } else if (new_login.text.toString() != repeat_new_login.text.toString()) {
                 repeat_new_login_layout.error = "Логины не совпадают"
             } else {
-
+                disposable.add(
+                    viewModel
+                        .changeLogin(
+                            viewModel.getLoginData().userName,
+                            new_login.text.toString()
+                        )
+                        .subscribe({
+                            Toast.makeText(
+                                requireContext(),
+                                "Логин успешно изменен",
+                                Toast.LENGTH_LONG
+                            ).show()
+                            dismiss()
+                        }, Throwable::printStackTrace)
+                )
             }
         }
     }
