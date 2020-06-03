@@ -11,8 +11,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.my_child.R
 import com.example.my_child.presentation.teacher.settings.SettingsViewModel
 import com.example.my_child.presentation.teacher.settings.SettingsViewModelFactory
+import io.reactivex.disposables.CompositeDisposable
+import kotlinx.android.synthetic.main.change_password_dialog.*
 
 class ChangePasswordDialog : DialogFragment() {
+
+    private val disposable: CompositeDisposable = CompositeDisposable()
 
     companion object {
         fun newInstance(): DialogFragment = ChangePasswordDialog()
@@ -34,5 +38,20 @@ class ChangePasswordDialog : DialogFragment() {
 
         val viewModel = ViewModelProvider(this, SettingsViewModelFactory())
             .get(SettingsViewModel::class.java)
+
+        change_password.setOnClickListener {
+            if (old_password_text.text.toString() != viewModel.getLoginData().password) {
+                login_text_layout.error = "Прошлый пароль введен неверно"
+            } else if (new_password.text.toString() != repeat_new_password_license.text.toString()) {
+                driver_license_layout.error = "Пароли не совпадают"
+            } else {
+
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        disposable.dispose()
     }
 }

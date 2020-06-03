@@ -11,8 +11,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.my_child.R
 import com.example.my_child.presentation.teacher.settings.SettingsViewModel
 import com.example.my_child.presentation.teacher.settings.SettingsViewModelFactory
+import io.reactivex.disposables.CompositeDisposable
+import kotlinx.android.synthetic.main.change_login_dialog.*
 
 class ChangeLoginDialog : DialogFragment() {
+
+    private val disposable: CompositeDisposable = CompositeDisposable()
 
     companion object {
         fun newInstance(): DialogFragment = ChangeLoginDialog()
@@ -34,5 +38,20 @@ class ChangeLoginDialog : DialogFragment() {
 
         val viewModel = ViewModelProvider(this, SettingsViewModelFactory())
             .get(SettingsViewModel::class.java)
+
+        change_login.setOnClickListener {
+            if (old_login.text.toString() != viewModel.getLoginData().userName) {
+                old_login_text_layout.error = "Логин не совпадает"
+            } else if (new_login.text.toString() != repeat_new_login.text.toString()) {
+                repeat_new_login_layout.error = "Логины не совпадают"
+            } else {
+
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        disposable.dispose()
     }
 }
