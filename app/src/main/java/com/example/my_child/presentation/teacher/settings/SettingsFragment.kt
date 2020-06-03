@@ -7,6 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.example.my_child.R
+import com.example.my_child.presentation.dialog.ChangeLoginDialog
+import com.example.my_child.presentation.dialog.ChangeLoginDialog.Companion.CHANGE_LOGIN_DIALOG
+import com.example.my_child.presentation.dialog.ChangePasswordDialog
+import com.example.my_child.presentation.dialog.ChangePasswordDialog.Companion.CHANGE_PASSWORD_DIALOG
 import com.example.my_child.presentation.fragments.BaseFragment
 import com.example.my_child.presentation.signup.WelcomeActivity
 import com.example.my_child.utils.Constants.USER_ID
@@ -37,6 +41,21 @@ class SettingsFragment : BaseFragment() {
         val viewModel = ViewModelProvider(this, SettingsViewModelFactory())
             .get(SettingsViewModel::class.java)
 
+        initView(viewModel)
+
+        remember_me_SW.setOnClickListener {
+
+        }
+        password_LL.setOnClickListener {
+            ChangePasswordDialog
+                .newInstance()
+                .show(requireActivity().supportFragmentManager, CHANGE_PASSWORD_DIALOG)
+        }
+        login_LL.setOnClickListener {
+            ChangeLoginDialog
+                .newInstance()
+                .show(requireActivity().supportFragmentManager,CHANGE_LOGIN_DIALOG)
+        }
         logout_LL.setOnClickListener {
             viewModel.logout()
             startActivity(
@@ -46,5 +65,9 @@ class SettingsFragment : BaseFragment() {
                 ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
             )
         }
+    }
+
+    private fun initView(viewModel: SettingsViewModel) {
+
     }
 }

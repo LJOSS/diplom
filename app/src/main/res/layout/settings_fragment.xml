@@ -62,6 +62,7 @@
             android:background="@color/colorPrimaryDark" />
 
         <LinearLayout
+            android:id="@+id/remember_me_SW"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -81,12 +82,12 @@
             </RelativeLayout>
 
             <Switch
-                android:id="@+id/remember_me_SW"
+                android:id="@+id/switch_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="@dimen/activity_horizontal_margin"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:text="Remember me"
+                android:text="Запомнить меня"
                 android:textColor="@color/colorAccent" />
         </LinearLayout>
 
@@ -121,7 +122,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/email_LL"
+            android:id="@+id/login_LL"
             android:background="@drawable/info_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
