@@ -49,7 +49,7 @@ class BabyDiaryAdapter(
                         message.visibility = View.GONE
                     }
                     FECES -> {
-                        babytype.text = "Какахи"
+                        babytype.text = "Экскременты"
                         message.text = data.message
                     }
                     SOFT, SOLID -> {

@@ -58,7 +58,7 @@ class UrineFragment : BaseDiaryFragment() {
                 DiaryData(
                     childId = childId,
                     teacherId = teacherId,
-                    message = "Пипи",
+                    message = "Урина",
                     type = URINE,
                     time = sendTime
                 )

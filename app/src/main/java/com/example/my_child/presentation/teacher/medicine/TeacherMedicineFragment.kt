@@ -14,6 +14,7 @@ import com.example.my_child.presentation.fragments.BaseFragment
 import com.example.my_child.presentation.parent.medicine.MedicineDayAdapter
 import com.example.my_child.presentation.parent.medicine.MedicineViewModel
 import com.example.my_child.presentation.parent.medicine.MedicineViewModelFactory
+import com.example.my_child.presentation.teacher.TeacherHomeActivity
 import com.example.my_child.utils.Constants
 import com.example.my_child.utils.getFormattedDate
 import com.example.my_child.utils.setupVisibility
@@ -98,5 +99,10 @@ class TeacherMedicineFragment : BaseFragment() {
             }
         }
         return medicineByDay
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as TeacherHomeActivity).setTitle("Таблетки")
     }
 }

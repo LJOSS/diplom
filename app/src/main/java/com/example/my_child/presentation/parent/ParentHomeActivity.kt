@@ -75,7 +75,7 @@ class ParentHomeActivity : BaseHomeActivity() {
             },
             profile = {
                 openFragmentFromActivity(
-                    SettingsFragment.newInstance(userId),
+                    SettingsFragment.newInstance(userId, 0),
                     SettingsFragment.SettingsFragment_TAG
                 )
             }
@@ -115,7 +115,15 @@ class ParentHomeActivity : BaseHomeActivity() {
             }
         }
         nav_photos.setOnClickListener { }
-        nav_settings.setOnClickListener { }
+        nav_settings.setOnClickListener {
+            drawer_layout.closeDrawer(GravityCompat.END)
+            waitAnimation {
+                openFragmentFromActivity(
+                    SettingsFragment.newInstance(userId, 0),
+                    SettingsFragment.SettingsFragment_TAG
+                )
+            }
+        }
         nav_medicine.setOnClickListener {
             drawer_layout.closeDrawer(GravityCompat.END)
             waitAnimation {
@@ -200,5 +208,9 @@ class ParentHomeActivity : BaseHomeActivity() {
             ParentPickupFragment.newInstance(teacherId, userId),
             ParentPickupFragment_TAG
         )
+    }
+
+    fun setTitle(title: String) {
+        text_toolbar.text = title
     }
 }

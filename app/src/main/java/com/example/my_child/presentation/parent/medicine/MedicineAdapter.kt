@@ -41,13 +41,13 @@ class MedicineAdapter(
         ) {
             with(itemView) {
                 give_medicine.setupVisibility(!isParent)
-                administered.setupVisibility(isParent)
-                name.text = data.name
-                dosage.text = data.dosage
-                frequency.text = data.frequency
-                notes.text = data.notes
-                administered.text = getTextAdministered(data.administred, context)
-                administered.setTextColor(getTExtColorAdministered(data.administred, context))
+                administered_show.setupVisibility(isParent)
+                name_show.text = data.name
+                dosage_show.text = data.dosage
+                frequency_show.text = data.frequency
+                notes_show.text = data.notes
+                administered_show.text = getTextAdministered(data.administred, context)
+                administered_show.setTextColor(getTExtColorAdministered(data.administred, context))
             }
         }
 

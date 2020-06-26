@@ -39,8 +39,8 @@ class ChildInfoActivity : AppCompatActivity() {
             parent_name.text = fName
             parent_last_name.text = lName
             number.text = phone
-            address_st.text = address
-            rajon.text = address
+            address_st.text = "$address, $address_house"
+            rajon.text = address_rajon
             mail_p.text = mail
         }
     }

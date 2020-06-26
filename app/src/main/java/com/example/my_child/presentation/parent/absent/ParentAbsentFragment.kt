@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.my_child.R
 import com.example.my_child.data.api.dto.response.AbsentDataResponse
 import com.example.my_child.presentation.fragments.BaseFragment
+import com.example.my_child.presentation.parent.ParentHomeActivity
 import com.example.my_child.utils.Constants
 import com.example.my_child.utils.debugLog
 import com.example.my_child.utils.hideKeyboardNotAlways
@@ -143,5 +144,10 @@ class ParentAbsentFragment : BaseFragment() {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as ParentHomeActivity).setTitle("Отсутствия")
     }
 }

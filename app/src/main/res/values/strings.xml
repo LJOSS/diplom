@@ -5,7 +5,7 @@
     <string name="login">Вход</string>
     <string name="login_hint">Логин</string>
     <string name="password_hint">Пароль</string>
-    <string name="permissible_values_login">qwertyuiopasdfghjklzxcvbnm</string>
+    <string name="permissible_values_login">qwertyuiopasdfghjklzxcvbnm1234567890</string>
     <string name="password_letters_error">Пароль должен иметь хотя бы одну цифру, заглавную и строчную буквы латинского алфавита</string>
     <string name="not_equals_passwords_error">Пароли не совпадают</string>
     <string name="user_exists_with_login">Пользователь с таким Login уже существует</string>
@@ -29,7 +29,7 @@
     <string name="subject_description">Описание</string>
     <string name="empty_field">Заполните поле</string>
     <string name="time_template">%d:%s</string>
-    <string name="all">Все</string>
+    <string name="all">Норма</string>
     <string name="most">Половина</string>
     <string name="some">Мало</string>
     <string name="no_baby_diary">Дневник не заполнен</string>

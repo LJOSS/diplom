@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.my_child.R
 import com.example.my_child.data.api.dto.response.ParentDataResponse
 import com.example.my_child.presentation.fragments.BaseFragment
+import com.example.my_child.presentation.teacher.TeacherHomeActivity
 import com.example.my_child.presentation.teacher.classlist.ChildInfoActivity.Companion.CHILD_INFO
 import com.example.my_child.utils.Constants.USER_ID
 import kotlinx.android.synthetic.main.fragment_class_list.*
@@ -66,5 +67,10 @@ class ClassListFragment : BaseFragment() {
             ).apply {
                 putExtra(CHILD_INFO, dataResponse)
             })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as TeacherHomeActivity).setTitle("Список детей")
     }
 }

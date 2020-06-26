@@ -122,7 +122,7 @@
                         </LinearLayout>
 
                         <EditText
-                            android:id="@+id/parent_notes"
+                            android:id="@+id/parent_notes_qwe"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Заметки (опционально)"

@@ -50,7 +50,7 @@
                 android:padding="@dimen/nav_header_vertical_spacing">
 
                 <TextView
-                    android:id="@+id/person_name"
+                    android:id="@+id/person_name_show"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/white"
@@ -58,7 +58,7 @@
                     tools:text="Ivan" />
 
                 <TextView
-                    android:id="@+id/relation"
+                    android:id="@+id/relation_show"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/white"
@@ -66,7 +66,7 @@
                     tools:text="Parent" />
 
                 <TextView
-                    android:id="@+id/car_number"
+                    android:id="@+id/car_number_show"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_bus_small"
@@ -77,7 +77,7 @@
                     tools:text="1234 AA-0" />
 
                 <TextView
-                    android:id="@+id/phone_number"
+                    android:id="@+id/phone_number_show"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_call_white"

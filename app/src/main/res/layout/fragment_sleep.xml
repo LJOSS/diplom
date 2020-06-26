@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
         android:gravity="center"
-        android:text="SAVE"
+        android:text="СОХРАНИТЬ"
         android:textColor="#FFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

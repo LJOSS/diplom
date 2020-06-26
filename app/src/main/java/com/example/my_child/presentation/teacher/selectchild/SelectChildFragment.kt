@@ -124,4 +124,18 @@ class SelectChildFragment : BaseFragment() {
     private fun openFragment(fragment: BaseFragment, tag: String) {
         (activity as TeacherHomeActivity).openFragmentFromActivity(fragment, tag)
     }
+
+    override fun onResume() {
+        super.onResume()
+        var title = ""
+        when (fragmentType) {
+            CHAT_FRAGMENT -> { title = "Чат" }
+            DIARY_FRAGMENT -> { title = "Дневник" }
+            MEDICINE_FRAGMENT -> { title = "Таблетки" }
+            ABSENT_FRAGMENT -> { title = "Отсутствия" }
+            PICKUP_FRAGMENT ->  { title = "Увоз" }
+        }
+
+        (activity as TeacherHomeActivity).setTitle(title)
+    }
 }

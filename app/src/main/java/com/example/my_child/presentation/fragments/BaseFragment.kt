@@ -14,6 +14,8 @@ open class BaseFragment : Fragment() {
 
     protected val childId: Int by lazy { requireArguments().getInt(Constants.CHILD_ID) }
 
+    protected val isParent: Int by lazy { requireArguments().getInt(Constants.IS_PARENT) }
+
     protected val fragmentType: Int by lazy { requireArguments().getInt(Constants.TYPE_FRAGMENT) }
 
     override fun onDestroy() {

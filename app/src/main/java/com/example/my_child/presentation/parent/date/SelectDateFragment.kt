@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.my_child.R
 import com.example.my_child.presentation.fragments.BaseFragment
+import com.example.my_child.presentation.parent.ParentHomeActivity
 import com.example.my_child.presentation.teacher.diary.DiaryHistoryFragment
 import com.example.my_child.utils.Constants.BASE_DATE_FORMAT
 import com.example.my_child.utils.Constants.CHILD_ID
@@ -86,5 +87,10 @@ class SelectDateFragment : BaseFragment() {
                 .addToBackStack(null)
                 .commitAllowingStateLoss()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as ParentHomeActivity).setTitle("Дневник")
     }
 }

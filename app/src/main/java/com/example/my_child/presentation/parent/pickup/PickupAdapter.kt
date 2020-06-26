@@ -34,11 +34,11 @@ class PickupAdapter(
         fun bind(data: PickupData) {
             with(itemView) {
                 date.text = getFormattedDate(data.time)
-                person_name.text = data.parentName
-                relation.text = data.relation
+                person_name_show.text = data.parentName
+                relation_show.text = data.relation
                 parent_notes.text = data.notes
-                car_number.text = data.vehicle_number
-                phone_number.text = data.contact_nmber
+                car_number_show.text = data.vehicle_number
+                phone_number_show.text = data.contact_nmber
             }
         }
 

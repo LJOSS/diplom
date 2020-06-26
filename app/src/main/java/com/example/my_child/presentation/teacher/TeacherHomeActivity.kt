@@ -97,7 +97,7 @@ class TeacherHomeActivity : BaseHomeActivity() {
             drawer_layout.closeDrawer(GravityCompat.END)
             waitAnimation {
                 openFragmentFromActivity(
-                    SettingsFragment.newInstance(userId),
+                    SettingsFragment.newInstance(userId, 1),
                     SettingsFragment_TAG
                 )
             }
@@ -169,7 +169,7 @@ class TeacherHomeActivity : BaseHomeActivity() {
             },
             profile = {
                 openFragmentFromActivity(
-                    SettingsFragment.newInstance(userId),
+                    SettingsFragment.newInstance(userId, 1),
                     SettingsFragment_TAG
                 )
             }
@@ -213,5 +213,9 @@ class TeacherHomeActivity : BaseHomeActivity() {
                     }
                 }, Throwable::printStackTrace)
         )
+    }
+
+    fun setTitle(title: String) {
+        text_toolbar.text = title
     }
 }

@@ -40,7 +40,7 @@ class ValidationManager {
         }
 
     // Проверка на совпадение паролей
-    fun checkConfirmPasswordValidation(pass: String, confirmPass: String): ValidationResponse =
+    fun checkConfirmValidation(pass: String, confirmPass: String): ValidationResponse =
         if (pass == confirmPass) {
             ValidationResponse.SUCCESS
         } else {

@@ -72,4 +72,9 @@ class ParentHomeFragment : BaseFragment() {
     private fun openFragment(fragment: Fragment, tag: String) {
         (activity as ParentHomeActivity).openFragmentFromActivity(fragment, tag)
     }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as ParentHomeActivity).setTitle("Мой ребенок")
+    }
 }

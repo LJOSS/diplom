@@ -11,6 +11,7 @@ import com.example.my_child.presentation.fragments.BaseFragment
 import com.example.my_child.presentation.parent.pickup.PickupAdapter
 import com.example.my_child.presentation.parent.pickup.PickupViewModel
 import com.example.my_child.presentation.parent.pickup.PickupViewModelFactory
+import com.example.my_child.presentation.teacher.TeacherHomeActivity
 import com.example.my_child.utils.Constants
 import com.example.my_child.utils.setupVisibility
 import kotlinx.android.synthetic.main.fragment_pickup.*
@@ -56,5 +57,10 @@ class TeacherPickupFragment : BaseFragment() {
                     }
                 }, Throwable::printStackTrace)
         )
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as TeacherHomeActivity).setTitle("Увоз")
     }
 }

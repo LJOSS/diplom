@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.my_child.R
 import com.example.my_child.presentation.fragments.BaseFragment
+import com.example.my_child.presentation.parent.ParentHomeActivity
 import com.example.my_child.presentation.teacher.homework.HomeworkAdapter
 import com.example.my_child.presentation.teacher.homework.HomeworkViewModel
 import com.example.my_child.presentation.teacher.homework.HomeworkViewModelFactory
@@ -57,5 +58,10 @@ class ParentHomeworkFragment : BaseFragment() {
                     }
                 }, Throwable::printStackTrace)
         )
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as ParentHomeActivity).setTitle("Домашняя работа")
     }
 }

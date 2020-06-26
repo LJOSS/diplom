@@ -11,6 +11,7 @@ import com.example.my_child.presentation.fragments.BaseFragment
 import com.example.my_child.presentation.parent.absent.AbsentAdapter
 import com.example.my_child.presentation.parent.absent.AbsentViewModel
 import com.example.my_child.presentation.parent.absent.AbsentViewModelFactory
+import com.example.my_child.presentation.teacher.TeacherHomeActivity
 import com.example.my_child.utils.Constants
 import com.example.my_child.utils.setupVisibility
 import kotlinx.android.synthetic.main.fragment_absent.*
@@ -57,5 +58,10 @@ class TeacherAbsentFragment : BaseFragment() {
                     }
                 }, Throwable::printStackTrace)
         )
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as TeacherHomeActivity).setTitle("Отсутствия")
     }
 }

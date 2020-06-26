@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import com.example.my_child.data.api.MyChildApi
 import com.example.my_child.data.api.dto.data.LoginData
 import com.example.my_child.data.api.dto.response.DefaultResponse
+import com.example.my_child.data.api.dto.response.ParentResponse
+import com.example.my_child.data.api.dto.response.TeacherResponse
 import com.example.my_child.domain.ValidationManager
 import com.example.my_child.domain.preferences.PreferencesManager
 import com.example.my_child.utils.Constants.IS_LOGGED
@@ -18,6 +20,16 @@ class SettingsViewModel(
     private val validationManager: ValidationManager,
     private val myChildApi: MyChildApi
 ) : ViewModel() {
+
+    fun getTeacherData(idTeacher: Int): Single<TeacherResponse> =
+        myChildApi.getTeacherData(idTeacher)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+
+    fun getParentData(idParent: Int): Single<ParentResponse> =
+        myChildApi.getParentData(idParent)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
 
     fun logout() {
         preferencesManager.saveBoolean(IS_LOGGED, false)

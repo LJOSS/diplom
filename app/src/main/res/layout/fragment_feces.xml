@@ -13,7 +13,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="48dp"
-        android:text="Состояние какашек:"
+        android:text="Консистенция экскрементов:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,23 +38,23 @@
             app:distributeEvenly="true"
             app:radius="12dp"
             app:segments="@array/cal"
-            app:selectedBackgroundColor="#F7981C"
-            app:selectedStrokeColor="#F4981C"
+            app:selectedBackgroundColor="@color/colorAccent"
+            app:selectedStrokeColor="@color/colorAccent"
             app:selectedTextColor="#FFFF"
             app:strokeWidth="2dp"
             app:textSize="14sp"
             app:textVerticalPadding="6dp"
-            app:unSelectedStrokeColor="#F4981C"
-            app:unSelectedTextColor="#F7981C" />
+            app:unSelectedStrokeColor="@color/colorAccent"
+            app:unSelectedTextColor="@color/colorAccent" />
     </LinearLayout>
 
     <Button
         android:id="@+id/save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F7981C"
+        android:background="@color/colorAccent"
         android:gravity="center"
-        android:text="Сохранить"
+        android:text="СОХРАНИТЬ"
         android:textColor="#FFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,7 +67,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="40dp"
-        android:text="Цвет какашек:"
+        android:text="Цвет экскрементов:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 

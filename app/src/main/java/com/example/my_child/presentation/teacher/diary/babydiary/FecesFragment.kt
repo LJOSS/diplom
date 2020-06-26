@@ -63,7 +63,7 @@ class FecesFragment : BaseDiaryFragment(), View.OnClickListener {
         val stateOfCal =
             array[segmented_control.selectedAbsolutePosition]
         if (fecesColor.isNotEmpty()) {
-            sendFeces(viewModel, "Какашки - $stateOfCal. Цвет - $fecesColor")
+            sendFeces(viewModel, "Фекалии - $stateOfCal. Цвет - $fecesColor")
         }
     }
 

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.my_child.R
 import com.example.my_child.presentation.fragments.BaseFragment
+import com.example.my_child.presentation.parent.ParentHomeActivity
 import com.example.my_child.presentation.teacher.TeacherHomeActivity
 import com.example.my_child.presentation.teacher.homework.TeacherHomeworkFragment
 import com.example.my_child.presentation.teacher.homework.TeacherHomeworkFragment.Companion.TeacherHomeworkFragment_TAG
@@ -75,5 +76,10 @@ class TeacherHomeFragment : BaseFragment() {
 
     private fun openFragment(fragment: Fragment, tag: String) {
         (activity as TeacherHomeActivity).openFragmentFromActivity(fragment, tag)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as TeacherHomeActivity).setTitle("Мой ребенок")
     }
 }

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.my_child.R
 import com.example.my_child.data.api.dto.data.PickupData
 import com.example.my_child.presentation.fragments.BaseFragment
+import com.example.my_child.presentation.parent.ParentHomeActivity
 import com.example.my_child.utils.Constants.CHILD_ID
 import com.example.my_child.utils.Constants.TEACHER_ID
 import com.example.my_child.utils.hideKeyboardNotAlways
@@ -57,12 +58,6 @@ class ParentPickupFragment : BaseFragment() {
     private fun sendPickup(bsb: BottomSheetBehavior<LinearLayout>, viewModel: PickupViewModel) {
         if (parent_name.text.isEmpty()) {
             parent_name.error = "Заполните"
-        } else if (relation.text.isEmpty()) {
-            relation.error = "Заполните"
-        } else if (car_number.text.isEmpty()) {
-            car_number.error = "Заполните"
-        } else if (phone_number.text.isEmpty()) {
-            phone_number.error = "Заполните"
         } else {
             disposable.add(
                 viewModel.addPickup(
@@ -73,7 +68,7 @@ class ParentPickupFragment : BaseFragment() {
                         relation.text.toString(),
                         car_number.text.toString(),
                         phone_number.text.toString(),
-                        parent_notes.text.toString(),
+                        parent_notes_qwe.text.toString(),
                         System.currentTimeMillis()
                     )
                 ).subscribe({
@@ -129,9 +124,14 @@ class ParentPickupFragment : BaseFragment() {
             relation.text.clear()
             car_number.text.clear()
             phone_number.text.clear()
-            parent_notes.text.clear()
+            parent_notes_qwe.text.clear()
         } catch (e: Exception) {
             e.printStackTrace()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as ParentHomeActivity).setTitle("Увоз")
     }
 }

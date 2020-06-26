@@ -11,8 +11,6 @@ import com.example.my_child.presentation.signup.SignUpViewModelFactory
 import com.example.my_child.utils.debugLog
 import com.example.my_child.utils.getImageBody
 import com.squareup.picasso.Picasso
-import com.vansuita.pickimage.bundle.PickSetup
-import com.vansuita.pickimage.dialog.PickImageDialog
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_test.*
 import kotlinx.android.synthetic.main.activity_welcome.*
@@ -33,30 +31,6 @@ class TestActivity : AppCompatActivity() {
                 .get(SignUpViewModel::class.java)
 
         insertMedicine.setOnClickListener { getMedicine(viewModel) }
-        loadImage()
-    }
-
-    private fun insertPhoto(viewModel: SignUpViewModel) {
-        val q = PickImageDialog.build(PickSetup())
-        q.setOnPickResult {
-            debugLog(it.toString())
-            val body: MultipartBody.Part = getImageBody(this, it.path, "image")
-            debugLog(body.toString())
-            disposable.add(
-                viewModel
-                    .addPhoto(body, System.currentTimeMillis().toString())
-                    .subscribe({
-                        debugLog(it.toString())
-                    }, Throwable::printStackTrace)
-            )
-        }.show(supportFragmentManager)
-    }
-
-    private fun loadImage() {
-        Picasso
-            .with(this)
-            .load(BuildConfig.MY_CHILD_HOST_PHOTOS + "test.png")
-            .into(imageView)
     }
 
     private fun getMedicine(viewModel: SignUpViewModel) {

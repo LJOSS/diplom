@@ -197,6 +197,7 @@
                 android:background="@drawable/info_item"
                 android:orientation="vertical"
                 android:paddingBottom="16dp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/nav_absent">
