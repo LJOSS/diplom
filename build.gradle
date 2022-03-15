@@ -43,6 +43,7 @@ buildscript {
     ext.pickimageVersion = '2.2.4'
     ext.discrete_seekbar = '1.0.1'
     ext.segment_control = '1.1.3'
+    ext.detekt_version = '1.14.2'
 
     repositories {
         jcenter()
@@ -52,7 +53,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.6.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
+        classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detekt_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
