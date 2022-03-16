@@ -1,4 +1,4 @@
-name: Android CI
+name: Build On Push Master, Build On Pull Request
 
 env:
   ARTIFACT_APK: artifact_apk
