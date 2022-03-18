@@ -25,7 +25,7 @@ jobs:
     - name: Change wrapper permissions
       run: chmod +x ./gradlew
     - name: AssembleDebug Check
-      run: ./gradlew clean assembleDebug
+      run: ./gradlew clean234 assemble2345Debug
 
     - name: Upload APK artifact path
       uses: actions/upload-artifact@v2
