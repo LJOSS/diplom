@@ -11,7 +11,7 @@ jobs:
      - name: say hello
        if: contains(github.event.comment.body, '/support')   # check the comment if it contains the keywords
        run: |
-         echo say hello
+         uses: ./.github/workflows/BuildOnPullRequest.yml
      - name: test
        if: contains(github.event.comment.body, '/test')  # check the comment if it contains the keywords
        run: |
