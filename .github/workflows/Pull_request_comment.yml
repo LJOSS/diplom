@@ -10,7 +10,7 @@ jobs:
    steps:
      - name: say hello
        if: contains(github.event.comment.body, '/redirect')   # check the comment if it contains the keywords
-       uses: ./.github/workflows/BuildOnPullRequest.yml
+       uses: LJOSS/diplom/.github/workflows/BuildOnPullRequest.yml@v1
      - name: test
        if: contains(github.event.comment.body, '/test')  # check the comment if it contains the keywords
        run: |
