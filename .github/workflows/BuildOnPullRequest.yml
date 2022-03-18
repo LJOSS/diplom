@@ -3,10 +3,12 @@ name: Build On Push Master, Build On Pull Request
 env:
   ARTIFACT_APK: artifact_apk
   ARTIFACT_APK_PATH: artifact_apk_path
-
 on:
   pull_request:
-    branches: [ master ]
+    types:
+      - opened
+    branches:    
+      - 'mas**'
 
 jobs:
   build:
