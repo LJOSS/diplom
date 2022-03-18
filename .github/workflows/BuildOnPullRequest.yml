@@ -5,8 +5,6 @@ env:
   ARTIFACT_APK_PATH: artifact_apk_path
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
 
