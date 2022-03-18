@@ -13,6 +13,7 @@ class App : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
+        //Develop Branch
         applicationComponent = DaggerApplicationComponent
             .builder()
             .applicationModule(ApplicationModule(this))
