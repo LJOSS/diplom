@@ -7,6 +7,8 @@ on:
   pull_request:
     branches:    
       - 'mas**'
+  issue_comment:
+    types: created
 
 jobs:
   build:
