@@ -6,4 +6,4 @@ on:
 jobs:
  job01:
   if: ${{ github.event.comment.body == 'jrb'||github.event.comment.body == ''||github.event.comment.body == null}}
-  uses: ./.github/workflows/BuildOnPullRequest
+  uses: ./.github/workflows/BuildOnPullRequest.yml
