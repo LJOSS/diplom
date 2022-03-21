@@ -5,13 +5,5 @@ on:
 
 jobs:
  job01:
-   if: contains(github.event.comment.html_url, '/pull/')    # check if the comments come from pull request, exclude those from issue.
-   runs-on: [ubuntu-latest]
-   steps:
-     - name: say hello
-       if: contains(github.event.comment.body, '/redirect')   # check the comment if it contains the keywords
-       uses: LJOSS/diplom/.github/workflows/BuildOnPullRequest.yml@v1
-     - name: test
-       if: contains(github.event.comment.body, '/test')  # check the comment if it contains the keywords
-       run: |
-         echo test
+  if: ${{ github.event.comment.body == 'jrb'||github.event.comment.body == ''||github.event.comment.body == null}}
+  uses: ./.github/workflows/BuildOnPullRequest
