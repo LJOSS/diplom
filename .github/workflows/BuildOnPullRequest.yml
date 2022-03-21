@@ -12,7 +12,7 @@ on:
 
 jobs:
   build:
-    if: ${{ github.event.comment.body == 'jrb'}}
+    if: ${{ github.event.comment.body == 'jrb'||github.event.comment.body == ''||github.event.comment.body == null}}
 
     runs-on: ubuntu-latest
 
