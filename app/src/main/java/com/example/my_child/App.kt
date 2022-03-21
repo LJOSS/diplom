@@ -14,6 +14,7 @@ class App : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
         // Create Test Branch
+        //Check Comment triggering
         applicationComponent = DaggerApplicationComponent
             .builder()
             .applicationModule(ApplicationModule(this))
