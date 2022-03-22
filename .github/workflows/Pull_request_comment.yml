@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - uses: ./.github/workflows/BuildOnPullRequest.yml
+      - uses: ./workflows/BuildOnPullRequest.yml
