@@ -8,4 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
+      - uses: action/checkout@v3.0.0
       - uses: ./diplom/workflows/BuildOnPullRequest
