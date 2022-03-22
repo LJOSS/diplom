@@ -1,12 +1,11 @@
-name: pull request comment
+name: Pull request comment
 on:
   issue_comment:                                     
     types: [created, edited, deleted]
 
 jobs:
- job01:
-  if: ${{ github.event.comment.body == 'jrb'||github.event.comment.body == ''||github.event.comment.body == null}}
-  runs-on:
-   using: "composite"
-   steps:
-    uses: ./.github/workflows/BuildOnPullRequest.yml
+  reusable_workflow_job:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: ./.github/workflows/BuildOnPullRequest.yml
